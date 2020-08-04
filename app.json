@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/classify/classify",
+    "pages/car/car",
+    "pages/me/me"
+  ],
+  "usingComponents": {
+    "van-search": "@vant/weapp/search",
+    "van-tab": "@vant/weapp/tab",
+    "van-tabs": "@vant/weapp/tabs",
+    "van-grid": "@vant/weapp/grid",
+    "van-grid-item": "@vant/weapp/grid-item",
+    "van-sidebar": "@vant/weapp/sidebar",
+    "van-sidebar-item": "@vant/weapp/sidebar-item"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "images/tabbar_home.png",
+        "selectedIconPath": "images/tabbar_home_h.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "images/tabbar_classify.png",
+        "selectedIconPath": "images/tabbar_classify_h.png"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "text": "购物车",
+        "iconPath": "images/tabbar_car.png",
+        "selectedIconPath": "images/tabbar_car_h.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/tabbar_me.png",
+        "selectedIconPath": "images/tabbar_me_h.png"
+      }
+    ]
+  }
+}

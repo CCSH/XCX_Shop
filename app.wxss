@@ -1,0 +1,16 @@
+/**app.wxss**/
+/* 通用样式 */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 整体居中 */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,31 @@
+<!-- pages/classify/classify.wxml -->
+<van-sidebar class="classify-sidebar" active-key="{{ activeKey }}">
+  <block wx:for="{{dataArr}}" wx:key="index">
+    <van-sidebar-item title="{{item}}" />
+  </block>
+</van-sidebar>
+<!-- 商品列表 -->
+<view class="classify-good">
+  <view class="classify-screening">
+    <block wx:for="{{screeningArr}}" wx:key="index">
+      <block wx:if="{{index == screeningIndex}}">
+        <van-button class="classify-btn classify-btn-h center" type="default" bind:tap="onScreening" data-index="{{index}}">
+          {{item}}
+        </van-button>
+      </block>
+      <block wx:else>
+        <van-button class="classify-btn center" type="default" bind:tap="onScreening" data-index="{{index}}">
+          {{item}}
+        </van-button>
+      </block>
+    </block>
+  </view>
+  <van-grid class="good-list" column-num="2" gutter="10">
+    <!-- 商品信息 -->
+    <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot>
+      <cover-image class="good-img" src="{{baseUrl+item.original_img}}"></cover-image>
+      <text class="good-name">{{item.goods_name}}</text>
+      <text class="good-price">¥ {{item.shop_price}}</text>
+    </van-grid-item>
+  </van-grid>
+</view>

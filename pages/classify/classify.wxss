@@ -1,0 +1,106 @@
+/* pages/classify/classify.wxss */
+
+/* 侧边栏 */
+.classify-sidebar {
+  width: 25vw;
+  position: fixed;
+}
+
+.classify-sidebar .van-sidebar-item {
+  height: 80rpx;
+  width: 25vw;
+  font-size: 20rpx;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(174, 174, 174);
+}
+
+.classify-sidebar .van-sidebar-item--selected {
+  color: black;
+  font-size: 22rpx;
+  /* 内置方法改变了这个 */
+  border-left: 3px solid transparent;
+}
+
+.classify-sidebar .van-sidebar-item--selected::after {
+  content: '';
+  position: relative;
+  top: 0;
+  right: 120rpx;
+  height: 40rpx;
+  width: 8rpx;
+  background-color: #69b29c;
+  border-radius: 8rpx;
+}
+
+/* 筛选 */
+.classify-good .classify-screening {
+  position: fixed;
+  display: flex;
+  width: 75vw;
+  right: 0;
+}
+
+.classify-btn {
+  text-align: center;
+  vertical-align: bottom;
+  height: 40px;
+  font-size: 20rpx;
+  flex: 1;
+  color: black;
+  background: white;
+}
+
+.classify-btn-h {
+  color: #69b29c;
+}
+
+/* 商品信息 */
+.classify-good {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 3;
+}
+
+/* 商品列表 */
+.good-list {
+  padding-top: 40px;
+  padding-left: 25vw;
+}
+/* 内容 */
+.good-list .van-grid {
+  z-index: -1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: white;
+}
+
+.good-list .van-grid-item__content {
+  padding: 0;
+  margin: 0;
+  height: 300rpx;
+  border-radius: 20rpx;
+  box-shadow: 4rpx 4rpx 8rpx #cccccc;
+  overflow: hidden;
+}
+
+.good-info .good-name {
+  padding-left: 20rpx;
+  align-self: flex-start;
+  height: 40rpx;
+  font-size: 26rpx;
+}
+
+.good-info .good-price {
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  align-self: flex-start;
+  margin-top: 10rpx;
+  color: red;
+  font-size: 20rpx;
+}
