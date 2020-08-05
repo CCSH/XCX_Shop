@@ -28,6 +28,11 @@
   border-radius: 16rpx;
 }
 
+.home-tab {
+  width: 100%;
+  height: 100%;
+}
+
 /* 标签滚动条 */
 .home-tab .van-tabs__scroll--line {
   position: fixed;
@@ -53,11 +58,6 @@
   background-color: white;
 }
 
-.home-banner {
-  width: 100%;
-  height: 300rpx;
-}
-
 .banner-round {
   position: relative;
   width: 100%;
@@ -68,26 +68,26 @@
 .banner-round::after {
   content: '';
   width: 100%;
-  height: 200%;
+  height: 300%;
   position: absolute;
   left: 0;
   top: 0;
-  border-radius: 100% 100% 0 0;
+  border-radius: 150% 150% 0 0;
   background: white;
 }
 
 /* 工具栏 */
 .home-tool .van-grid-item {
-  height: 180rpx;
-}
-
-.home-tool .tool-img {
-  width: 70rpx;
-  height: 70rpx;
+  padding: 0;
+  margin-top: -20rpx;
+  width: 150rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-tool .tool-name {
-  margin-top: 20rpx;
+  margin-top: 10rpx;
   font-size: 20rpx;
   font-weight: 400;
 }
@@ -142,35 +142,28 @@
   background-color: #f3f3f3;
 }
 
-.home-ad {
-  height: 280rpx;
-}
-
 /* 内容栏 */
 .home-content {
   display: flex;
   height: 500rpx;
-  margin-top: 20rpx;
-  margin-right: 20rpx;
-  margin-left: 20rpx;
-  margin-bottom: 20rpx;
+  margin-top: -22px;
+  padding: 20rpx;
 }
 
 .home-content .ad-left {
   height: 100%;
-  width: 35%;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
 }
 
 .home-content .ad-right {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  /* flex: 1; */
 }
 
 .ad-right .ad-top {
   flex: 1;
-  margin-bottom: 10rpx;
+  margin-bottom: 20rpx;
 }
 
 .ad-right .ad-bottom {
@@ -179,30 +172,26 @@
 }
 
 .ad-bottom .bottom-left {
-  flex: 1;
-  margin-right: 10rpx;
-}
-
-.ad-bottom .bottom-right {
-  flex: 1;
+  margin-right: 20rpx;
 }
 
 /* 商品列表 */
 .good-list {
   width: 100vw;
   height: 100vh;
+  background: rgb(245, 245, 245);
+  padding: 20rpx;
+  z-index: -1;
 }
 /* 内容 */
 .good-list .van-grid {
-  z-index: -1;
-  padding-top: 10px;
-  padding-bottom: 10px;
   background: rgb(245, 245, 245);
 }
 /* 商品信息 */
 .good-list .van-grid-item__content {
   height: 400rpx;
   border-radius: 20rpx;
+  align-self: center;
 }
 
 .good-info .good-name {
@@ -211,6 +200,7 @@
   height: 40rpx;
   font-size: 26rpx;
 }
+
 .good-info .good-price {
   padding-left: 20rpx;
   padding-bottom: 20rpx;

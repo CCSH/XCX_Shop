@@ -23,7 +23,7 @@
   <van-grid class="good-list" column-num="2" gutter="10">
     <!-- 商品信息 -->
     <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot>
-      <cover-image class="good-img" src="{{baseUrl+item.original_img}}"></cover-image>
+      <van-image class="good-img" width="200rpx" height="200rpx" src="{{baseUrl+item.original_img}}"></van-image>
       <text class="good-name">{{item.goods_name}}</text>
       <text class="good-price">¥ {{item.shop_price}}</text>
     </van-grid-item>

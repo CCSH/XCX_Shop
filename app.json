@@ -12,7 +12,8 @@
     "van-grid": "@vant/weapp/grid",
     "van-grid-item": "@vant/weapp/grid-item",
     "van-sidebar": "@vant/weapp/sidebar",
-    "van-sidebar-item": "@vant/weapp/sidebar-item"
+    "van-sidebar-item": "@vant/weapp/sidebar-item",
+    "van-image": "@vant/weapp/image"
   },
   "window": {
     "backgroundTextStyle": "light",

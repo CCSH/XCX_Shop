@@ -42,6 +42,7 @@
   display: flex;
   width: 75vw;
   right: 0;
+  z-index: 999999;
 }
 
 .classify-btn {
@@ -69,8 +70,8 @@
 
 /* 商品列表 */
 .good-list {
-  padding-top: 40px;
-  padding-left: 25vw;
+  margin-top: 40px;
+  margin-left: 25vw;
 }
 /* 内容 */
 .good-list .van-grid {
@@ -87,6 +88,11 @@
   border-radius: 20rpx;
   box-shadow: 4rpx 4rpx 8rpx #cccccc;
   overflow: hidden;
+}
+
+.good-info .good-img {
+  width: 200rpx;
+  height: 200rpx;
 }
 
 .good-info .good-name {
