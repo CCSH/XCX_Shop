@@ -3,7 +3,8 @@
     "pages/home/home",
     "pages/classify/classify",
     "pages/car/car",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/good_detail/index"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",
@@ -15,12 +16,6 @@
     "van-sidebar-item": "@vant/weapp/sidebar-item",
     "van-image": "@vant/weapp/image"
   },
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
-  },
-  "sitemapLocation": "sitemap.json",
   "tabBar": {
     "list": [
       {
@@ -48,5 +43,11 @@
         "selectedIconPath": "images/tabbar_me_h.png"
       }
     ]
-  }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

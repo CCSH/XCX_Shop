@@ -1,4 +1,5 @@
 /* pages/home/home.wxss */
+
 /* 导航栏 */
 .nav {
   display: flex;
@@ -84,6 +85,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
 }
 
 .home-tool .tool-name {
@@ -99,6 +101,8 @@
   align-items: center;
   width: 100%;
   height: 60rpx;
+  background: white;
+  margin-bottom: 5px;
 }
 
 .home-not .not-title {
@@ -136,18 +140,20 @@
   margin-right: 20rpx;
 }
 
-.home-space {
-  height: 5px;
-  width: 100%;
-  background-color: #f3f3f3;
+/* 广告 */
+.home-ad {
+  height: 280rpx;
+  background: white;
 }
 
 /* 内容栏 */
 .home-content {
+  /* background: orange; */
   display: flex;
   height: 500rpx;
-  margin-top: -22px;
   padding: 20rpx;
+  padding-top: 0;
+  background: white;
 }
 
 .home-content .ad-left {
@@ -177,21 +183,27 @@
 
 /* 商品列表 */
 .good-list {
-  width: 100vw;
-  height: 100vh;
-  background: rgb(245, 245, 245);
-  padding: 20rpx;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
+
 /* 内容 */
 .good-list .van-grid {
+  padding: 0;
+  z-index: -1;
   background: rgb(245, 245, 245);
+  padding-top: 20rpx;
 }
 /* 商品信息 */
 .good-list .van-grid-item__content {
   height: 400rpx;
   border-radius: 20rpx;
-  align-self: center;
+  overflow: hidden;
+}
+
+.good-info .good-img {
+  width: 300rpx;
+  height: 300rpx;
 }
 
 .good-info .good-name {

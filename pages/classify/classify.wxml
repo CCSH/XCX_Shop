@@ -22,8 +22,8 @@
   </view>
   <van-grid class="good-list" column-num="2" gutter="10">
     <!-- 商品信息 -->
-    <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot>
-      <van-image class="good-img" width="200rpx" height="200rpx" src="{{baseUrl+item.original_img}}"></van-image>
+    <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot link-type="navigateTo" url="/pages/good_detail/index" text="Navigate 跳转" clickable>
+      <van-image class="good-img" width="100%" height="100%" src="{{baseUrl+item.original_img}}"></van-image>
       <text class="good-name">{{item.goods_name}}</text>
       <text class="good-price">¥ {{item.shop_price}}</text>
     </van-grid-item>

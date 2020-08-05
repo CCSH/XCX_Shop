@@ -1,5 +1,5 @@
 <!-- pages/home/home.wxml -->
-<view class="container">
+<view class="container" style="padding-top:{{statusBarHeight + 165}}rpx;">
   <!-- 导航栏 -->
   <view class="nav" style="height:{{statusBarHeight + 165}}rpx;">
     <!-- 标题 -->
@@ -8,7 +8,7 @@
     <van-search class="nav-search" shape="round" background="transparent" placeholder="{{ searchContent }}" />
   </view>
   <!-- 标签页 -->
-  <van-tabs class="home-tab" active="{{ active }}" bind:change="onChange" border="false" swipe-threshold="0" line-width="30" line-height="2" swipeable style="margin-top:{{statusBarHeight + 165}}rpx;">
+  <van-tabs class="home-tab" active="{{ active }}" bind:change="onChange" border="false" swipe-threshold="0" line-width="30" line-height="2" swipeable>
     <!-- 首页内容 -->
     <block wx:for="{{tabArr}}" wx:key="index">
       <van-tab title="{{item}}">
@@ -41,9 +41,10 @@
             </swiper>
             <van-button class="not-look" type="default">去看看 ></van-button>
           </view>
-          <view class="home-space"></view>
           <!-- 广告 -->
-          <van-image src="{{baseUrl+adUrl}}" width="100%" height="280rpx"></van-image>
+          <view class="home-ad">
+            <van-image src="{{baseUrl+adUrl}}" width="100%" height="100%"></van-image>
+          </view>
           <!-- 内容 -->
           <view class="home-content">
             <van-image class="ad-left" src="{{baseUrl+adLeft}}" width="220rpx" height="100%"></van-image>
@@ -61,7 +62,7 @@
           <van-grid class="good-list" column-num="2" gutter="10">
             <!-- 商品信息 -->
             <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot>
-              <van-image class="good-img" src="{{baseUrl+item.original_img}}" width="300rpx" height="300rpx"></van-image>
+              <van-image class="good-img" src="{{baseUrl+item.original_img}}" width="100%" height="100%"></van-image>
               <text class="good-name">{{item.goods_name}}</text>
               <text class="good-price">¥ {{item.shop_price}}</text>
             </van-grid-item>

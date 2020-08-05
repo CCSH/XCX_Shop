@@ -109,6 +109,66 @@ Page({
         width: '1200',
         height: '1200',
       },
+      {
+        goods_id: '23',
+        goods_name: '\u5c71\u699b\u5b50',
+        shop_price: '80.00',
+        original_img:
+          '/public/upload/goods/2020/07-01/58a0aa80a9f2c2ec99ac971d88e2d2f7.jpg',
+        sales_sum: '0',
+        width: '800',
+        height: '800',
+      },
+      {
+        goods_id: '24',
+        goods_name: '\u5927\u699b\u5b50',
+        shop_price: '50.00',
+        original_img:
+          '/public/upload/goods/2020/07-01/08a1986efa6847ff0d24c0dd38984b01.jpg',
+        sales_sum: '0',
+        width: '800',
+        height: '800',
+      },
+      {
+        goods_id: '25',
+        goods_name: '\u699b\u5b50\u4ec1',
+        shop_price: '70.00',
+        original_img:
+          '/public/upload/goods/2020/07-01/b12ff0f83fd14ea2c0f6f72e48151304.jpg',
+        sales_sum: '0',
+        width: '1200',
+        height: '1200',
+      },
+      {
+        goods_id: '26',
+        goods_name: '\u7ea2\u677e\u7c7d\u4ec1',
+        shop_price: '55.00',
+        original_img:
+          '/public/upload/goods/2020/07-02/f265d9f1efcd86868f25fbd93a8f2982.jpg',
+        sales_sum: '0',
+        width: '800',
+        height: '800',
+      },
+      {
+        goods_id: '27',
+        goods_name: '\u5c71\u699b\u5b50\u4ec1',
+        shop_price: '35.00',
+        original_img:
+          '/public/upload/goods/2020/07-02/73ed784321a488aabf22d3c926b6a258.jpg',
+        sales_sum: '0',
+        width: '800',
+        height: '800',
+      },
+      {
+        goods_id: '28',
+        goods_name: '\u84dd\u8393\u679c\u5e72\u793c\u76d2',
+        shop_price: '168.00',
+        original_img:
+          '/public/upload/goods/2020/07-02/f0a1f164c963566a39fb9201d998f20b.jpg',
+        sales_sum: '0',
+        width: '1200',
+        height: '1200',
+      },
     ],
   },
 
@@ -141,16 +201,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.showNavigationBarLoading()
-    console.log(111)
-    // this.setData({
-    //   pageSrc: WATERFALL_SOURCE.source
-    // }, () => {
-    //   // 取消标题栏进度条效果
-    //   wx.hideNavigationBarLoading();
-    //   // 取消页面刷新动画
-    //   wx.stopPullDownRefresh();
-    // });
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+      success: (result) => {},
+      fail: () => {},
+      complete: () => {},
+    })
+
+    setTimeout(function () {
+      // 数据请求成功后，关闭刷新
+      wx.stopPullDownRefresh({
+        success(res) {
+          wx.hideLoading()
+        },
+      })
+    }, 2000)
   },
 
   /**
