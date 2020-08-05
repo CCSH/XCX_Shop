@@ -8,7 +8,7 @@
     <van-search class="nav-search" shape="round" background="transparent" placeholder="{{ searchContent }}" />
   </view>
   <!-- 标签页 -->
-  <van-tabs class="home-tab" active="{{ active }}" bind:change="onChange" border="false" swipe-threshold="0" line-width="30" line-height="2" swipeable>
+  <van-tabs class="home-tab" active="{{ active }}" border="false" swipe-threshold="0" line-width="30" line-height="2" swipeable>
     <!-- 首页内容 -->
     <block wx:for="{{tabArr}}" wx:key="index">
       <van-tab title="{{item}}">
@@ -33,7 +33,7 @@
           <view class="home-not">
             <text class="not-title">通知公告</text>
             <swiper class="not-swiper" autoplay="true" circular="true" duration="1000" vertical="true">
-              <block wx:for="{{2}}">
+              <block wx:for="{{2}}" wx:key="index">
                 <swiper-item class="not-item" item-id="index">
                   <text class="not-content">欢迎进入乐拱</text>
                 </swiper-item>

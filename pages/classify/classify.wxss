@@ -42,7 +42,6 @@
   display: flex;
   width: 75vw;
   right: 0;
-  z-index: 999999;
 }
 
 .classify-btn {
