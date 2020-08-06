@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/classify/index.js
 let app = getApp()
 
 Page({
@@ -6,48 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    viewW: app.globalData.viewW,
-    statusBarHeight: app.globalData.statusBarHeight,
-    //提示文字
-    searchContent: '精品猪肉',
-    active: 0,
-    baseUrl: app.globalData.baseUrl,
+    baseUrl: app.baseUrl,
+    statusBarH: app.statusBarH * 2,
     //数据
-    tabArr: ['全部', '热卖', '新品', '推荐'],
-    bannerArr: [
-      'http://legong.frnnet.com/public/upload/ad/2020/06-02/63c7968ba19e38f3aea196976a2f1002.jpg',
-      'http://legong.frnnet.com/public/upload/ad/2020/06-02/9954c7b36b40963269a068bc2d55e4ce.jpg',
-      'http://legong.frnnet.com/public/upload/ad/2020/06-02/659ee60ebbd35296cea8ec7ce279d0a7.jpg',
+    dataArr: [
+      '全部商品',
+      '全部商品',
+      '全部商品',
+      '全部商品',
+      '全部商品',
+      '全部商品',
+      '全部商品',
+      '全部商品',
     ],
-    toolArr: [
-      {
-        name: '新闻动态',
-        url:
-          '/public/upload/link/2020/06-11/e68766cc24d55b4e7bbe7888c07d9680.png',
-      },
-      {
-        name: '每日抢鲜',
-        url:
-          '/public/upload/link/2020/05-28/a12cb0bdbabf4307526c47632af0b1f7.png',
-      },
-      {
-        name: '森林食品',
-        url:
-          '/public/upload/link/2020/06-11/47a401a8b3bf81274a39b35dc8f26ea0.png',
-      },
-      {
-        name: '直播带货',
-        url:
-          '/public/upload/link/2020/07-08/8714f17840cac6b2eee9f7e13b9180f2.png',
-      },
-    ],
-    adUrl: '/public/upload/ad/2020/05-29/760bf165d2a956aec4a7cafa4add8785.png',
-
-    adLeft: '/public/upload/ad/2020/06-15/0acdca2e1da511d35472a39bd0856882.jpg',
-    adOne: '/public/upload/ad/2020/06-15/5fa41fc7f27948562e4030bbee700262.png',
-    adTwo: '/public/upload/ad/2020/06-15/c972c4251c87e76d602d577fe0850ab1.png',
-    adTree: '/public/upload/ad/2020/06-15/f7b1eef572b8e304457fde07321d0133.png',
-
     goodArr: [
       {
         goods_id: '23',
@@ -170,6 +141,26 @@ Page({
         height: '1200',
       },
     ],
+    screeningArr: ['销量', '价格'],
+    screeningIndex: 0,
+  },
+
+  //MARK: 点击了筛选
+  onScreening: function (event) {
+    this.setData({
+      screeningIndex: event.target.dataset.index,
+    })
+  },
+
+  // MARK: 进入商品详情
+  gotoGoodDetail: function () {
+    console.log(111)
+    wx.navigateTo({
+      url: '/pages/good_detail/index"',
+      success: (result) => {},
+      fail: () => {},
+      complete: () => {},
+    })
   },
 
   /**
@@ -200,24 +191,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
-      success: (result) => {},
-      fail: () => {},
-      complete: () => {},
-    })
-
-    setTimeout(function () {
-      // 数据请求成功后，关闭刷新
-      wx.stopPullDownRefresh({
-        success(res) {
-          wx.hideLoading()
-        },
-      })
-    }, 2000)
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
@@ -227,7 +201,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    console.log(this.data.viewW)
-  },
+  onShareAppMessage: function () {},
 })

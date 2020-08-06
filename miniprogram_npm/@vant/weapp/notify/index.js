@@ -1,7 +1,7 @@
-'use strict';
-Object.defineProperty(exports, '__esModule', { value: true });
-var component_1 = require('../common/component');
-var color_1 = require('../common/color');
+'use strict'
+Object.defineProperty(exports, '__esModule', { value: true })
+var component_1 = require('../common/component')
+var color_1 = require('../common/color')
 component_1.VantComponent({
   props: {
     message: String,
@@ -32,35 +32,35 @@ component_1.VantComponent({
     show: false,
   },
   created: function () {
-    var statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
-    this.setData({ statusBarHeight: statusBarHeight });
+    var statusBarHeight = wx.getSystemInfoSync().statusBarHeight
+    this.setData({ statusBarHeight: statusBarHeight })
   },
   methods: {
     show: function () {
-      var _this = this;
+      var _this = this
       var _a = this.data,
         duration = _a.duration,
-        onOpened = _a.onOpened;
-      clearTimeout(this.timer);
-      this.setData({ show: true });
-      wx.nextTick(onOpened);
+        onOpened = _a.onOpened
+      clearTimeout(this.timer)
+      this.setData({ show: true })
+      wx.nextTick(onOpened)
       if (duration > 0 && duration !== Infinity) {
         this.timer = setTimeout(function () {
-          _this.hide();
-        }, duration);
+          _this.hide()
+        }, duration)
       }
     },
     hide: function () {
-      var onClose = this.data.onClose;
-      clearTimeout(this.timer);
-      this.setData({ show: false });
-      wx.nextTick(onClose);
+      var onClose = this.data.onClose
+      clearTimeout(this.timer)
+      this.setData({ show: false })
+      wx.nextTick(onClose)
     },
     onTap: function (event) {
-      var onClick = this.data.onClick;
+      var onClick = this.data.onClick
       if (onClick) {
-        onClick(event.detail);
+        onClick(event.detail)
       }
     },
   },
-});
+})

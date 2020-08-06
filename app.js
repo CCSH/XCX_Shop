@@ -1,50 +1,35 @@
 //app.js
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  // 系统信息
+  winW: 0,
+  winH: 0,
+  statusBarH: 0,
+  systemName: '',
+  systemVersion: '',
+  systemSDKVersion: '',
+  // 主机地址
+  baseUrl: 'http://legong.frnnet.com',
+  // 是否是全面屏
+  isFull: false,
+  bottomH: 0,
 
-    // 登录
-    wx.login({
-      success: (res) => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      },
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: (res) => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            },
-          })
-        }
-      },
-    })
-  },
-
-  onShow() {
-    var that = this
-    var res = wx.getSystemInfoSync()
-    that.globalData.statusBarHeight = res.statusBarHeight * 2
-    that.globalData.viewW = res.windowWidth
-  },
-
-  globalData: {
-    statusBarHeight: 20,
-    userInfo: null,
-    baseUrl: 'http://legong.frnnet.com',
-    viewW: 0,
+  onLaunch: function (options) {
+    let self = this
+    let systemInfo = wx.getSystemInfoSync()
+    //设置
+    self.systemName = systemInfo.system
+    self.systemVersion = systemInfo.version
+    self.systemSDKVersion = systemInfo.SDKVersion
+    self.winW = systemInfo.windowWidth
+    self.winH = systemInfo.windowHeight
+    self.statusBarH = systemInfo.statusBarHeight
+    // 保护
+    if (!self.statusBarH) {
+      self.statusBarH = 20
+    }
+    self.isFull = self.statusBarH > 20
+    if (self.isFull) {
+      self.bottomH = 31
+    }
   },
 })

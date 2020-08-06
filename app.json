@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/classify/classify",
+    "pages/home/index",
+    "pages/classify/index",
     "pages/car/car",
     "pages/me/me",
     "pages/good_detail/index"
@@ -14,18 +14,21 @@
     "van-grid-item": "@vant/weapp/grid-item",
     "van-sidebar": "@vant/weapp/sidebar",
     "van-sidebar-item": "@vant/weapp/sidebar-item",
-    "van-image": "@vant/weapp/image"
+    "van-image": "@vant/weapp/image",
+    "van-icon": "@vant/weapp/icon",
+    "van-popup": "@vant/weapp/popup",
+    "van-stepper": "@vant/weapp/stepper"
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/home/index",
         "text": "主页",
         "iconPath": "images/tabbar_home.png",
         "selectedIconPath": "images/tabbar_home_h.png"
       },
       {
-        "pagePath": "pages/classify/classify",
+        "pagePath": "pages/classify/index",
         "text": "分类",
         "iconPath": "images/tabbar_classify.png",
         "selectedIconPath": "images/tabbar_classify_h.png"

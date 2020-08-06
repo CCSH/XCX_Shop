@@ -42,11 +42,10 @@
   display: flex;
   width: 75vw;
   right: 0;
+  z-index: 1;
 }
 
 .classify-btn {
-  text-align: center;
-  vertical-align: bottom;
   height: 40px;
   font-size: 20rpx;
   flex: 1;
@@ -74,7 +73,7 @@
 }
 /* 内容 */
 .good-list .van-grid {
-  z-index: -1;
+  z-index: 0;
   padding-top: 10px;
   padding-bottom: 10px;
   background: white;
