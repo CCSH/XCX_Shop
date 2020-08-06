@@ -213,3 +213,63 @@
   background: #69b29c;
   border-radius: 20px;
 }
+
+/* 弹窗优惠卷 */
+.pop-coupons .coupons-title {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pop-coupons .coupons-cell {
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.coupons-cell .coupons-message {
+  display: flex;
+}
+
+.coupons-message .coupons-price {
+  background: #69b29c;
+  line-height: 70px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  width: 100px;
+  text-align: center;
+}
+
+.coupons-message .coupons-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.coupons-info .coupons-name {
+  font-size: 14px;
+}
+
+.coupons-info .coupons-time {
+  font-size: 10px;
+  color: gray;
+}
+
+.pop-coupons .coupons-state {
+  position: relative;
+  right: -590rpx;
+  top: -50px;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+  width: 140rpx;
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 12.5px;
+}

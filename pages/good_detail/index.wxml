@@ -39,7 +39,7 @@
   </van-button>
   <view class="divider"></view>
   <!-- 优惠卷 -->
-  <van-button class="good-model">
+  <van-button class="good-model" bind:tap="onCoupons">
     <view>
       <view class="good-info">优惠卷</view>
       <view class="good-content">
@@ -129,7 +129,21 @@
     </view>
   </van-popup>
   <!-- 优惠卷弹窗 -->
-  <van-popup class="" show="{{  }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose"></van-popup>
+  <van-popup class="pop-coupons" show="{{ couponsPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
+    <view class="coupons-title">优惠卷</view>
+    <block wx:for="{{2}}" wx:key="index">
+      <view class="coupons-cell">
+        <view class="coupons-message">
+          <view class="coupons-price">30.00</view>
+          <view class="coupons-info">
+            <view class="coupons-name">满200-30</view>
+            <view class="coupons-time">使用时间:2020-01-01至2020-01-01</view>
+          </view>
+        </view>
+        <view class="coupons-state">已领取</view>
+      </view>
+    </block>
+  </van-popup>
 </view>
 <!-- 运算 -->
 <wxs module="we">

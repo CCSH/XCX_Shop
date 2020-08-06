@@ -13,6 +13,7 @@ Page({
     coupon: '',
     toolH: 60,
     modelPop: false,
+    couponsPop: true,
     dataInfo: {
       goods_id: '42',
       cat_id: '15',
@@ -233,10 +234,18 @@ Page({
     })
   },
 
+  // MARK 优惠卷点击
+  onCoupons() {
+    this.setData({
+      couponsPop: true,
+    })
+  },
+
   //MARK  关闭
   onClose() {
     this.setData({
       modelPop: false,
+      couponsPop: false,
     })
   },
 

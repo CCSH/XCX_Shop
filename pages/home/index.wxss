@@ -32,9 +32,15 @@
 .home-tab {
   width: 100%;
   height: 100%;
+  border: red;
 }
 
-/* 标签滚动条 */
+/* 标签 */
+/* 底部容器 */
+.home-tab .van-tabs--line .van-tabs__wrap {
+  height: 80rpx;
+}
+/* 滚动条 */
 .home-tab .van-tabs__scroll--line {
   position: fixed;
   height: 80rpx;
@@ -42,11 +48,11 @@
   background-color: #69b29c;
 }
 
-.home-tab .van-tabs--line .van-tabs__wrap {
-  height: 80rpx;
+/* 选中标签 */
+.home-tab .van-tab--active .van-ellipsis {
+  font-size: 24rpx;
 }
-
-/* 标签 */
+/* 未选中标签 */
 .home-tab .van-ellipsis {
   height: 80rpx;
   color: white;
