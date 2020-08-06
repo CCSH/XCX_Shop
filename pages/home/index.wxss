@@ -43,7 +43,7 @@
 /* 滚动条 */
 .home-tab .van-tabs__scroll--line {
   position: fixed;
-  height: 80rpx;
+  height: 40px;
   z-index: 1;
   background-color: #69b29c;
 }
@@ -52,16 +52,17 @@
 .home-tab .van-tab--active .van-ellipsis {
   font-size: 24rpx;
 }
+
 /* 未选中标签 */
 .home-tab .van-ellipsis {
-  height: 80rpx;
+  height: 40px;
   color: white;
   font-size: 20rpx;
 }
 
 /* 线 */
 .home-tab .van-tabs__line {
-  margin-bottom: 12rpx;
+  margin-bottom: 5px;
   background-color: white;
 }
 

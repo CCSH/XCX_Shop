@@ -7,7 +7,7 @@ Page({
    */
   data: {
     baseUrl: app.baseUrl,
-    statusBarH: app.statusBarH * 2,
+    statusBarH: app.statusBarH,
     //提示文字
     searchContent: '精品猪肉',
     active: 0,

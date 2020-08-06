@@ -13,7 +13,7 @@ Page({
     coupon: '',
     toolH: 60,
     modelPop: false,
-    couponsPop: true,
+    couponsPop: false,
     dataInfo: {
       goods_id: '42',
       cat_id: '15',

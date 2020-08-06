@@ -81,8 +81,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 20rpx;
-  padding-right: 28rpx;
+  padding-left: 8px;
+  padding-right: 8px;
   font-size: 24rpx;
 }
 
@@ -92,8 +92,8 @@
 }
 
 .good-tool .tool-icon {
-  font-size: 20rpx;
-  margin-left: 20rpx;
+  font-size: 10px;
+  margin-left: 5px;
   align-self: flex-start;
   width: 60px;
 }

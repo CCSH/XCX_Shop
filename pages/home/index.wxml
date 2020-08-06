@@ -1,7 +1,7 @@
 <!-- pages/home/index.wxml -->
-<view class="container" style="padding-top:{{statusBarH + 150}}rpx;">
+<view class="container" style="padding-top:{{statusBarH + 80}}px;">
   <!-- 导航栏 -->
-  <view class="nav" style="height:{{statusBarH + 150}}rpx;">
+  <view class="nav" style="height:{{statusBarH + 80}}px;">
     <!-- 标题 -->
     <text class="nav-title">乐拱</text>
     <!-- 搜索 -->
