@@ -1,0 +1,299 @@
+/* pages/good_detail/index.wxss */
+
+.home-banner {
+  width: 100vw;
+  height: 600rpx;
+  padding-bottom: 30rpx;
+  background: white;
+}
+
+.good-name {
+  height: 80rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  -webkit-line-clamp: 2;
+  font-size: 26rpx;
+  font-weight: 500;
+  background: white;
+}
+
+.good-time {
+  padding-left: 20rpx;
+  background: white;
+  color: #69b29c;
+  font-size: 10px;
+}
+
+.good-other {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  height: 60rpx;
+}
+
+.good-price {
+  display: flex;
+  align-items: center;
+  color: #69b29c;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+
+.good-price .good-price-real {
+  color: gray;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.good-num {
+  font-size: 20rpx;
+  margin-right: 20rpx;
+  color: gray;
+  height: 100%;
+  line-height: 100%;
+}
+
+.good-model {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  width: 100vw;
+  height: 80rpx;
+  align-items: center;
+  background: white;
+  justify-content: space-between;
+}
+
+.good-model view {
+  display: flex;
+  flex-direction: row;
+}
+
+.good-model .good-info {
+  width: 120rpx;
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.good-model .good-content {
+  font-size: 22rpx;
+  color: rgb(196, 196, 196);
+}
+
+.good-model van-icon {
+  margin-right: 20rpx;
+}
+
+/* 底部工具栏 */
+.good-tool {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 24rpx;
+}
+
+.good-tool view {
+  display: flex;
+  justify-content: center;
+}
+
+.good-tool .tool-icon {
+  font-size: 10px;
+  margin-left: 5px;
+  align-self: flex-start;
+  width: 60px;
+}
+
+.tool-icon van-icon {
+  margin-right: 5px;
+}
+
+.good-tool .tool-btn {
+  width: 180rpx;
+  height: 40px;
+  color: white;
+  border-radius: 20px;
+}
+
+.tool-btn {
+  line-height: 100%;
+  flex-direction: row;
+}
+
+.good-tool .btn-add {
+  background: rgb(234, 173, 60);
+  margin-right: 20rpx;
+}
+
+.good-tool .btn-pay {
+  background: #69b29c;
+}
+
+/* 弹窗 */
+.model-pop .pop-content {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 12px;
+  margin-right: 40px;
+  height: 83px;
+}
+
+.pop-content .pop-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+.pop-content .info-name {
+  -webkit-line-clamp: 2;
+  font-size: 24rpx;
+}
+
+.pop-content .info-price {
+  display: flex;
+  align-items: flex-end;
+  font-size: 30rpx;
+
+  color: #69b29c;
+}
+
+.pop-content .info-price-real {
+  color: gray;
+  margin-left: 5px;
+  font-size: 20rpx;
+}
+
+.model-pop .pop-num {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+}
+
+.model-pop .pop-title {
+  font-size: 24rpx;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+/* 选项 */
+.model-pop .model-list {
+  display: flex;
+  margin-top: 20px;
+  padding-right: 10px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 100px;
+}
+
+.model-pop .model-list van-button {
+  font-size: 8px;
+  background: rgb(245, 245, 245);
+  color: black;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 13.5px;
+}
+
+.model-pop .model-list .current {
+  color: white;
+  background: #69b29c;
+}
+
+.model-pop .pop-sure {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 80px;
+  width: 670rpx;
+  padding-left: 20px;
+  padding-right: 20px;
+  background: white;
+}
+
+.pop-sure van-button {
+  color: white;
+  height: 40px;
+  font-size: 13px;
+  flex: 1;
+  background: #69b29c;
+  border-radius: 20px;
+}
+
+/* 弹窗优惠卷 */
+.pop-coupons .coupons-title {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pop-coupons .coupons-cell {
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.coupons-cell .coupons-message {
+  display: flex;
+}
+
+.coupons-message .coupons-price {
+  background: #69b29c;
+  line-height: 70px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  width: 100px;
+  text-align: center;
+}
+
+.coupons-message .coupons-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.coupons-info .coupons-name {
+  font-size: 14px;
+}
+
+.coupons-info .coupons-time {
+  font-size: 10px;
+  color: gray;
+}
+
+.pop-coupons .coupons-state {
+  position: relative;
+  right: -590rpx;
+  top: -50px;
+  text-align: center;
+  height: 25px;
+  line-height: 25px;
+  width: 140rpx;
+  font-size: 12px;
+  border: 1px solid black;
+  border-radius: 12.5px;
+}

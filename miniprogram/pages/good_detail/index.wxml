@@ -1,0 +1,194 @@
+<!-- pages/good_detail/index.wxml -->
+<!-- 状态栏 -->
+<view class="status-bar" style="height:{{statusBarH}}rpx"></view>
+<view class="container">
+  <view class="nav-back" bind:tap="">
+    <van-icon name="arrow-left" color="black" />
+  </view>
+  <!-- 内容 -->
+  <!-- banner -->
+  <swiper class="home-banner" indicator-dots indicator-active-color="#69b29c" indicator-color="white" autoplay circular duration="1000">
+    <block wx:for="{{ dataInfo.top_images }}" wx:key="index">
+      <swiper-item>
+        <van-image src="{{we.toUrl(item)}}" width="100%" height="100%"></van-image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 商品名 -->
+  <view class="good-name text-limit">{{dataInfo.goods_name}}</view>
+  <!-- 优惠时间 -->
+  <block wx:if="{{dataInfo.is_flash_sale=='1'}}">
+    <view class="good-time">距离优惠结束还有 {{time}}</view>
+  </block>
+  <view class="good-other">
+    <!-- 价格 -->
+    <view class="good-price">
+      <!-- 判断限时优惠 -->
+      <block wx:if="{{dataInfo.is_flash_sale=='1'}}">
+        <view class="delete-line">¥{{dataInfo.check_spec.shop_price}}</view>
+        <view class="good-price-real">¥{{dataInfo.check_spec.price}}</view>
+      </block>
+      <block wx:else>
+        <view>¥{{dataInfo.check_spec.price}}</view>
+      </block>
+    </view>
+    <!-- 其他 -->
+    <view class="good-num">
+      <text decode>
+        {{"销量：" + dataInfo.sales_sum}} &nbsp; &nbsp; {{"库存：" + dataInfo.check_spec.store_count}}
+      </text>
+    </view>
+  </view>
+  <view class="space"></view>
+  <!-- 型号 -->
+  <van-button class="good-model" bind:tap="onModel">
+    <view>
+      <view class="good-info">已选</view>
+      <view class="good-content">
+        <text decode>{{dataInfo.check_spec.key_name}} &nbsp; &nbsp; {{number}}个</text>
+      </view>
+    </view>
+    <van-icon name="arrow" color="rgb(197,197,197)" size="30rpx"></van-icon>
+  </van-button>
+  <view class="divider"></view>
+  <!-- 优惠卷 -->
+  <van-button class="good-model" bind:tap="onCoupons">
+    <view>
+      <view class="good-info">优惠卷</view>
+      <view class="good-content">
+        <text decode>{{coupon}}</text>
+      </view>
+    </view>
+    <van-icon name="arrow" color="rgb(197,197,197)" size="30rpx"></van-icon>
+  </van-button>
+  <view class="space"></view>
+  <!-- 评价 -->
+  <van-button class="good-model">
+    <view>
+      <view class="good-info">评价</view>
+    </view>
+    <van-icon name="arrow" color="rgb(197,197,197)" size="30rpx"></van-icon>
+  </van-button>
+  <view class="space"></view>
+  <!-- 商品详情 -->
+  <van-button class="good-model">
+    <view>
+      <view class="good-info">商品详情</view>
+    </view>
+  </van-button>
+  <!-- 图片 -->
+  <block wx:for="{{dataInfo.content_images}}" wx:key="index">
+    <van-image src="{{we.toUrl(item.image_url)}}" width="100%" height="{{ item.height*750 / item.width }}rpx"></van-image>
+  </block>
+  <view class="space" style="margin-bottom:{{bottomH + toolH}}px;"></view>
+  <!-- 工具栏 -->
+  <view class="good-tool" style="height:{{toolH + bottomH}}px">
+    <view>
+      <van-button class="tool-icon center" bind:tap="onCollection">
+        <block wx:if="{{dataInfo.goods_collect == 1}}">
+          <van-icon name="/images/collection_h.png" size="20px" />
+        </block>
+        <block wx:else>
+          <van-icon name="/images/collection.png" size="20px" />
+        </block>
+        {{dataInfo.goods_collect == 1 ? "已收藏":"收藏"}}
+      </van-button>
+      <van-button class="tool-icon center">
+        <van-icon name="/images/tabbar_car.png" size="20px"></van-icon>
+        购物车
+      </van-button>
+    </view>
+    <view>
+      <van-button class="tool-btn btn-add center">加入购物车</van-button>
+      <van-button class="tool-btn btn-pay center" bind:tap="onPay">立即购买</van-button>
+    </view>
+  </view>
+  <!-- 型号弹窗 -->
+  <van-popup class="model-pop" show="{{ modelPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
+    <view class="pop-content">
+      <!-- 图片 -->
+      <van-image src="{{we.toUrl(dataInfo.original_img)}}" width="83px" height="83px"></van-image>
+      <view class="pop-info">
+        <!-- 商品名 -->
+        <view class="info-name text-limit">{{dataInfo.goods_name}}</view>
+        <!-- 价格 -->
+        <view class="info-price">
+          <block wx:if="{{dataInfo.is_flash_sale=='1'}}">
+            <view class="delete-line">¥{{dataInfo.check_spec.shop_price}}</view>
+            <view class="info-price-real">¥{{dataInfo.check_spec.price}}</view>
+          </block>
+          <block wx:else>
+            <view>¥{{dataInfo.check_spec.price}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!-- 数量 -->
+    <view class="pop-num">
+      <view>数量</view>
+      <!-- 步进器 -->
+      <van-stepper value="{{ number }}" min="1" max="{{dataInfo.is_flash_sale=='1' ? (dataInfo.check_spec.buy_limit - dataInfo.check_spec.buy_num) : dataInfo.check_spec.store_count}}" input-width="60px" integer bind:change="onChange" bind:overlimit="onOverlimit" />
+    </view>
+    <!-- 规格 -->
+    <view class="pop-title">规格</view>
+    <view class="model-list">
+      <block wx:for="{{dataInfo.total_spec}}" wx:key="index">
+        <!-- 当前选中 -->
+        <block wx:if="{{item.item_id == dataInfo.check_spec.item_id}}">
+          <van-button class="current" bind:tap="onModelSelection" data-param="{{item}}">
+            {{we.toModel(item.key_name)}}
+          </van-button>
+        </block>
+        <block wx:else>
+          <!-- 未选中 -->
+          <van-button bind:tap="onModelSelection" data-param="{{item}}">
+            {{we.toModel(item.key_name)}}
+          </van-button>
+        </block>
+      </block>
+    </view>
+    <!-- 确认 -->
+    <view class="pop-sure">
+      <van-button class="center" bind:tap="onClose">确认</van-button>
+    </view>
+  </van-popup>
+  <!-- 优惠卷弹窗 -->
+  <van-popup class="pop-coupons" show="{{ couponsPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
+    <view class="coupons-title">优惠卷</view>
+    <block wx:for="{{2}}" wx:key="index">
+      <view class="coupons-cell">
+        <view class="coupons-message">
+          <view class="coupons-price">30.00</view>
+          <view class="coupons-info">
+            <view class="coupons-name">满200-30</view>
+            <view class="coupons-time">使用时间:2020-01-01至2020-01-01</view>
+          </view>
+        </view>
+        <view class="coupons-state">已领取</view>
+      </view>
+    </block>
+  </van-popup>
+</view>
+<!-- 运算 -->
+<wxs module="we">
+
+  var baseUrl = "http://legong.frnnet.com";
+
+  var price = function (value) {
+    return value.toFixed(2);
+  }
+
+  var url = function (value) {
+    return baseUrl + value;
+  }
+
+  var model = function (value) {
+    return value.substring(3)
+  }
+
+  module.exports = {
+    toPrice :price,
+    toUrl :url,
+    toModel: model,
+  }
+</wxs>
