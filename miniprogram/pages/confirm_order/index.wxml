@@ -1,2 +1,108 @@
-<!--pages/confirm_order/index.wxml-->
-<text>pages/confirm_order/index.wxml</text>
+<!-- pages/confirm_order/index.wxml -->
+<view class="container">
+  <!-- 地址 -->
+  <view class="order-address">
+    <van-image src="/images/loc_gray.png" width="18px" height="18px"></van-image>
+    <view class="address-info">
+      <view>北京市海淀区中关村软件园</view>
+      <view class="address-other">
+        <view>小明</view>
+        <view class="address-number">11111111111</view>
+      </view>
+    </view>
+    <van-icon name="arrow" color="rgb(197,197,197)" size="15px"></van-icon>
+  </view>
+  <!-- 商品 -->
+  <block wx:for="{{dataSoure.goods}}">
+    <view class="order-good">
+      <van-image src="{{we.toUrl(item.original_img)}}" width="80px" height="80px"></van-image>
+      <view class="good-content">
+        <view class="good-name text-limit">{{item.goods_name}}</view>
+        <view class="good-key">{{item.key_name}}</view>
+        <view class="good-other">
+          <view class="good-price">
+            <block wx:if="{{item.shop_price}}">
+              <view class="delete-line">{{item.price}}</view>
+              <view class="price">{{item.price}}</view>
+            </block>
+            <block wx:else>
+              <view class="">{{item.price}}</view>
+            </block>
+          </view>
+          <view>x{{item.buy_num}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 配送 -->
+  <view class="space" />
+  <view class="order-content">
+    <view class="order-title">配送</view>
+    <view class="order-name">快递运输</view>
+  </view>
+  <!-- 留言 -->
+  <view class="order-content">
+    <view class="order-title">留言</view>
+    <input class="order-name" type="text" placeholder="请填写留言信息" placeholder-style="color:rgb(214, 214, 214);"></input>
+  </view>
+  <!-- 优惠卷 -->
+  <view class="space" />
+  <view class="order-content" bind:tap="onCoupons">
+    <view class="order-title">优惠卷</view>
+    <view class="order-name">
+      可用2张
+      <van-icon name="arrow" color="rgb(197,197,197)" size="15px"></van-icon>
+    </view>
+  </view>
+  <!-- 商品金额 -->
+  <view class="space" />
+  <view class="order-content">
+    <view class="order-title">商品金额</view>
+    <view class="order-name">¥620.00</view>
+  </view>
+  <!-- 运费 -->
+  <view class="order-content">
+    <view class="order-title">运费</view>
+    <view class="order-name">¥0.00</view>
+  </view>
+  <!-- 已优惠 -->
+  <view class="order-content">
+    <view class="order-title">已优惠</view>
+    <view class="order-name">¥20.00</view>
+  </view>
+  <!-- 剩余 -->
+  <view class="space order-bottom" />
+  <!-- 底部工具 -->
+  <view class="order-tool">
+    ¥600.00
+    <van-button>提交订单</van-button>
+  </view>
+  <!-- 优惠卷弹窗 -->
+  <van-popup class="pop-coupons" show="{{ couponsPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
+    <view class="coupons-title">优惠卷</view>
+    <block wx:for="{{2}}" wx:key="index">
+      <view class="coupons-cell">
+        <view class="coupons-message">
+          <view class="coupons-price">30.00</view>
+          <view class="coupons-info">
+            <view class="coupons-name">满200-30</view>
+            <view class="coupons-time">使用时间:2020-01-01至2020-01-01</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </van-popup>
+</view>
+<!-- 运算 -->
+<wxs module="we">
+
+  var baseUrl = "http://legong.frnnet.com/";
+
+  var url = function (value) {
+    return baseUrl + value;
+  }
+
+  module.exports = {
+    toUrl :url,
+  }
+</wxs>

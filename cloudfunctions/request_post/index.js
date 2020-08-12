@@ -12,5 +12,7 @@ exports.main = async (event, context) => {
       url: event.url,
       param: event.param,
     }
+  }).then((res) => {
+    return res.result
   })
 }

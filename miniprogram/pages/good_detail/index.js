@@ -241,7 +241,7 @@ Page({
       },
     })
       .then((res) => {
-        console.log(res.result)
+        console.log('11', res)
       })
       .catch((err) => {
         console.error(err)

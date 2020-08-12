@@ -5,19 +5,20 @@ page {
     Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
     'Microsoft Yahei', sans-serif;
 }
-/* 状态栏 */
-.status-bar {
-  width: 100vw;
-  background: white;
-}
 
 /* 通用样式 */
 .container {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
   background: rgb(245, 245, 245);
+}
+
+/* 状态栏 */
+.status-bar {
+  width: 100vw;
+  background: white;
 }
 
 /* 整体居中 */
@@ -43,7 +44,7 @@ page {
 .divider {
   width: 100%;
   height: 0.5px;
-  background: rgb(251, 251, 251);
+  background: rgb(245, 245, 245);
 }
 
 /* 间距 */

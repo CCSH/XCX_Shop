@@ -1,4 +1,4 @@
-// Promise 小程序接口
+// 小程序接口层
 
 let request = require('request.js')
 

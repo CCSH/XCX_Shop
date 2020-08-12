@@ -14,6 +14,7 @@
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -47,6 +48,13 @@
 					"id": -1,
 					"name": "pages/good_detail/index",
 					"pathName": "pages/good_detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/confirm_order/index",
+					"pathName": "pages/confirm_order/index",
 					"scene": null
 				}
 			]
