@@ -72,27 +72,27 @@
   </view>
   <!-- 剩余 -->
   <view class="space order-bottom" />
-  <!-- 底部工具 -->
-  <view class="order-tool">
-    ¥600.00
-    <van-button>提交订单</van-button>
-  </view>
-  <!-- 优惠卷弹窗 -->
-  <van-popup class="pop-coupons" show="{{ couponsPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
-    <view class="coupons-title">优惠卷</view>
-    <block wx:for="{{2}}" wx:key="index">
-      <view class="coupons-cell">
-        <view class="coupons-message">
-          <view class="coupons-price">30.00</view>
-          <view class="coupons-info">
-            <view class="coupons-name">满200-30</view>
-            <view class="coupons-time">使用时间:2020-01-01至2020-01-01</view>
-          </view>
+</view>
+<!-- 底部工具 -->
+<view class="order-tool">
+  ¥600.00
+  <van-button bind:tap="onSubmit">提交订单</van-button>
+</view>
+<!-- 优惠卷弹窗 -->
+<van-popup class="pop-coupons" show="{{ couponsPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
+  <view class="coupons-title">优惠卷</view>
+  <block wx:for="{{2}}" wx:key="index">
+    <view class="coupons-cell">
+      <view class="coupons-message">
+        <view class="coupons-price">30.00</view>
+        <view class="coupons-info">
+          <view class="coupons-name">满200-30</view>
+          <view class="coupons-time">使用时间:2020-01-01至2020-01-01</view>
         </view>
       </view>
-    </block>
-  </van-popup>
-</view>
+    </view>
+  </block>
+</van-popup>
 <!-- 运算 -->
 <wxs module="we">
 

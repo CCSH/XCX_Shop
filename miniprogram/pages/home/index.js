@@ -1,4 +1,6 @@
 // pages/home/index.js
+import Toast from '/@vant/weapp/toast/toast'
+
 let app = getApp()
 
 Page({
@@ -174,9 +176,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log('12123123===', app.winW)
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

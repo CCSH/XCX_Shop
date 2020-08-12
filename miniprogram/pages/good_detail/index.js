@@ -31,7 +31,7 @@ Page({
       store_count: '298',
       sales_sum: '2',
       video: '',
-      is_flash_sale: '1',
+      // is_flash_sale: '1',
       flash_sale: {
         id: '3',
         goods_id: '42',
@@ -396,16 +396,11 @@ Page({
   onOverlimit(event) {
     if (event.detail == 'plus') {
       if (this.data.dataInfo.is_flash_sale == '1') {
-        console.log('超过限购数量')
+        Toast('超过限购数量')
       } else {
-        console.log('超过库存数量')
+        Toast('超过库存数量')
       }
     }
-    // Toast.setDefaultOptions({
-    //   selector: this,
-    // })
-
-    // Toast('1')
   },
 
   // MARK 处理时间

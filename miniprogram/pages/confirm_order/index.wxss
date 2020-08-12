@@ -142,7 +142,7 @@
 
 /* 底部 */
 .order-bottom {
-  height: 80px;
+  height: 70px;
 }
 
 /* 底部工具 */

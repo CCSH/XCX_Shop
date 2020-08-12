@@ -116,4 +116,12 @@ Page({
       couponsPop: false,
     })
   },
+  // MARK 提交
+  onSubmit() {
+    setTimeout(function () {
+      wx.navigateBack({
+        delta: 1,
+      })
+    }, 2000)
+  },
 })

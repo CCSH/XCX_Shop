@@ -65,3 +65,4 @@
     </van-tab>
   </block>
 </van-tabs>
+<van-toast id="van-toast" />
