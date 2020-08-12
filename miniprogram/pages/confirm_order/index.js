@@ -118,10 +118,23 @@ Page({
   },
   // MARK 提交
   onSubmit() {
+    wx.showLoading({
+      title: '提交中',
+      mask: true,
+    })
+
+    //模拟支付请求
     setTimeout(function () {
-      wx.navigateBack({
-        delta: 1,
-      })
+      // wx.showToast({
+      //   title: '成功',
+      //   mask: true,
+      // })
+
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1,
+        })
+      }, 1500)
     }, 2000)
   },
 })

@@ -4,21 +4,18 @@ page {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
     Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',
     'Microsoft Yahei', sans-serif;
-}
-
-/* 通用样式 */
-.container {
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
   background: rgb(245, 245, 245);
 }
 
+/* 通用样式 */
 /* 状态栏 */
 .status-bar {
-  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
   background: white;
+  z-index: 9999;
 }
 
 /* 整体居中 */
@@ -44,14 +41,12 @@ page {
 .divider {
   width: 100%;
   height: 0.5px;
-  background: rgb(245, 245, 245);
 }
 
 /* 间距 */
 .space {
   width: 100%;
   height: 10px;
-  background: rgb(245, 245, 245);
 }
 
 /* 文本限制 */

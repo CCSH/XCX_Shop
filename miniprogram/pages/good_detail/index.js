@@ -1,5 +1,4 @@
 // pages/good_detail/index.js
-import InterFace from '../../utils/interface'
 import Util from '../../utils/util'
 import Toast from '@vant/weapp/toast/toast'
 
@@ -10,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    statusBarH: app.statusBarH * 2,
+    statusBarH: app.statusBarH,
     bottomH: app.bottomH,
     //自定义数据
     number: 1,
@@ -31,7 +30,7 @@ Page({
       store_count: '298',
       sales_sum: '2',
       video: '',
-      // is_flash_sale: '1',
+      is_flash_sale: '1',
       flash_sale: {
         id: '3',
         goods_id: '42',
@@ -232,20 +231,6 @@ Page({
    */
   onLoad: function (options) {
     this.handleData()
-
-    InterFace.moviceList({
-      param: {
-        apikey: '0df993c66c0c636e29ecbb5344252a4a',
-        start: 0,
-        count: 10,
-      },
-    })
-      .then((res) => {
-        console.log('11', res)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
   },
 
   /**
