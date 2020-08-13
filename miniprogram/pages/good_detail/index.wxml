@@ -82,7 +82,7 @@
 <block wx:for="{{dataSoure.content_images}}" wx:key="index">
   <van-image src="{{app.toUrl(item.image_url)}}" width="100%" height="{{ item.height*750 / item.width }}rpx"></van-image>
 </block>
-<view class="space" style="margin-bottom:{{bottomH + toolH}}px;"></view>
+<view class="bottom"></view>
 <!-- 工具栏 -->
 <view class="good-tool">
   <view>

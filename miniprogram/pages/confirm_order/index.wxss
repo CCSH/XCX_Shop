@@ -49,7 +49,7 @@
 .order-good {
   display: flex;
   align-items: center;
-  width: 100%;
+  flex: 1;
   height: 100px;
   background: white;
   padding-left: 10px;

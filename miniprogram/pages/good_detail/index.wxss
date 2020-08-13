@@ -86,6 +86,9 @@
   margin-right: 20rpx;
 }
 
+.bottom {
+  height: 70px;
+}
 /* 底部工具栏 */
 .good-tool {
   position: fixed;
