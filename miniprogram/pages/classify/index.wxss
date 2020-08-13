@@ -7,7 +7,7 @@
 }
 
 .classify-sidebar .van-sidebar-item {
-  height: 80rpx;
+  height: 50px;
   width: 25vw;
   font-size: 20rpx;
   padding: 0;
@@ -29,8 +29,8 @@
   content: '';
   position: relative;
   top: 0;
-  right: 120rpx;
-  height: 40rpx;
+  right: 65%;
+  height: 20px;
   width: 8rpx;
   background-color: #69b29c;
   border-radius: 8rpx;
@@ -43,14 +43,16 @@
   width: 75vw;
   right: 0;
   z-index: 1;
+  background: white;
+  border-bottom: 1px solid rgb(245, 245, 245);
 }
 
 .classify-btn {
-  height: 40px;
-  font-size: 20rpx;
+  height: 50px;
+  line-height: 50px;
+  font-size: 10px;
   flex: 1;
   color: black;
-  background: white;
 }
 
 .classify-btn-h {
@@ -68,7 +70,7 @@
 
 /* 商品列表 */
 .good-list {
-  margin-top: 40px;
+  margin-top: 50px;
   margin-left: 25vw;
 }
 /* 内容 */
