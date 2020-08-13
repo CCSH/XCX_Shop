@@ -1,4 +1,5 @@
 <!-- pages/good_detail/index.wxml -->
+<wxs src="../../app.wxs" module="app" />
 <van-toast id="van-toast" />
 <!-- 状态栏 -->
 <view class="status-bar" style="height:{{statusBarH}}px"></view>
@@ -9,34 +10,34 @@
 <!-- 内容 -->
 <!-- banner -->
 <swiper class="home-banner" indicator-dots indicator-active-color="#69b29c" indicator-color="white" autoplay circular duration="1000">
-  <block wx:for="{{ dataInfo.top_images }}" wx:key="index">
+  <block wx:for="{{ dataSoure.top_images }}" wx:key="index">
     <swiper-item>
-      <van-image src="{{we.toUrl(item)}}" width="100%" height="100%"></van-image>
+      <van-image src="{{app.toUrl(item)}}" width="100%" height="100%"></van-image>
     </swiper-item>
   </block>
 </swiper>
 <!-- 商品名 -->
-<view class="good-name text-limit">{{dataInfo.goods_name}}</view>
+<view class="good-name text-limit">{{dataSoure.goods_name}}</view>
 <!-- 优惠时间 -->
-<block wx:if="{{dataInfo.is_flash_sale=='1'}}">
+<block wx:if="{{dataSoure.is_flash_sale=='1'}}">
   <view class="good-time">距离优惠结束还有 {{time}}</view>
 </block>
 <view class="good-other">
   <!-- 价格 -->
   <view class="good-price">
     <!-- 判断限时优惠 -->
-    <block wx:if="{{dataInfo.is_flash_sale=='1'}}">
-      <view class="delete-line">¥{{dataInfo.check_spec.shop_price}}</view>
-      <view class="good-price-real">¥{{dataInfo.check_spec.price}}</view>
+    <block wx:if="{{dataSoure.is_flash_sale=='1'}}">
+      <view class="delete-line">¥{{dataSoure.check_spec.shop_price}}</view>
+      <view class="price-real">¥{{dataSoure.check_spec.price}}</view>
     </block>
     <block wx:else>
-      <view>¥{{dataInfo.check_spec.price}}</view>
+      <view>¥{{dataSoure.check_spec.price}}</view>
     </block>
   </view>
   <!-- 其他 -->
   <view class="good-num">
     <text decode>
-      {{"销量：" + dataInfo.sales_sum}} &nbsp; &nbsp; {{"库存：" + dataInfo.check_spec.store_count}}
+      {{"销量：" + dataSoure.sales_sum}} &nbsp; &nbsp; {{"库存：" + dataSoure.check_spec.store_count}}
     </text>
   </view>
 </view>
@@ -46,7 +47,7 @@
   <view>
     <view class="good-info">已选</view>
     <view class="good-content">
-      <text decode>{{dataInfo.check_spec.key_name}} &nbsp; &nbsp; {{number}}个</text>
+      <text decode>{{dataSoure.check_spec.key_name}} &nbsp; &nbsp; {{number}}个</text>
     </view>
   </view>
   <van-icon name="arrow" color="rgb(197,197,197)" size="30rpx"></van-icon>
@@ -78,21 +79,21 @@
   </view>
 </van-button>
 <!-- 图片 -->
-<block wx:for="{{dataInfo.content_images}}" wx:key="index">
-  <van-image src="{{we.toUrl(item.image_url)}}" width="100%" height="{{ item.height*750 / item.width }}rpx"></van-image>
+<block wx:for="{{dataSoure.content_images}}" wx:key="index">
+  <van-image src="{{app.toUrl(item.image_url)}}" width="100%" height="{{ item.height*750 / item.width }}rpx"></van-image>
 </block>
 <view class="space" style="margin-bottom:{{bottomH + toolH}}px;"></view>
 <!-- 工具栏 -->
 <view class="good-tool">
   <view>
     <van-button class="tool-icon center" bind:tap="onCollection">
-      <block wx:if="{{dataInfo.goods_collect == 1}}">
+      <block wx:if="{{dataSoure.goods_collect == 1}}">
         <van-icon name="/images/collection_h.png" size="20px" />
       </block>
       <block wx:else>
         <van-icon name="/images/collection.png" size="20px" />
       </block>
-      {{dataInfo.goods_collect == 1 ? "已收藏":"收藏"}}
+      {{dataSoure.goods_collect == 1 ? "已收藏":"收藏"}}
     </van-button>
     <van-button class="tool-icon center">
       <van-icon name="/images/tabbar_car.png" size="20px"></van-icon>
@@ -108,18 +109,20 @@
 <van-popup class="model-pop" show="{{ modelPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
   <view class="pop-content">
     <!-- 图片 -->
-    <van-image src="{{we.toUrl(dataInfo.original_img)}}" width="83px" height="83px"></van-image>
+    <van-image src="{{app.toUrl(dataSoure.original_img)}}" width="83px" height="83px"></van-image>
     <view class="pop-info">
       <!-- 商品名 -->
-      <view class="info-name text-limit">{{dataInfo.goods_name}}</view>
+      <view class="info-name text-limit">{{dataSoure.goods_name}}</view>
       <!-- 价格 -->
       <view class="info-price">
-        <block wx:if="{{dataInfo.is_flash_sale=='1'}}">
-          <view class="delete-line">¥{{dataInfo.check_spec.shop_price}}</view>
-          <view class="info-price-real">¥{{dataInfo.check_spec.price}}</view>
+        <block wx:if="{{dataSoure.is_flash_sale=='1'}}">
+          <view class="delete-line">
+            ¥{{app.toPrice(dataSoure.check_spec.shop_price * number)}}
+          </view>
+          <view class="info-price-real">¥{{app.toPrice(dataSoure.check_spec.price * number)}}</view>
         </block>
         <block wx:else>
-          <view>¥{{dataInfo.check_spec.price}}</view>
+          <view>¥{{dataSoure.check_spec.price}}</view>
         </block>
       </view>
     </view>
@@ -128,22 +131,22 @@
   <view class="pop-num">
     <view>数量</view>
     <!-- 步进器 -->
-    <van-stepper value="{{ number }}" min="1" max="{{dataInfo.is_flash_sale=='1' ? (dataInfo.check_spec.buy_limit - dataInfo.check_spec.buy_num) : dataInfo.check_spec.store_count}}" input-width="60px" integer bind:change="onChange" bind:overlimit="onOverlimit" />
+    <van-stepper value="{{ number }}" min="1" max="{{dataSoure.is_flash_sale=='1' ? (dataSoure.check_spec.buy_limit - dataSoure.check_spec.buy_num) : dataSoure.check_spec.store_count}}" input-width="60px" integer bind:change="onChange" bind:overlimit="onOverlimit" />
   </view>
   <!-- 规格 -->
   <view class="pop-title">规格</view>
   <view class="model-list">
-    <block wx:for="{{dataInfo.total_spec}}" wx:key="index">
+    <block wx:for="{{dataSoure.total_spec}}" wx:key="index">
       <!-- 当前选中 -->
-      <block wx:if="{{item.item_id == dataInfo.check_spec.item_id}}">
+      <block wx:if="{{item.item_id == dataSoure.check_spec.item_id}}">
         <van-button class="current" bind:tap="onModelSelection" data-param="{{item}}">
-          {{we.toModel(item.key_name)}}
+          {{app.toModel(item.key_name)}}
         </van-button>
       </block>
       <block wx:else>
         <!-- 未选中 -->
         <van-button bind:tap="onModelSelection" data-param="{{item}}">
-          {{we.toModel(item.key_name)}}
+          {{app.toModel(item.key_name)}}
         </van-button>
       </block>
     </block>
@@ -156,39 +159,28 @@
 <!-- 优惠卷弹窗 -->
 <van-popup class="pop-coupons" show="{{ couponsPop }}" closeable position="bottom" custom-style="height: 60%" bind:close="onClose">
   <view class="coupons-title">优惠卷</view>
-  <block wx:for="{{2}}" wx:key="index">
-    <view class="coupons-cell">
-      <view class="coupons-message">
-        <view class="coupons-price">30.00</view>
-        <view class="coupons-info">
-          <view class="coupons-name">满200-30</view>
-          <view class="coupons-time">使用时间:2020-01-01至2020-01-01</view>
+  <block wx:if="{{dataSoure.coupon.length == 0}}">
+    <view class="empty">暂无优惠卷</view>
+  </block>
+  <block wx:else>
+    <block wx:for="{{dataSoure.coupon}}" wx:key="index">
+      <view class="coupons-cell">
+        <view class="coupons-message">
+          <view class="coupons-price">{{item.money}}</view>
+          <view class="coupons-info">
+            <view class="coupons-name">{{item.name}}</view>
+            <view class="coupons-time">使用时间:{{item.use_start_time}}至{{item.use_end_time}}</view>
+          </view>
+        </view>
+        <view class="coupons-state">
+          <block wx:if="{{item.isget == '1'}}">
+            <view>已领取</view>
+          </block>
+          <block wx:else>
+            <view class="state-get">领取</view>
+          </block>
         </view>
       </view>
-      <view class="coupons-state">已领取</view>
-    </view>
+    </block>
   </block>
 </van-popup>
-<!-- 运算 -->
-<wxs module="we">
-
-  var baseUrl = "http://legong.frnnet.com";
-
-  var price = function (value) {
-    return value.toFixed(2);
-  }
-
-  var url = function (value) {
-    return baseUrl + value;
-  }
-
-  var model = function (value) {
-    return value.substring(3)
-  }
-
-  module.exports = {
-    toPrice :price,
-    toUrl :url,
-    toModel: model,
-  }
-</wxs>

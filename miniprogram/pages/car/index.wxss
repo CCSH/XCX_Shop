@@ -1,0 +1,126 @@
+/* pages/car/index.wxss */
+
+.table-cell {
+  height: 100px;
+  border-top: 1px solid rgb(245, 245, 245);
+  padding-left: 10px;
+  padding-right: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.van-swipe-cell .right {
+  width: 80px;
+  height: 100%;
+  color: white;
+  background: #69b29c;
+  font-size: 12px;
+  flex: 1;
+}
+
+/* 商品 */
+.table-cell .order-good {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.order-good .good-content {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.good-content .good-name {
+  font-size: 14px;
+  -webkit-line-clamp: 2;
+  height: 38px;
+}
+
+.good-content .good-key {
+  height: 17px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: rgb(245, 245, 245);
+  color: rgb(209, 209, 209);
+  line-height: 17px;
+  font-size: 8px;
+  border-radius: 8.5px;
+}
+
+.good-content .good-other {
+  display: flex;
+  font-size: 10px;
+  justify-content: space-between;
+  color: gray;
+  width: 100%;
+}
+
+.good-other .good-price {
+  display: flex;
+  align-items: baseline;
+  color: #69b29c;
+  font-size: 14px;
+}
+
+.good-price .price {
+  margin-left: 5px;
+  font-size: 10px;
+  color: black;
+}
+
+.bottom {
+  height: 60px;
+}
+
+/* 底部工具栏 */
+.car-tool {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  border-top: 1px solid rgb(245, 245, 245);
+  background: white;
+  z-index: 999;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.car-tool .tool-content {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.tool-content .tool-name {
+  margin-left: 10px;
+}
+
+.tool-content .tool-sum {
+  margin-left: 20px;
+  color: #69b29c;
+}
+
+.car-tool .tool-settlement {
+  color: white;
+  background: #69b29c;
+  height: 36px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 18px;
+  font-size: 12px;
+  line-height: 36px;
+}

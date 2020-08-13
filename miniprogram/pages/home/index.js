@@ -1,5 +1,6 @@
 // pages/home/index.js
 import Toast from '/@vant/weapp/toast/toast'
+import Interface from '../../utils/interface'
 
 let app = getApp()
 
@@ -176,7 +177,16 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    // 请求
+    // Interface.moviceList({
+    //   apikey: '0df993c66c0c636e29ecbb5344252a4a',
+    //   start: 0,
+    //   count: 10,
+    // }).then((res) => {
+    //   console.log(res)
+    // })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

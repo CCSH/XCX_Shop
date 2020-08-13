@@ -2,7 +2,7 @@
   "pages": [
     "pages/home/index",
     "pages/classify/index",
-    "pages/car/car",
+    "pages/car/index",
     "pages/me/me",
     "pages/good_detail/index",
     "pages/confirm_order/index"
@@ -20,7 +20,12 @@
     "van-popup": "@vant/weapp/popup",
     "van-stepper": "@vant/weapp/stepper",
     "van-sticky": "@vant/weapp/sticky",
-    "van-toast": "@vant/weapp/toast"
+    "van-toast": "@vant/weapp/toast",
+    "van-radio": "@vant/weapp/radio",
+    "van-radio-group": "@vant/weapp/radio-group",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-swipe-cell": "@vant/weapp/swipe-cell"
   },
   "tabBar": {
     "list": [
@@ -37,7 +42,7 @@
         "selectedIconPath": "images/tabbar_classify_h.png"
       },
       {
-        "pagePath": "pages/car/car",
+        "pagePath": "pages/car/index",
         "text": "购物车",
         "iconPath": "images/tabbar_car.png",
         "selectedIconPath": "images/tabbar_car_h.png"

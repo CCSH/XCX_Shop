@@ -20,7 +20,7 @@ Page({
     timer: null,
     time: '',
     //数据
-    dataInfo: {
+    dataSoure: {
       goods_id: '42',
       cat_id: '15',
       goods_name: '\u9ed1\u68ee\u9999\u83c7\u8106\u7247',
@@ -202,7 +202,7 @@ Page({
           send_num: '2',
           spacing_time: '249547',
           use_type_title: '\u5168\u5e97\u901a\u7528',
-          isget: '1',
+          isget: '0',
         },
         {
           goods_id: null,
@@ -280,11 +280,11 @@ Page({
 
   // MARK 处理数据
   handleData() {
-    var data = this.data.dataInfo
+    var data = this.data.dataSoure
 
     var couponArr = []
     //  处理优惠卷
-    data.coupon.forEach((item, index) => {
+    data.coupon.map((item, index) => {
       couponArr.push(item.name)
     })
 
@@ -296,7 +296,7 @@ Page({
     if (data.is_flash_sale == '1') {
       var good = data.flash_sale
 
-      data.total_spec.forEach((item, index) => {
+      data.total_spec.map((item, index) => {
         if (item.item_id == good.item_id) {
           var temp = Object.assign(item, good)
           item = temp
@@ -308,12 +308,12 @@ Page({
       }
 
       this.setData({
-        dataInfo: data,
+        dataSoure: data,
       })
     }
 
     //处理时间
-    if (this.data.dataInfo.is_flash_sale == '1') {
+    if (this.data.dataSoure.is_flash_sale == '1') {
       this.handleTime()
     }
   },
@@ -342,10 +342,10 @@ Page({
 
   // MARK 规格选择
   onModelSelection(event) {
-    var temp = this.data.dataInfo
+    var temp = this.data.dataSoure
     temp.check_spec = event.target.dataset.param
     this.setData({
-      dataInfo: temp,
+      dataSoure: temp,
     })
   },
 
@@ -358,11 +358,11 @@ Page({
 
   // MARK 点击收藏
   onCollection() {
-    var temp = this.data.dataInfo
+    var temp = this.data.dataSoure
     temp.goods_collect = temp.goods_collect == '0' ? '1' : '0'
 
     this.setData({
-      dataInfo: temp,
+      dataSoure: temp,
     })
   },
 
@@ -380,7 +380,7 @@ Page({
   // MARK 数量超出了
   onOverlimit(event) {
     if (event.detail == 'plus') {
-      if (this.data.dataInfo.is_flash_sale == '1') {
+      if (this.data.dataSoure.is_flash_sale == '1') {
         Toast('超过限购数量')
       } else {
         Toast('超过库存数量')
@@ -391,7 +391,7 @@ Page({
   // MARK 处理时间
   handleTime() {
     var self = this
-    var data = self.data.dataInfo
+    var data = self.data.dataSoure
     var timer = setInterval(function () {
       //循环代码
       var time = Util.toCountDown(data.flash_sale.end_time)
@@ -419,13 +419,13 @@ Page({
   // MARK 移除定时器
   clearTimer() {
     var self = this
-    var data = self.data.dataInfo
+    var data = self.data.dataSoure
     //处理数据
     clearInterval(self.data.timer)
 
     data.is_flash_sale = null
     self.setData({
-      dataInfo: data,
+      dataSoure: data,
     })
 
     self.handleData()

@@ -1,0 +1,19 @@
+var baseUrl = 'http://legong.frnnet.com'
+
+var price = function (value) {
+  return parseFloat(value).toFixed(2)
+}
+
+var url = function (value) {
+  return baseUrl + value
+}
+
+var model = function (value) {
+  return value.substring(3)
+}
+
+module.exports = {
+  toPrice: price,
+  toUrl: url,
+  toModel: model,
+}

@@ -55,6 +55,13 @@
 					"id": -1,
 					"name": "pages/confirm_order/index",
 					"pathName": "pages/confirm_order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/car/index",
+					"pathName": "pages/car/index",
 					"scene": null
 				}
 			]
