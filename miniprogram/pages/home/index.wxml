@@ -1,4 +1,5 @@
 <!-- pages/home/index.wxml -->
+<wxs src="../../app.wxs" module="app" />
 <!-- 内容 -->
 <view>
   <!-- 搜索 -->
@@ -11,27 +12,27 @@
         <block wx:if="{{index == 0}}">
           <!-- banner -->
           <swiper class="home-banner" indicator-dots indicator-active-color="#69b29c" indicator-color="white" autoplay circular duration="1000">
-            <block wx:for="{{ bannerArr }}" wx:key="index">
+            <block wx:for="{{ dataSoure.ad }}" wx:key="index">
               <swiper-item>
-                <van-image src="{{item}}" width="100%" height="100%"></van-image>
+                <van-image src="{{app.toUrl(item.ad_code)}}" width="100%" height="100%"></van-image>
               </swiper-item>
             </block>
           </swiper>
           <view class="banner-round"></view>
           <!-- 工具 -->
           <van-grid class="home-tool" border="{{ false }}">
-            <van-grid-item use-slot wx:for="{{ toolArr }}" wx:key="index">
-              <van-image class="tool-img" src="{{baseUrl + item.url}}" width="80rpx" height="80rpx" />
-              <text class="tool-name">{{item.name}}</text>
+            <van-grid-item use-slot wx:for="{{ dataSoure.nav }}" wx:key="index">
+              <van-image class="tool-img" src="{{app.toUrl(item.link_logo)}}" width="40px" height="40px" />
+              <text class="tool-name">{{item.link_name}}</text>
             </van-grid-item>
           </van-grid>
           <!-- 通知 -->
           <view class="home-not">
             <text class="not-title">通知公告</text>
             <swiper class="not-swiper" autoplay circular duration="1000" vertical>
-              <block wx:for="{{2}}" wx:key="index">
+              <block wx:for="{{dataSoure.notice}}" wx:key="index">
                 <swiper-item class="not-item" item-id="index">
-                  <text class="not-content">欢迎进入乐拱</text>
+                  <text class="not-content">{{item.topic_title}}</text>
                 </swiper-item>
               </block>
             </swiper>
@@ -39,16 +40,19 @@
           </view>
           <!-- 广告 -->
           <view class="home-ad">
-            <van-image src="{{baseUrl + adUrl}}" width="100%" height="100%"></van-image>
+            <van-image src="{{app.toUrl(dataSoure.red_ad.ad_code)}}" width="100%" height="100%"></van-image>
           </view>
           <!-- 内容 -->
           <view class="home-content">
-            <van-image class="ad-left" src="{{baseUrl + adLeft}}" width="220rpx" height="100%"></van-image>
+            <van-image class="ad-left" src="{{app.toUrl(dataSoure.flash_sale_ad.ad_code)}}" width="220rpx" height="100%"></van-image>
             <view class="ad-right">
-              <van-image class="ad-top" src="{{baseUrl + adOne}}" width="100%" height="100%"></van-image>
+              <!-- 1 -->
+              <van-image class="ad-top" src="{{app.toUrl(dataSoure.one_ad.ad_code)}}" width="100%" height="100%"></van-image>
               <view class="ad-bottom">
-                <van-image class="bottom-left" src="{{baseUrl + adTwo}}" width="220rpx" height="100%"></van-image>
-                <van-image class="bottom-right" src="{{baseUrl + adTree}}" width="220rpx" height="100%"></van-image>
+                <!-- 2 -->
+                <van-image class="bottom-left" src="{{app.toUrl(dataSoure.two_ad.ad_code)}}" width="220rpx" height="100%"></van-image>
+                <!-- 3 -->
+                <van-image class="bottom-right" src="{{app.toUrl(dataSoure.three_ad.ad_code)}}" width="220rpx" height="100%"></van-image>
               </view>
             </view>
           </view>

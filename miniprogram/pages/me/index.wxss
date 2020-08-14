@@ -1,0 +1,146 @@
+/* pages/me/index.wxss */
+/* 个人信息 */
+.me-info {
+  display: flex;
+  background: white;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+.me-info .info-content {
+  display: flex;
+  align-items: center;
+}
+
+.info-content .info-other {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.info-other .info-sn {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* 其他信息 */
+.me-other {
+  display: flex;
+  background: white;
+  height: 80px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.me-other view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+}
+
+.me-other .other-name {
+  font-weight: normal;
+  margin-top: 10px;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+}
+/* 权证 */
+.other-name .warrant {
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+  height: 12px;
+  line-height: 12px;
+}
+
+.other-name .warrant-free {
+  background: #69b29c;
+  margin-left: 3px;
+}
+
+.other-name .warrant-lock {
+  background: rgb(234, 50, 35);
+}
+
+/* 我的订单 */
+.me-order {
+  margin-top: 10px;
+  height: 120px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.me-title {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+
+.me-order .order-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.order-content .order-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.order-item .order-name {
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+.order-item .order-tip {
+  margin-left: 50%;
+  position: absolute;
+  top: 12px;
+  text-align: center;
+
+  z-index: 1;
+
+  background: red;
+  color: white;
+  font-size: 10px;
+  border-radius: 6px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* 我的服务 */
+.me-service {
+  margin-top: 10px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.me-service .van-grid-item__content {
+  display: flex;
+  /* overflow: hidden; */
+  padding: 0;
+  margin: 0;
+  height: 90px;
+}
+
+.me-service .service-name {
+  margin-top: 5px;
+  font-size: 10px;
+}

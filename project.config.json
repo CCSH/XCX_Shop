@@ -69,6 +69,20 @@
 					"id": -1,
 					"name": "pages/classify/index",
 					"pathName": "pages/classify/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/me/index",
+					"pathName": "pages/me/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/classify/index",
+					"pathName": "pages/classify/index",
 					"scene": null
 				}
 			]

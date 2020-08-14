@@ -3,7 +3,7 @@
     "pages/home/index",
     "pages/classify/index",
     "pages/car/index",
-    "pages/me/me",
+    "pages/me/index",
     "pages/good_detail/index",
     "pages/confirm_order/index"
   ],
@@ -48,7 +48,7 @@
         "selectedIconPath": "images/tabbar_car_h.png"
       },
       {
-        "pagePath": "pages/me/me",
+        "pagePath": "pages/me/index",
         "text": "我的",
         "iconPath": "images/tabbar_me.png",
         "selectedIconPath": "images/tabbar_me_h.png"

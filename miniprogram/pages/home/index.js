@@ -9,46 +9,123 @@ Page({
    * 页面的初始数据
    */
   data: {
-    baseUrl: app.baseUrl,
     statusBarH: app.statusBarH,
     //提示文字
     searchContent: '精品猪肉',
     active: 0,
     //数据
     tabArr: ['全部', '热卖', '新品', '推荐'],
-    bannerArr: [
-      'http://legong.frnnet.com/public/upload/ad/2020/06-02/63c7968ba19e38f3aea196976a2f1002.jpg',
-      'http://legong.frnnet.com/public/upload/ad/2020/06-02/9954c7b36b40963269a068bc2d55e4ce.jpg',
-      'http://legong.frnnet.com/public/upload/ad/2020/06-02/659ee60ebbd35296cea8ec7ce279d0a7.jpg',
-    ],
-    toolArr: [
-      {
-        name: '新闻动态',
-        url:
-          '/public/upload/link/2020/06-11/e68766cc24d55b4e7bbe7888c07d9680.png',
+    dataSoure: {
+      ad: [
+        {
+          ad_code:
+            '/public/upload/ad/2020/06-02/63c7968ba19e38f3aea196976a2f1002.jpg',
+          ad_link: '',
+          flag: '',
+        },
+        {
+          ad_code:
+            '/public/upload/ad/2020/06-02/9954c7b36b40963269a068bc2d55e4ce.jpg',
+          ad_link: '',
+          flag: '',
+        },
+        {
+          ad_code:
+            '/public/upload/ad/2020/06-02/659ee60ebbd35296cea8ec7ce279d0a7.jpg',
+          ad_link: '',
+          flag: '',
+        },
+      ],
+      nav: [
+        {
+          link_id: '1',
+          link_name: '\u65b0\u95fb\u52a8\u6001',
+          link_logo:
+            '/public/upload/link/2020/06-11/e68766cc24d55b4e7bbe7888c07d9680.png',
+        },
+        {
+          link_id: '2',
+          link_name: '\u6bcf\u65e5\u62a2\u9c9c',
+          link_logo:
+            '/public/upload/link/2020/05-28/a12cb0bdbabf4307526c47632af0b1f7.png',
+        },
+        {
+          link_id: '3',
+          link_name: '\u68ee\u6797\u98df\u54c1',
+          link_logo:
+            '/public/upload/link/2020/06-11/47a401a8b3bf81274a39b35dc8f26ea0.png',
+        },
+        {
+          link_id: '4',
+          link_name: '\u76f4\u64ad\u5e26\u8d27',
+          link_logo:
+            '/public/upload/link/2020/07-08/8714f17840cac6b2eee9f7e13b9180f2.png',
+        },
+      ],
+      red_ad: {
+        ad_code:
+          '/public/upload/ad/2020/05-29/760bf165d2a956aec4a7cafa4add8785.png',
+        ad_link: '',
+        flag: '',
       },
-      {
-        name: '每日抢鲜',
-        url:
-          '/public/upload/link/2020/05-28/a12cb0bdbabf4307526c47632af0b1f7.png',
+      notice: [
+        {
+          topic_id: '2',
+          topic_title: '\u6b22\u8fce',
+          topic_image:
+            '/public/upload/topic/2020/07-10/f1d40a49f2fb9544af25fc26125c46f3.png',
+          ctime: '1596512593',
+          url:
+            'http://legong.frnnet.com/index.php/Api/UsersIndex/topic/table/topic/t_id/topic_id/id/2.html',
+        },
+        {
+          topic_id: '1',
+          topic_title: '\u6b22\u8fce\u8fdb\u5165\u4e50\u62f1',
+          topic_image:
+            '/public/upload/topic/2020/07-10/f1d40a49f2fb9544af25fc26125c46f3.png',
+          ctime: '1594358102',
+          url:
+            'http://legong.frnnet.com/index.php/Api/UsersIndex/topic/table/topic/t_id/topic_id/id/1.html',
+        },
+      ],
+      flash_sale_ad: {
+        ad_code:
+          '/public/upload/ad/2020/06-15/0acdca2e1da511d35472a39bd0856882.jpg',
+        ad_link: '30',
+        flag: 'goods_id',
       },
-      {
-        name: '森林食品',
-        url:
-          '/public/upload/link/2020/06-11/47a401a8b3bf81274a39b35dc8f26ea0.png',
+      flash_sale: {
+        id: '5',
+        goods_id: '35',
+        goods_name:
+          '\u9ed1\u68ee\u5c0f\u7c73\u793c\u76d2\u89c4\u683c:500\u514b*8/\u76d2',
+        item_id: '52',
+        price: '80.00',
+        start_time: '1597075200',
+        end_time: '1601395200',
+        original_img:
+          '/public/upload/goods/2020/07-02/1d1fff11d50640f5e4060be7d561e951.jpg',
+        shop_price: '100.00',
       },
-      {
-        name: '直播带货',
-        url:
-          '/public/upload/link/2020/07-08/8714f17840cac6b2eee9f7e13b9180f2.png',
+      one_ad: {
+        ad_code:
+          '/public/upload/ad/2020/06-15/5fa41fc7f27948562e4030bbee700262.png',
+        ad_link: '6',
+        flag: 'cat_id',
       },
-    ],
-    adUrl: '/public/upload/ad/2020/05-29/760bf165d2a956aec4a7cafa4add8785.png',
-
-    adLeft: '/public/upload/ad/2020/06-15/0acdca2e1da511d35472a39bd0856882.jpg',
-    adOne: '/public/upload/ad/2020/06-15/5fa41fc7f27948562e4030bbee700262.png',
-    adTwo: '/public/upload/ad/2020/06-15/c972c4251c87e76d602d577fe0850ab1.png',
-    adTree: '/public/upload/ad/2020/06-15/f7b1eef572b8e304457fde07321d0133.png',
+      two_ad: {
+        ad_code:
+          '/public/upload/ad/2020/06-15/c972c4251c87e76d602d577fe0850ab1.png',
+        ad_link: '2',
+        flag: 'goods_id',
+      },
+      three_ad: {
+        ad_code:
+          '/public/upload/ad/2020/06-15/f7b1eef572b8e304457fde07321d0133.png',
+        ad_link: '1',
+        flag: 'goods_id',
+      },
+    },
 
     goodArr: [
       {
