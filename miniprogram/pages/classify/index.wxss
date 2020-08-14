@@ -10,6 +10,7 @@
 .classify-sidebar {
   flex: 1;
   height: 100%;
+  margin-right: -8px;
 }
 
 .classify-sidebar .van-sidebar-item {
@@ -18,6 +19,7 @@
   font-size: 20rpx;
   padding: 0;
   margin: 0;
+
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,7 +1,7 @@
 <!-- pages/classify/classify.wxml -->
 <wxs src="../../app.wxs" module="app" />
 <view class="classify">
-  <scroll-view class="classify-sidebar" scroll-y="true" enable-flex>
+  <scroll-view class="classify-sidebar" scroll-y="true" scroll-with-animation="false" enable-back-to-top="false">
     <!-- 侧边栏 -->
     <van-sidebar bind:change="onChange" active-key="{{ activeKey }}">
       <block wx:for="{{dataSoure}}" wx:key="index">
