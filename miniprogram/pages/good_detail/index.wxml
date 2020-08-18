@@ -87,12 +87,7 @@
 <view class="good-tool">
   <view>
     <van-button class="tool-icon center" bind:tap="onCollection">
-      <block wx:if="{{dataSoure.goods_collect == 1}}">
-        <van-icon name="/images/collection_h.png" size="20px" />
-      </block>
-      <block wx:else>
-        <van-icon name="/images/collection.png" size="20px" />
-      </block>
+      <van-icon name="{{dataSoure.goods_collect == 1 ? '/images/collection_h.png' : '/images/collection.png'}}" size="20px" />
       {{dataSoure.goods_collect == 1 ? "已收藏":"收藏"}}
     </van-button>
     <van-button class="tool-icon center">
@@ -137,18 +132,10 @@
   <view class="pop-title">规格</view>
   <view class="model-list">
     <block wx:for="{{dataSoure.total_spec}}" wx:key="index">
-      <!-- 当前选中 -->
-      <block wx:if="{{item.item_id == dataSoure.check_spec.item_id}}">
-        <van-button class="current" bind:tap="onModelSelection" data-param="{{item}}">
-          {{app.toModel(item.key_name)}}
-        </van-button>
-      </block>
-      <block wx:else>
-        <!-- 未选中 -->
-        <van-button bind:tap="onModelSelection" data-param="{{item}}">
-          {{app.toModel(item.key_name)}}
-        </van-button>
-      </block>
+      <!-- 按钮 -->
+      <van-button class="{{item.item_id == dataSoure.check_spec.item_id ? 'current' : ''}}" bind:tap="onModelSelection" data-param="{{item}}">
+        {{app.toModel(item.key_name)}}
+      </van-button>
     </block>
   </view>
   <!-- 确认 -->

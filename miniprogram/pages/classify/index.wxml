@@ -13,16 +13,9 @@
     <!-- 筛选 -->
     <view class="classify-screening">
       <block wx:for="{{screeningArr}}" wx:key="index">
-        <block wx:if="{{index == screeningIndex}}">
-          <van-button class="classify-btn classify-btn-h" bind:tap="onScreening" data-index="{{index}}">
-            {{item}}
-          </van-button>
-        </block>
-        <block wx:else>
-          <van-button class="classify-btn" bind:tap="onScreening" data-index="{{index}}">
-            {{item}}
-          </van-button>
-        </block>
+        <van-button class="classify-btn  {{index == screeningIndex ? 'classify-btn-h' : ''}}" bind:tap="onScreening" data-index="{{index}}">
+          {{item}}
+        </van-button>
       </block>
     </view>
     <!-- 商品列表 -->

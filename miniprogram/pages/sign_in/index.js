@@ -91,6 +91,7 @@ Page({
       customData: customData,
     })
   },
+
   // MARK 关闭弹窗
   onClose() {
     let customData = this.data.customData

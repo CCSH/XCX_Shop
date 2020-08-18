@@ -27,7 +27,7 @@
             <view class="price">¥{{item.member_goods_price}}</view>
           </block>
           <block wx:else>
-            <view class="">¥{{item.goods_price}}</view>
+            <view>¥{{item.goods_price}}</view>
           </block>
         </view>
         <view>x{{item.goods_num}}</view>
@@ -88,10 +88,7 @@
     <view class="coupons-cell" wx:for="{{dataSoure.coupon}}" wx:key="index">
       <view class="coupons-message" bind:tap="checkCoupon" data-param="{{item}}">
         <view class="coupons-price">
-          <block wx:if="{{item.status == '1'}}">{{item.money}}</block>
-          <block wx:else>
-            <view class="price-un">{{item.money}}</view>
-          </block>
+          <view class="{{item.status == '1'? '': 'price-un'}}">{{item.money}}</view>
         </view>
         <view class="coupons-info">
           <view class="coupons-name">{{item.name}}</view>
