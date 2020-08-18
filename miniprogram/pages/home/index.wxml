@@ -62,7 +62,7 @@
           <van-grid class="good-list" column-num="2" gutter="10">
             <!-- 商品信息 -->
             <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot link-type="navigateTo" url="/pages/good_detail/index?good_id=123123">
-              <van-image class="good-img" src="{{baseUrl + item.original_img}}" width="100%" height="100%"></van-image>
+              <van-image class="good-img" src="{{app.toUrl(item.original_img)}}" width="100%" height="100%"></van-image>
               <text class="good-name">{{item.goods_name}}</text>
               <text class="good-price">¥ {{item.shop_price}}</text>
             </van-grid-item>

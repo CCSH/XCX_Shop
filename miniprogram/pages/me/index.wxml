@@ -1,5 +1,7 @@
 <!-- pages/me/index.wxml -->
 <wxs src="../../app.wxs" module="app" />
+<!-- Toast -->
+<van-toast id="van-toast" />
 <!-- 个人信息 -->
 <view class="me-info">
   <view class="info-content">
@@ -9,10 +11,10 @@
       <!-- 昵称 -->
       <view>{{dataSoure.nickname}}</view>
       <!-- 推荐码 -->
-      <view class="info-sn">推荐码：{{dataSoure.user_sn}}</view>
+      <view class="info-sn" bind:tap="onCopy">推荐码：{{dataSoure.user_sn}}</view>
     </view>
   </view>
-  <van-image src="/images/me_qd.png" width="18px" height="18px"></van-image>
+  <van-image src="/images/me_qd.png" width="18px" height="18px" bind:click="onSignin"></van-image>
 </view>
 <!-- 其他信息 -->
 <view class="me-other">

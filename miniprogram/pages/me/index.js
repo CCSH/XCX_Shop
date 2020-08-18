@@ -1,4 +1,5 @@
 // pages/me/index.js
+import Toast from '@vant/weapp/toast/toast'
 Page({
   /**
    * 页面的初始数据
@@ -116,4 +117,19 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+
+  // MARK 复制推荐码
+  onCopy() {
+    wx.setClipboardData({
+      data: this.data.dataSoure.user_sn,
+    })
+  },
+
+  // MARK 进入签到
+  onSignin() {
+    console.log(1)
+    wx.navigateTo({
+      url: '/pages/sign_in/index',
+    })
+  },
 })

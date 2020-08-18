@@ -130,6 +130,7 @@
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 10px;
 }
 
 .me-service .van-grid-item__content {

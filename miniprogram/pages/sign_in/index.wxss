@@ -1,0 +1,83 @@
+/* pages/sign_in/index.wxss */
+.qd-head {
+  display: flex;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.qd-head .head-bg {
+  width: 100%;
+}
+
+.qd-head .head-btn {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.head-btn .head-btn-name {
+  position: absolute;
+  font-size: 12px;
+  color: #69b29c;
+}
+
+.qd-head .head-name {
+  position: absolute;
+  bottom: 20px;
+  font-size: 10px;
+  color: white;
+}
+
+.calendar {
+  --calendar-height: 340px;
+  overflow: hidden;
+}
+
+.van-calendar__body {
+  width: auto;
+  height: 100px;
+}
+.van-calendar__header-title {
+  height: 0;
+  line-height: 0;
+}
+
+.qd-info {
+  margin-top: 10px;
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 10px;
+  color: gray;
+}
+
+.qd-info .info-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.qd-success {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background: rgba(0.8, 0.8, 0.8, 0.3);
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.qd-success .success-content {
+  position: absolute;
+  font-size: 12px;
+  color: gray;
+}

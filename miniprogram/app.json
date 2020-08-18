@@ -5,7 +5,8 @@
     "pages/car/index",
     "pages/me/index",
     "pages/good_detail/index",
-    "pages/confirm_order/index"
+    "pages/confirm_order/index",
+    "pages/sign_in/index"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",
@@ -25,7 +26,9 @@
     "van-radio-group": "@vant/weapp/radio-group",
     "van-cell": "@vant/weapp/cell",
     "van-cell-group": "@vant/weapp/cell-group",
-    "van-swipe-cell": "@vant/weapp/swipe-cell"
+    "van-swipe-cell": "@vant/weapp/swipe-cell",
+    "van-calendar": "@vant/weapp/calendar",
+    "calendar": "components/calendar/calendar"
   },
   "tabBar": {
     "list": [

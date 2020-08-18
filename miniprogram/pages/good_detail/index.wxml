@@ -4,7 +4,7 @@
 <!-- 状态栏 -->
 <view class="status-bar" style="height:{{statusBarH}}px"></view>
 <view style="height:{{statusBarH}}px" />
-<view class="nav-back" bind:tap="onBack">
+<view class="nav-item" bind:tap="onBack">
   <van-icon name="arrow-left" color="black" />
 </view>
 <!-- 内容 -->

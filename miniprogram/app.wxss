@@ -26,11 +26,11 @@ page {
 }
 
 /* 导航栏返回按钮 */
-.nav-back {
+.nav-item {
   position: fixed;
-  left: 20rpx;
-  width: 88rpx;
-  height: 88rpx;
+  left: 10px;
+  width: 44px;
+  height: 44px;
   z-index: 99;
   display: flex;
   justify-content: center;

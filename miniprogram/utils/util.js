@@ -1,8 +1,10 @@
 module.exports = {
-  toCountDown: toCountDown,
+  toCountDown,
+  formatNumber,
 }
 
-const formatNumber = (n) => {
+// MARK 补0
+function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }

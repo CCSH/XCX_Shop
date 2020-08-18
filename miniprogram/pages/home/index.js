@@ -254,16 +254,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    // 请求
-    // Interface.moviceList({
-    //   apikey: '0df993c66c0c636e29ecbb5344252a4a',
-    //   start: 0,
-    //   count: 10,
-    // }).then((res) => {
-    //   console.log(res)
-    // })
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -315,7 +306,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    console.log(this.data.viewW)
-  },
+  onShareAppMessage: function () {},
 })

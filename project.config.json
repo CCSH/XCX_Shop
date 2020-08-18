@@ -15,6 +15,7 @@
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -83,6 +84,13 @@
 					"id": -1,
 					"name": "pages/classify/index",
 					"pathName": "pages/classify/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/sign_in/index",
+					"pathName": "pages/sign_in/index",
 					"scene": null
 				}
 			]
