@@ -1,6 +1,7 @@
 /* pages/me_order/index.wxss */
-
+/* 标签滚动条 */
 .order-tab .van-tabs__scroll--line {
+  position: fixed;
   height: 40px;
 }
 

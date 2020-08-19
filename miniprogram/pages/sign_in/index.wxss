@@ -2,14 +2,16 @@
 .qd-head {
   display: flex;
   position: relative;
-  width: 100%;
+  width: 100vw;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
 
 .qd-head .head-bg {
+  margin: 0;
   width: 100%;
+  /* flex: 1; */
 }
 
 .qd-head .head-btn {

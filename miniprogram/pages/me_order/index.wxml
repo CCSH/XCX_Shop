@@ -3,7 +3,7 @@
 <!-- Toast -->
 <van-toast id="van-toast" />
 <!-- 标签 -->
-<van-tabs class="order-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable color="#69b29c" sticky>
+<van-tabs class="order-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable color="#69b29c">
 		<van-tab class="tab-content" wx:for="{{tabArr}}" wx:key="index" title="{{item}}">
 				<block wx:if="{{ dataSoure[index].length == 0 }}">
 						<van-empty description="暂无数据" />
@@ -11,7 +11,7 @@
 				<block wx:else>
 						<block wx:for="{{ dataSoure[index] }}" wx:key="index">
 								<!-- 订单cell -->
-								<view class="order-cell">
+								<view class="order-cell" bind:tap="onSclect" data-param="{{item}}">
 										<!-- 头部 -->
 										<view class="order-top">
 												<view>订单编号：{{item.order_sn}}</view>

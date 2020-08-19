@@ -7,7 +7,8 @@
     "pages/good_detail/index",
     "pages/confirm_order/index",
     "pages/sign_in/index",
-    "pages/me_order/index"
+    "pages/me_order/index",
+    "pages/order_detail/index"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",

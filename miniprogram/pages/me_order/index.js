@@ -504,7 +504,24 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {},
+  onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+      success: (result) => {},
+      fail: () => {},
+      complete: () => {},
+    })
+
+    setTimeout(function () {
+      // 数据请求成功后，关闭刷新
+      wx.stopPullDownRefresh({
+        success(res) {
+          wx.hideLoading()
+        },
+      })
+    }, 2000)
+  },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -593,5 +610,14 @@ Page({
   onOperation(event) {
     let data = event.currentTarget.dataset
     Toast(`点击了第${data.index}个 操作为${data.param.name}`)
+  },
+
+  // MARK cell点击
+  onSclect(event) {
+    let data = event.currentTarget.dataset.param
+    data.json
+    wx.navigateTo({
+      url: `pages/me_order/index`,
+    })
   },
 })
