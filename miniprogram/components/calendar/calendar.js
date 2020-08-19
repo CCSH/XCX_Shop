@@ -22,34 +22,32 @@ Component({
       type: Array,
       value: ['日', '一', '二', '三', '四', '五', '六'],
     },
-    // 标题
-    title: {
-      type: String,
-      value: '日期选择',
-    },
+
     // 最多显示天数(不够的话下个月补)
     maxDay: {
       type: String,
-      value: '0',
+      value: '',
     },
   },
 
   // 组件的初始数据
   data: {
-    //上个月
+    // 上个月
     lastDays: [],
-    //这个月
+    // 这个月
     thisDays: [],
-    //下个月
+    // 下个月
     nextDays: [],
 
-    //选中
+    // 选中
     select: '',
+    // 标题
+    title: '',
 
     // 临时记录年月日
     year: 0,
     month: 0,
-    day: 0,
+    date: 0,
   },
 
   /**
@@ -62,11 +60,11 @@ Component({
 
   methods: {
     //初始化
-    display: function (year, month, day) {
+    display: function (year, month, date) {
       this.setData({
         year,
         month,
-        day,
+        date,
         title: year + '年' + this.zero(month) + '月',
       })
       this.createDays(year, month)
@@ -78,31 +76,30 @@ Component({
       var defaultValue = this.data.defaultValue,
         year,
         month,
-        day,
+        date,
         select
       if (defaultValue.length == 8) {
         year = defaultValue.substring(0, 4)
         month = parseInt(defaultValue.substring(4, 6))
-        day = parseInt(defaultValue.substring(6, 8))
+        date = parseInt(defaultValue.substring(6, 8))
       }
 
-      console.log(day)
-      let date = year ? new Date(year, month - 1, day) : new Date()
+      let temp = year ? new Date(year, month - 1, date) : new Date()
 
-      year = date.getFullYear()
-      month = date.getMonth() + 1
-      day = date.getDate()
-      select = year + '-' + this.zero(month) + '-' + this.zero(day)
+      year = temp.getFullYear()
+      month = temp.getMonth() + 1
+      date = temp.getDate()
+      select = year + '-' + this.zero(month) + '-' + this.zero(date)
 
       this.setData({
         year,
         month,
-        day,
+        date,
         select,
       })
 
       //初始化日历组件UI
-      this.display(year, month, day)
+      this.display(year, month, date)
 
       //发送事件监听
       this.triggerEvent('select', select)
@@ -116,14 +113,14 @@ Component({
           '-' +
           this.zero(this.data.month) +
           '-' +
-          this.zero(day)
+          this.zero(date)
 
       this.setData({
         title: this.data.year + '年' + this.zero(this.data.month) + '月',
-        select: select,
+        select,
         year: this.data.year,
         month: this.data.month,
-        day: day,
+        date,
       })
 
       //发送事件监听
@@ -170,7 +167,7 @@ Component({
         })
 
         thisDays.push({
-          day: i,
+          date: i,
           dateFormat: dateFormat,
           monthFormat: monthFormat,
           week: this.data.weeks[

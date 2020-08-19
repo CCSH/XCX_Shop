@@ -34,7 +34,7 @@
   font-size: 12px;
 }
 
-.calendar-week view {
+.calendar-week .week {
   flex: 1;
 }
 
