@@ -1,10 +1,10 @@
 module.exports = {
   toCountDown,
-  formatNumber,
+  zero,
 }
 
 // MARK 补0
-function formatNumber(n) {
+function zero(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }

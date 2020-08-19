@@ -5,7 +5,7 @@
   <!-- 搜索 -->
   <van-search class="home-search" shape="round" background="transparent" placeholder="{{ searchContent }}" />
   <!-- 标签页 -->
-  <van-tabs class="home-tab" active="{{ active }}" border="false" swipe-threshold="0" line-width="30" line-height="2" swipeable>
+  <van-tabs class="home-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable>
     <!-- 首页内容 -->
     <block wx:for="{{tabArr}}" wx:key="index">
       <van-tab title="{{item}}">

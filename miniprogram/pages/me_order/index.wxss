@@ -1,0 +1,146 @@
+/* pages/me_order/index.wxss */
+
+.order-tab .van-tabs__scroll--line {
+  height: 40px;
+}
+
+/* 标签容器 */
+.order-tab .van-tabs__wrap--scrollable .van-tab {
+  flex-basis: auto;
+}
+
+/* 未选中标签 */
+.order-tab .van-ellipsis {
+  height: 40px;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+}
+
+/* 选中标签 */
+.order-tab .van-tab--active .van-ellipsis {
+  font-size: 12px;
+}
+
+/* 线 */
+.order-tab .van-tabs__line {
+  margin-bottom: 5px;
+}
+
+/* 下方内容 */
+.order-tab .van-tab__pane {
+  padding-bottom: 20px;
+}
+
+/* 订单内容 */
+.order-tab .order-cell {
+  margin-top: 10px;
+  background: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.order-cell .order-top {
+  font-size: 12px;
+  line-height: 40px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-top .order-status {
+  color: #69b29c;
+}
+
+.order-cell .order-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid rgb(245, 245, 245);
+}
+
+/* 内容 */
+.order-content .info-left {
+  display: flex;
+}
+
+.info-left .order-img {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+}
+
+.info-left .info {
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.info .info-name {
+  -webkit-line-clamp: 2;
+}
+
+.info .info-key {
+  padding: 0 10px;
+  background: rgb(245, 245, 245);
+  line-height: 18px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: rgb(193, 193, 193);
+}
+
+.order-content .info-right {
+  margin-top: 10px;
+  align-self: flex-start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.info-right .info-num {
+  font-size: 10px;
+  margin-top: 20px;
+  color: rgb(193, 193, 193);
+}
+
+/* 其他信息 */
+.order-cell .order-other {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  line-height: 30px;
+  border-bottom: 0.5px solid rgb(245, 245, 245);
+}
+
+/* 操作 */
+.order-cell .order-operation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.order-operation .operation {
+  width: 70px;
+  font-size: 10px;
+
+  text-align: center;
+  line-height: 28px;
+  margin-left: 10px;
+  border-radius: 14px;
+  border: 1px solid;
+}
+
+.order-operation .pay {
+  background: #69b29c;
+  color: white;
+}

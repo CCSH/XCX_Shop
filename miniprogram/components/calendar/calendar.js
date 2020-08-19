@@ -1,37 +1,63 @@
 Component({
   // 外部数据
   properties: {
+    //默认日期 格式：20200101
+    defaultValue: {
+      type: String,
+      value: '',
+    },
+    // 特殊数组
     specialDays: {
       type: Array,
+      // 格式：20200101
       value: [],
+    },
+    // 周几开始
+    weekStart: {
+      type: String,
+      value: '0',
+    },
+    // 星期数组
+    weeks: {
+      type: Array,
+      value: ['日', '一', '二', '三', '四', '五', '六'],
+    },
+    // 标题
+    title: {
+      type: String,
+      value: '日期选择',
+    },
+    // 最多显示天数(不够的话下个月补)
+    maxDay: {
+      type: String,
+      value: '0',
     },
   },
 
   // 组件的初始数据
   data: {
-    //当月格子
-    thisMonthDays: [],
-    //上月格子
-    empytGridsBefore: [],
-    //下月格子
-    empytGridsAfter: [],
-    //显示日期
-    title: '',
+    //上个月
+    lastDays: [],
+    //这个月
+    thisDays: [],
+    //下个月
+    nextDays: [],
 
-    // 开始周日
-    weekStart: 0,
-    //星期数组
-    weeks: ['日', '一', '二', '三', '四', '五', '六'],
     //选中
-    select: 0,
+    select: '',
 
+    // 临时记录年月日
     year: 0,
     month: 0,
     day: 0,
   },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
   ready: function () {
-    this.today()
+    //初始化一下今天
+    this.init()
   },
 
   methods: {
@@ -44,22 +70,35 @@ Component({
         title: year + '年' + this.zero(month) + '月',
       })
       this.createDays(year, month)
-      this.createEmptyGrids(year, month)
+      this.createEmptyDays(year, month)
     },
 
-    //默认选中当天 并初始化组件
-    today: function () {
-      let date = new Date(),
-        year = date.getFullYear(),
-        month = date.getMonth() + 1,
-        day = date.getDate(),
-        select = year + '-' + this.zero(month) + '-' + this.zero(day)
+    //初始化组件
+    init: function () {
+      var defaultValue = this.data.defaultValue,
+        year,
+        month,
+        day,
+        select
+      if (defaultValue.length == 8) {
+        year = defaultValue.substring(0, 4)
+        month = parseInt(defaultValue.substring(4, 6))
+        day = parseInt(defaultValue.substring(6, 8))
+      }
+
+      console.log(day)
+      let date = year ? new Date(year, month - 1, day) : new Date()
+
+      year = date.getFullYear()
+      month = date.getMonth() + 1
+      day = date.getDate()
+      select = year + '-' + this.zero(month) + '-' + this.zero(day)
 
       this.setData({
-        year: year,
-        month: month,
-        day: day,
-        select: select,
+        year,
+        month,
+        day,
+        select,
       })
 
       //初始化日历组件UI
@@ -108,27 +147,29 @@ Component({
     },
 
     //获取指定月天数
-    getThisMonthDays: function (year, month) {
+    getThisDays: function (year, month) {
       return new Date(year, month, 0).getDate()
     },
 
     // 绘制当月天数占的格子
     createDays: function (year, month) {
-      let thisMonthDays = [],
-        days = this.getThisMonthDays(year, month)
+      let thisDays = []
+      let days = this.getThisDays(year, month)
 
+      // 判断特殊
       for (let i = 1; i <= days; i++) {
         let isSpecial = false,
           monthFormat = this.zero(month),
           dateFormat = this.zero(i)
         //是否特殊
         this.data.specialDays.map((item) => {
+          // 20200101
           if (item === `${year}${monthFormat}${dateFormat}`) {
             isSpecial = true
           }
         })
 
-        thisMonthDays.push({
+        thisDays.push({
           day: i,
           dateFormat: dateFormat,
           monthFormat: monthFormat,
@@ -139,38 +180,53 @@ Component({
         })
       }
       this.setData({
-        thisMonthDays,
+        thisDays,
       })
     },
 
     //获取当月空出的天数
-    createEmptyGrids: function (year, month) {
-      let week = new Date(Date.UTC(year, month - 1, 1)).getDay(),
-        empytGridsBefore = [],
-        empytGridsAfter = [],
-        emptyDays = week == 0 ? 7 : week
-      //当月天数
-      var thisMonthDays = this.getThisMonthDays(year, month)
+    createEmptyDays: function (year, month) {
+      // 获取本月一号为周几
+      let week = new Date(Date.UTC(year, month - 1, 1)).getDay()
+      let lastDays = []
+      let nextDays = []
+
+      // 计算差几天
+      var temp = week - parseInt(this.data.weekStart)
+      temp = temp == 0 ? 0 : temp
+
       //上月天数
-      var preMonthDays =
+      var lastDay =
         month - 1 < 0
-          ? this.getThisMonthDays(year - 1, 12)
-          : this.getThisMonthDays(year, month - 1)
+          ? this.getThisDays(year - 1, 12)
+          : this.getThisDays(year, month - 1)
 
       //空出日期
-      for (let i = 1; i <= emptyDays; i++) {
-        empytGridsBefore.push(preMonthDays - (emptyDays - i))
+      for (let i = 0; i < temp; i++) {
+        // 取出上个月后几天
+        lastDays.push(lastDay - (temp - i - 1))
       }
 
-      var currentDays = thisMonthDays + emptyDays
       //下个月天数
-      var after = 42 - currentDays > 0 ? 42 - currentDays : 0
-      for (let i = 1; i <= after; i++) {
-        empytGridsAfter.push(i)
+      var current = this.data.thisDays.length + lastDays.length
+      var next = 0
+      let maxDay = parseInt(this.data.maxDay)
+      // 计算差几天
+      if (maxDay <= current) {
+        // 补几天
+        next = 7 - (current % 7)
+      } else {
+        // 补满(保护一下)
+        next = maxDay - current > 0 ? maxDay - current : 0
+      }
+
+      for (let i = 1; i <= next; i++) {
+        // 取出下个月前几天
+        nextDays.push(i)
       }
       this.setData({
-        empytGridsAfter,
-        empytGridsBefore,
+        lastDays,
+        nextDays,
       })
     },
 

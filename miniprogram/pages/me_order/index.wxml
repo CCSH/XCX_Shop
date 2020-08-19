@@ -1,0 +1,51 @@
+<!-- pages/me_order/index.wxml -->
+<wxs src="../../app.wxs" module="app" />
+<!-- Toast -->
+<van-toast id="van-toast" />
+<!-- 标签 -->
+<van-tabs class="order-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable color="#69b29c" sticky>
+		<van-tab class="tab-content" wx:for="{{tabArr}}" wx:key="index" title="{{item}}">
+				<block wx:if="{{ dataSoure[index].length == 0 }}">
+						<van-empty description="暂无数据" />
+				</block>
+				<block wx:else>
+						<block wx:for="{{ dataSoure[index] }}" wx:key="index">
+								<!-- 订单cell -->
+								<view class="order-cell">
+										<!-- 头部 -->
+										<view class="order-top">
+												<view>订单编号：{{item.order_sn}}</view>
+												<view class="order-status">{{item.status_name}}</view>
+										</view>
+										<!-- 内容 -->
+										<view class="order-content" wx:for="{{item.goodsList}}" wx:key="index">
+												<view class="info-left">
+														<image class="order-img" src="{{app.toUrl(item.original_img)}}" />
+														<view class="info">
+																<view class="info-name text-limit">{{item.goods_name}}</view>
+																<view class="info-key">{{item.spec_key_name}}</view>
+														</view>
+												</view>
+												<view class="info-right">
+														<view>{{item.final_price}}</view>
+														<view class="info-num">x{{item.goods_num}}</view>
+												</view>
+										</view>
+										<!-- 其他信息 -->
+										<view class="order-other">
+												<view>{{item.order_time}}</view>
+												<view>共计{{item.num}}件商品 合计¥{{item.money}}</view>
+										</view>
+										<!-- 操作 -->
+										<view class="order-operation">
+												<view wx:for="{{item.operation}}" wx:key="index" wx:for-index="operation_index">
+														<view class="operation {{item.tag == '1' ? 'pay' : ''}}" bind:tap="onOperation" data-index="{{index}}" data-param="{{item}}">
+																{{item.name}}
+														</view>
+												</view>
+										</view>
+								</view>
+						</block>
+				</block>
+		</van-tab>
+</van-tabs>

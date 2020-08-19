@@ -132,4 +132,12 @@ Page({
       url: '/pages/sign_in/index',
     })
   },
+
+  // MARK 我的订单
+  onOrder(event) {
+    let index = event.currentTarget.dataset.param
+    wx.navigateTo({
+      url: `/pages/me_order/index?index=${index}`,
+    })
+  },
 })

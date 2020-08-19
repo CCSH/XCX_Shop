@@ -40,7 +40,7 @@
 <view class="me-order">
   <view class="me-title">我的订单</view>
   <view class="order-content">
-    <view class="order-item" wx:for="{{orderList}}" wx:key="index">
+    <view class="order-item" wx:for="{{orderList}}" wx:key="index" bind:tap="onOrder" data-param="{{index}}">
       <!-- 提示处理 -->
       <view class="order-tip">
         <block wx:if="{{index == 0 && dataSoure.order_num.WAITPAY != '0'}}">
