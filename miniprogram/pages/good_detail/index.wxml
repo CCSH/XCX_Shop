@@ -9,7 +9,7 @@
 </view>
 <!-- 内容 -->
 <!-- banner -->
-<swiper class="home-banner" indicator-dots indicator-active-color="#69b29c" indicator-color="white" autoplay circular duration="1000">
+<swiper class="home-banner" indicator-dots indicator-active-color="#65B09E" indicator-color="white" autoplay circular duration="1000">
   <block wx:for="{{ dataSoure.top_images }}" wx:key="index">
     <swiper-item>
       <van-image src="{{app.toUrl(item)}}" width="100%" height="100%"></van-image>

@@ -51,9 +51,10 @@
 }
 
 .order-top .order-status {
-  color: #69b29c;
+  color: #65b09e;
 }
 
+/* 内容 */
 .order-cell .order-content {
   display: flex;
   justify-content: space-between;
@@ -61,7 +62,6 @@
   border-bottom: 0.5px solid rgb(245, 245, 245);
 }
 
-/* 内容 */
 .order-content .info-left {
   display: flex;
 }
@@ -141,7 +141,14 @@
   border: 1px solid;
 }
 
+/* 支付 */
 .order-operation .pay {
-  background: #69b29c;
+  background: #65b09e;
+  color: white;
+}
+
+/* 退款 */
+.order-operation .refund {
+  background: #f4aa00;
   color: white;
 }

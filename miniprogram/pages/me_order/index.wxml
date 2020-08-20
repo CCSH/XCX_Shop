@@ -3,7 +3,7 @@
 <!-- Toast -->
 <van-toast id="van-toast" />
 <!-- 标签 -->
-<van-tabs class="order-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable color="#69b29c">
+<van-tabs class="order-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable color="#65B09E">
 		<van-tab class="tab-content" wx:for="{{tabArr}}" wx:key="index" title="{{item}}">
 				<block wx:if="{{ dataSoure[index].length == 0 }}">
 						<van-empty description="暂无数据" />
@@ -27,7 +27,7 @@
 														</view>
 												</view>
 												<view class="info-right">
-														<view>{{item.final_price}}</view>
+														<view>¥{{item.final_price}}</view>
 														<view class="info-num">x{{item.goods_num}}</view>
 												</view>
 										</view>
@@ -39,7 +39,7 @@
 										<!-- 操作 -->
 										<view class="order-operation">
 												<view wx:for="{{item.operation}}" wx:key="index" wx:for-index="operation_index">
-														<view class="operation {{item.tag == '1' ? 'pay' : ''}}" bind:tap="onOperation" data-index="{{index}}" data-param="{{item}}">
+														<view class="operation {{item.class}}" bind:tap="onOperation" data-index="{{index}}" data-param="{{item}}">
 																{{item.name}}
 														</view>
 												</view>

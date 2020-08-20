@@ -67,7 +67,7 @@ Page({
           shipping_code: '',
           invoice_no: '',
           express: '\u5546\u5bb6\u914d\u9001',
-          btn: '1',
+          btn: '2',
           goodsList: [
             {
               rec_id: '27',
@@ -103,7 +103,7 @@ Page({
           shipping_code: '',
           invoice_no: '',
           express: '\u5546\u5bb6\u914d\u9001',
-          btn: '2',
+          btn: '3',
           goodsList: [
             {
               rec_id: '25',
@@ -149,7 +149,7 @@ Page({
           shipping_code: '',
           invoice_no: '',
           express: '\u5546\u5bb6\u914d\u9001',
-          btn: '2',
+          btn: '4',
           goodsList: [
             {
               rec_id: '24',
@@ -185,7 +185,7 @@ Page({
           shipping_code: '',
           invoice_no: '',
           express: '\u5546\u5bb6\u914d\u9001',
-          btn: '2',
+          btn: '5',
           goodsList: [
             {
               rec_id: '18',
@@ -261,7 +261,7 @@ Page({
           shipping_code: '',
           invoice_no: '',
           express: '\u5546\u5bb6\u914d\u9001',
-          btn: '2',
+          btn: '6',
           goodsList: [
             {
               rec_id: '13',
@@ -297,7 +297,7 @@ Page({
           shipping_code: '',
           invoice_no: '',
           express: '\u5546\u5bb6\u914d\u9001',
-          btn: '2',
+          btn: '7',
           goodsList: [
             {
               rec_id: '12',
@@ -553,18 +553,27 @@ Page({
             break
           case '3':
             item.status_name = '待发货'
+            item.operation = [this.getOperation('3'), this.getOperation('2')]
             break
           case '4':
             item.status_name = '待收货'
+            item.operation = [this.getOperation('4'), this.getOperation('5')]
             break
           case '5':
             item.status_name = '待评价'
+            item.operation = [this.getOperation('6'), this.getOperation('5')]
             break
           case '6':
             item.status_name = '已完成'
+            item.operation = [this.getOperation('2'), this.getOperation('5')]
+            break
+          case '7':
+            item.status_name = '退款状态'
+            item.operation = [this.getOperation('2')]
             break
           default:
             item.status_name = item.btn
+            item.operation = [this.getOperation('2')]
             break
         }
 
@@ -595,10 +604,25 @@ Page({
         break
       case '1': //立即支付
         param.name = '立即支付'
+        param.class = 'pay'
         break
       case '2': //查看订单
         param.name = '查看订单'
         break
+      case '3': //申请退款
+        param.name = '申请退款'
+        param.class = 'refund'
+        break
+      case '4': //确认收货
+        param.name = '确认收货'
+        break
+      case '5': //物流信息
+        param.name = '物流信息'
+        break
+      case '6': //立即评价
+        param.name = '立即评价'
+        break
+
       default:
         break
     }
@@ -615,9 +639,9 @@ Page({
   // MARK cell点击
   onSclect(event) {
     let data = event.currentTarget.dataset.param
-    data.json
+    let param = JSON.stringify(data)
     wx.navigateTo({
-      url: `pages/me_order/index`,
+      url: `/pages/order_detail/index?param=${param}`,
     })
   },
 })

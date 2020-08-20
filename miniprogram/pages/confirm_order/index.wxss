@@ -97,7 +97,7 @@
 .good-other .good-price {
   display: flex;
   align-items: center;
-  color: #69b29c;
+  color: #65b09e;
   font-size: 28rpx;
 }
 
@@ -161,7 +161,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 12px;
-  color: #69b29c;
+  color: #65b09e;
 
   border-top: 1px solid rgb(245, 245, 245);
 }
@@ -171,7 +171,7 @@
   line-height: 36px;
   width: 180rpx;
   height: 36px;
-  background: #69b29c;
+  background: #65b09e;
   color: white;
   font-size: 10px;
   border-radius: 18px;
@@ -196,7 +196,7 @@
 }
 
 .coupons-message .coupons-price {
-  background: #69b29c;
+  background: #65b09e;
   line-height: 70px;
   color: white;
   font-weight: 700;

@@ -1,7 +1,7 @@
 {
   "usingComponents": {},
   "enablePullDownRefresh": true,
-  "navigationBarBackgroundColor": "#69b29c",
+  "navigationBarBackgroundColor": "#65B09E",
   "navigationBarTitleText": "乐拱",
   "navigationBarTextStyle": "white"
 }

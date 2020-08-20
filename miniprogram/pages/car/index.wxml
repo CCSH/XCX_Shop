@@ -9,7 +9,7 @@
   <view class="table-cell">
     <!-- 选择 -->
     <van-radio-group value="{{ ((item.selected == '1') ? index : -1) }}" bind:change="onChange">
-      <van-radio name="{{index}}" checked-color="#69b29c"></van-radio>
+      <van-radio name="{{index}}" checked-color="#65B09E"></van-radio>
     </van-radio-group>
     <!-- 商品 -->
     <view class="order-good">
@@ -44,7 +44,7 @@
   <!-- 全选 -->
   <view class="tool-content">
     <van-radio-group value="{{ ((customData.isAll == 1) ? 'all' : -1) }}" bind:change="onAllCheck">
-      <van-radio name="all" checked-color="#69b29c"></van-radio>
+      <van-radio name="all" checked-color="#65B09E"></van-radio>
     </van-radio-group>
     <view class="tool-name">全选</view>
     <view class="tool-sum">合计:¥{{app.toPrice(customData.money)}}</view>

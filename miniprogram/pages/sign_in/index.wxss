@@ -25,7 +25,7 @@
 .head-btn .head-btn-name {
   position: absolute;
   font-size: 12px;
-  color: #69b29c;
+  color: #65b09e;
 }
 
 .qd-head .head-name {

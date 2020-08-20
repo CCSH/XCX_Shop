@@ -1,1 +1,166 @@
 /* pages/order_detail/index.wxss */
+/* 头部 */
+.detail-head {
+  width: 100%;
+  background: #65b09e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-head .head-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+}
+
+.detail-head image {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* 地址 */
+.detail-address {
+  background: white;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.detail-address .address-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.detail-address van-image {
+  margin-left: 10px;
+}
+
+.address-info .address-other {
+  display: flex;
+  flex-direction: row;
+  font-weight: normal;
+  margin-top: 5px;
+  line-height: 100%;
+  font-size: 12px;
+}
+
+.address-other .address-number {
+  margin-left: 5px;
+}
+
+/* 商品内容 */
+.detail-content {
+  margin-top: 10px;
+  background: white;
+}
+
+/* 内容 */
+.detail-content .content {
+  display: flex;
+  border-bottom: 0.5px solid rgb(245, 245, 245);
+  padding: 10px;
+}
+
+.content .info-img {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+}
+
+.content .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.info .info-name {
+  -webkit-line-clamp: 2;
+  height: 40px;
+}
+
+.info .info-bottom {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.info-bottom .info-key {
+  padding: 0 10px;
+  background: rgb(245, 245, 245);
+  line-height: 18px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: rgb(193, 193, 193);
+}
+
+.info-bottom .info-other {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.info-other .info-price {
+  color: #65b09e;
+}
+
+.info-other .info-num {
+  font-size: 10px;
+  color: rgb(193, 193, 193);
+}
+
+/* 其他 */
+.order-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1px;
+  background: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  align-items: center;
+}
+
+.order-title {
+  font-size: 10px;
+  font-weight: bold;
+  color: rgb(86, 86, 86);
+}
+
+.order-name {
+  color: rgb(153, 153, 153);
+  font-size: 10px;
+  margin-left: 10px;
+  flex: 1;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 实付金额 */
+.detail-money {
+  line-height: 50px;
+  background: white;
+  width: 100%;
+  display: flex;
+  margin-bottom: 30px;
+  font-size: 10px;
+  justify-content: flex-end;
+}
+
+.detail-money view {
+  color: #65b09e;
+  padding-right: 20px;
+}

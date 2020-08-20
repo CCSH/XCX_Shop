@@ -37,14 +37,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
-				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
 				{
 					"id": -1,
 					"name": "pages/good_detail/index",
@@ -98,6 +92,14 @@
 					"id": -1,
 					"name": "pages/me_order/index",
 					"pathName": "pages/me_order/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order_detail/index",
+					"pathName": "pages/order_detail/index",
+					"query": "param={\"order_id\":\"19\",\"order_sn\":\"202008121051316919\",\"user_id\":\"41\",\"order_status\":\"3\",\"shipping_status\":\"0\",\"pay_status\":\"0\",\"add_time\":\"1597200691\",\"consignee\":\"11\",\"province\":\"北京市\",\"city\":\"市辖区\",\"district\":\"东城区\",\"address\":\"13\",\"mobile\":\"111\",\"user_note\":\"123123\",\"total_amount\":\"590.00\",\"order_amount\":\"560.00\",\"shipping_code\":\"\",\"invoice_no\":\"\",\"express\":\"商家配送\",\"btn\":\"3\",\"goodsList\":[{\"rec_id\":\"25\",\"goods_id\":\"42\",\"goods_name\":\"黑森香菇脆片\",\"goods_num\":\"5\",\"final_price\":\"9.49\",\"spec_key_name\":\"规格:70克/盒\",\"original_img\":\"/public/upload/goods/2020/07-02/9cc32248b1f56ff295d8edd816a9ab1e.jpg\"},{\"rec_id\":\"26\",\"goods_id\":\"39\",\"goods_name\":\"有机稻花香米\",\"goods_num\":\"3\",\"final_price\":\"170.85\",\"spec_key_name\":\"规格:500克*8/盒\",\"original_img\":\"/public/upload/goods/2020/07-02/9dcadb92a8b2dc401f8f94a6e85ef00c.jpg\"}],\"money\":\"560.00\",\"num\":\"8\",\"status_name\":\"待发货\",\"operation\":[{\"tag\":\"3\",\"name\":\"申请退款\",\"class\":\"refund\"},{\"tag\":\"2\",\"name\":\"查看订单\"}],\"order_time\":\"2020-07-12 10:51\"}",
 					"scene": null
 				}
 			]

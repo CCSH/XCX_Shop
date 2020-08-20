@@ -20,7 +20,7 @@
 .good-time {
   padding-left: 20rpx;
   background: white;
-  color: #69b29c;
+  color: #65b09e;
   font-size: 10px;
 }
 
@@ -36,7 +36,7 @@
 .good-price {
   display: flex;
   align-items: center;
-  color: #69b29c;
+  color: #65b09e;
   font-size: 28rpx;
   margin-left: 20rpx;
 }
@@ -136,7 +136,7 @@
 }
 
 .good-tool .btn-pay {
-  background: #69b29c;
+  background: #65b09e;
 }
 
 /* 弹窗 */
@@ -166,7 +166,7 @@
   align-items: flex-end;
   font-size: 30rpx;
 
-  color: #69b29c;
+  color: #65b09e;
 }
 
 .pop-content .info-price-real {
@@ -215,7 +215,7 @@
 
 .model-pop .model-list .current {
   color: white;
-  background: #69b29c;
+  background: #65b09e;
 }
 
 .model-pop .pop-sure {
@@ -235,7 +235,7 @@
   height: 40px;
   font-size: 13px;
   flex: 1;
-  background: #69b29c;
+  background: #65b09e;
   border-radius: 20px;
 }
 
@@ -258,7 +258,7 @@
 }
 
 .coupons-message .coupons-price {
-  background: #69b29c;
+  background: #65b09e;
   line-height: 70px;
   color: white;
   font-weight: 700;
@@ -303,6 +303,6 @@
 }
 
 .coupons-state .state-get {
-  color: #69b29c;
-  border-color: #69b29c;
+  color: #65b09e;
+  border-color: #65b09e;
 }

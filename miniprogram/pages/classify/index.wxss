@@ -40,7 +40,7 @@
   left: 10px;
   height: 20px;
   width: 8rpx;
-  background-color: #69b29c;
+  background-color: #65b09e;
   border-radius: 8rpx;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .classify-screening .classify-btn-h {
-  color: #69b29c;
+  color: #65b09e;
 }
 
 /* 商品列表 */

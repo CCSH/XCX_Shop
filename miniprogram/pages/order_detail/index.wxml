@@ -1,2 +1,84 @@
-<!--pages/order_detail/index.wxml-->
-<text>pages/order_detail/index.wxml</text>
+<!-- pages/order_detail/index.wxml -->
+<wxs src="../../app.wxs" module="app" />
+<van-toast id="van-toast" />
+<!-- 返回按钮 -->
+<view class="nav-item" style="top:{{statusBarH}}px" bind:tap="onBack">
+  <van-icon name="arrow-left" color="black" />
+</view>
+<!-- 头部 -->
+<view class="detail-head" style="height:{{statusBarH + 180}}px">
+  <view class="head-content">
+    <image class="" src="/images/detail_head_icon.png" />
+    <view>{{dataSoure.status_name}}</view>
+  </view>
+</view>
+<!-- 地址 -->
+<view class="detail-address">
+  <van-image src="/images/loc_gray.png" width="18px" height="18px"></van-image>
+  <view class="address-info">
+    <view>{{dataSoure.province}}{{dataSoure.city}}{{dataSoure.district}}{{dataSoure.address}}</view>
+    <view class="address-other">
+      <view>{{dataSoure.consignee}}</view>
+      <view class="address-number">{{dataSoure.mobile}}</view>
+    </view>
+  </view>
+</view>
+<!-- 商品信息 -->
+<view class="detail-content">
+  <view class="content" wx:for="{{dataSoure.goodsList}}" wx:key="index" bind:tap="onGoods" data-param="{{index}}">
+    <image class="info-img" src="{{app.toUrl(item.original_img)}}" />
+    <view class="info">
+      <view class="info-name text-limit">{{item.goods_name}}</view>
+      <view class="info-bottom">
+        <view class="info-key">{{item.spec_key_name}}</view>
+        <view class="info-other">
+          <view class="info-price">¥{{item.final_price}}</view>
+          <view class="info-num">x{{item.goods_num}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="space" />
+<!-- 配送 -->
+<view class="order-content">
+  <view class="order-title">配送</view>
+  <view class="order-name">{{dataSoure.express}}</view>
+</view>
+<!-- 留言 -->
+<view class="order-content">
+  <view class="order-title">留言</view>
+  <view class="order-name">{{dataSoure.user_note}}</view>
+</view>
+<view class="space" />
+<!-- 订单编号 -->
+<view class="order-content">
+  <view class="order-title">订单编号</view>
+  <view class="order-name">{{dataSoure.order_sn}}</view>
+</view>
+<!-- 下单时间 -->
+<view class="order-content">
+  <view class="order-title">下单时间</view>
+  <view class="order-name">{{dataSoure.order_time}}</view>
+</view>
+<view class="space" />
+<!-- 商品金额 -->
+<view class="order-content">
+  <view class="order-title">商品金额</view>
+  <view class="order-name">¥{{dataSoure.total_amount}}</view>
+</view>
+<!-- 运费 -->
+<view class="order-content">
+  <view class="order-title">运费</view>
+  <view class="order-name">¥0.00</view>
+</view>
+<!-- 已优惠 -->
+<view class="order-content">
+  <view class="order-title">已优惠</view>
+  <view class="order-name">¥{{app.toPrice(dataSoure.amount)}}</view>
+</view>
+<!-- 实付金额 -->
+<view class="detail-money">
+  实付金额：
+  <view>{{dataSoure.money}} 元</view>
+</view>

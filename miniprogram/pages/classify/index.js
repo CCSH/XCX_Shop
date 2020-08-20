@@ -933,7 +933,7 @@ Page({
   gotoGoodDetail: function () {
     console.log(111)
     wx.navigateTo({
-      url: '/pages/good_detail/index"',
+      url: '/pages/good_detail/index',
       success: (result) => {},
       fail: () => {},
       complete: () => {},
