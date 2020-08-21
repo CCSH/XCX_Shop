@@ -68,7 +68,7 @@
   <view class="me-title">我的服务</view>
   <van-grid class="service-list" column-num="4" border="{{false}}">
     <!-- 商品信息 -->
-    <van-grid-item class="service-item" wx:for="{{fwList}}" wx:key="index" use-slot>
+    <van-grid-item class="service-item" wx:for="{{serviceList}}" wx:key="index" use-slot bind:click="onService" data-param="{{index}}">
       <!-- 图标 -->
       <van-image src="{{item.img}}" width="24" height="24"></van-image>
       <!-- 名称 -->

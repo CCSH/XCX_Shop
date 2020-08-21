@@ -1,5 +1,7 @@
 // pages/me/index.js
 import Toast from '@vant/weapp/toast/toast'
+import routing from '../../utils/routing'
+
 Page({
   /**
    * 页面的初始数据
@@ -27,7 +29,7 @@ Page({
         name: '全部',
       },
     ],
-    fwList: [
+    serviceList: [
       {
         img: '/images/me_grzx.png',
         name: '个人中心',
@@ -55,19 +57,19 @@ Page({
       user_money: '0.00',
       head_pic: '/public/images/wosheng_head_defaul.png',
       sex: '0',
-      birthday: '0',
-      province: '0',
-      city: '0',
-      district: '0',
+      birthday: '1597939200',
+      province: '338',
+      city: '569',
+      district: '570',
       warrant_lock: '0.00',
       warrant_free: '0.00',
       openid: null,
       user_sn: 'LG41776366',
       first_leader: '0',
-      province_name: '',
-      city_name: '',
-      district_name: '',
-      active_num: '1',
+      province_name: '\u5929\u6d25\u5e02',
+      city_name: '\u5e02\u8f96\u53bf',
+      district_name: '\u5b81\u6cb3\u53bf',
+      active_num: '4',
       first_leader_sn: '',
       order_num: {
         WAITPAY: '5',
@@ -139,5 +141,26 @@ Page({
     wx.navigateTo({
       url: `/pages/me_order/index?index=${index}`,
     })
+  },
+
+  // MARK 我的服务
+  onService(event) {
+    let index = event.target.dataset.param
+    let service = this.data.serviceList[index]
+    switch (service.name) {
+      case '个人中心':
+        routing.navTo('user_center', this.data.dataSoure)
+        break
+      case '绑定推荐码':
+        break
+      case '我的收藏':
+        break
+      case '收货地址':
+        break
+      case '设置':
+        break
+      default:
+        break
+    }
   },
 })

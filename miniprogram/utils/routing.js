@@ -2,9 +2,9 @@ class Routing {
   // MARK 路由设置
   static setRouting(name, param) {
     //设置路径
-    var routingName = name
+    var routingName = ''
 
-    if (routingName.indexOf('/pages/') == -1) {
+    if (name.indexOf('/pages/') == -1) {
       //补根目录
       routingName = `/pages/${name}`
       if (routingName.split('/').length == 3) {
@@ -14,9 +14,9 @@ class Routing {
     }
 
     //设置参数
-    var routingParam = param
+    var routingParam = ''
 
-    if (param.length != 0) {
+    if (param) {
       routingParam = `?param=${JSON.stringify(param)}`
     }
     return `${routingName}${routingParam}`
@@ -25,6 +25,20 @@ class Routing {
   // MARK 获取路由参数
   static getRoutingParam(event) {
     return JSON.parse(event.param)
+  }
+
+  // MARK 导航跳转
+  static navTo(name, param) {
+    wx.navigateTo({
+      url: this.setRouting(name, param),
+    })
+  }
+
+  // MARK 导航返回
+  static navBack(num) {
+    wx.navigateBack({
+      delta: num ? num : 1,
+    })
   }
 }
 

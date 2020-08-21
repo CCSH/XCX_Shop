@@ -1,1 +1,26 @@
-<view class="container"></view>
+<wxs src="../../app.wxs" module="app" />
+<!-- 内容 -->
+<view class="name" wx:for="{{list}}" wx:key="index" bind:tap="onSelect" data-param="{{item}}">
+  {{item}}
+  <block wx:if="{{index == 0}}">
+    <image class="avator" src="{{app.toUrl(dataSoure.head_pic)}}" />
+  </block>
+  <block wx:elif="{{index == 1}}">
+    <input class="content" type="text" value="{{dataSoure.nickname}}" />
+  </block>
+  <block wx:elif="{{index == 2}}">
+    <view class="content">{{dataSoure.sex == 0 ? '保密' : dataSoure.sex == 1 ? '男' : '女'}}</view>
+  </block>
+  <block wx:elif="{{index == 3}}">
+    <picker class="content" mode="date" bind:change="onDate">
+      <view>{{birthday}}</view>
+    </picker>
+  </block>
+  <block wx:elif="{{index == 4}}">
+    <picker class="content" mode="region" bind:change="onRegion">
+      <view>{{region}}</view>
+    </picker>
+  </block>
+</view>
+<!-- 性别弹窗 -->
+<van-action-sheet show="{{ sexShow }}" actions="{{ sexList }}" cancel-text="取消" bind:select="onSex" bind:close="onClose" bind:cancel="onClose" />
