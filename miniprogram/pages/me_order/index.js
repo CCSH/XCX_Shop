@@ -639,14 +639,14 @@ Page({
     var data = event.target.dataset
 
     console.log(event)
-    if (data.tag) {
+    if (data.tag == '1') {
       //操作
       Toast(`点击了第${data.index}个 操作为${data.param.name}`)
     } else {
       data = event.currentTarget.dataset
       //cell
       wx.navigateTo({
-        url: routing.setRouting('order_detail', data.param),
+        url: routing.setRouting('order_detail/index', data.param),
       })
     }
   },
