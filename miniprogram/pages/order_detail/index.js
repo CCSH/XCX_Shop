@@ -1,4 +1,5 @@
 // pages/order_detail/index.js
+import routing from '../../utils/routing'
 let app = getApp()
 
 Page({
@@ -13,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let dataSoure = JSON.parse(options.param)
+    let dataSoure = routing.getRoutingParam(options)
     this.setData({
       dataSoure,
     })

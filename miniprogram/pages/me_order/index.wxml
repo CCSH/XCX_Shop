@@ -39,7 +39,7 @@
 										<!-- 操作 -->
 										<view class="order-operation">
 												<view wx:for="{{item.operation}}" wx:key="index" wx:for-index="operation_index">
-														<view class="operation {{item.class}}" bind:tap="onOperation" data-index="{{index}}" data-param="{{item}}">
+														<view class="operation {{item.class}}" data-tag="1" data-index="{{index}}" data-param="{{item}}">
 																{{item.name}}
 														</view>
 												</view>

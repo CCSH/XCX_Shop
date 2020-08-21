@@ -1,5 +1,6 @@
-const util = require('../../utils/util')
 import Toast from '@vant/weapp/toast/toast'
+import routing from '../../utils/routing'
+import util from '../../utils/util'
 
 // pages/me_order/index.js
 Page({
@@ -631,17 +632,22 @@ Page({
   },
 
   // MARK 操作点击
-  onOperation(event) {
-    let data = event.currentTarget.dataset
-    Toast(`点击了第${data.index}个 操作为${data.param.name}`)
-  },
+  onOperation(event) {},
 
   // MARK cell点击
   onSclect(event) {
-    let data = event.currentTarget.dataset.param
-    let param = JSON.stringify(data)
-    wx.navigateTo({
-      url: `/pages/order_detail/index?param=${param}`,
-    })
+    var data = event.target.dataset
+
+    console.log(event)
+    if (data.tag) {
+      //操作
+      Toast(`点击了第${data.index}个 操作为${data.param.name}`)
+    } else {
+      data = event.currentTarget.dataset
+      //cell
+      wx.navigateTo({
+        url: routing.setRouting('order_detail', data.param),
+      })
+    }
   },
 })
