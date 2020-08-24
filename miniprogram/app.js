@@ -45,4 +45,9 @@ App({
       goods_id: event,
     })
   },
+
+  // MARK 进入登录页面
+  gotoLogin() {
+    Routing.navTo('')
+  },
 })

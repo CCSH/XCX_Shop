@@ -1,53 +1,59 @@
 <!-- pages/car/index.wxml -->
 <wxs src="../../app.wxs" module="app" />
-<!-- Toast -->
 <van-toast id="van-toast" />
-<!-- 界面 -->
-<!-- 滑动 -->
-<van-swipe-cell right-width="{{ 80 }}" wx:for="{{dataSoure}}" wx:key="index">
-  <!-- 内容 -->
-  <view class="table-cell">
-    <!-- 选择 -->
-    <van-radio-group value="{{ ((item.selected == '1') ? index : -1) }}" bind:change="onChange">
-      <van-radio name="{{index}}" checked-color="#65B09E"></van-radio>
-    </van-radio-group>
-    <!-- 商品 -->
-    <view class="order-good">
-      <!-- 图片 -->
-      <van-image src="{{app.toUrl(item.original_img)}}" width="80px" height="80px"></van-image>
-      <!-- 内容 -->
-      <view class="good-content">
-        <!-- 其他内容 -->
-        <view class="good-name text-limit">{{item.goods_name}}</view>
-        <view class="good-key">{{item.spec_key_name}}</view>
-        <view class="good-other">
-          <view class="good-price">
-            <block wx:if="{{item.goods_price != item.member_goods_price}}">
-              <view class="delete-line">¥{{item.goods_price}}</view>
-              <view class="price">¥{{item.member_goods_price}}</view>
-            </block>
-            <block wx:else>
-              <view>¥{{item.goods_price}}</view>
-            </block>
+<block wx:if="{{isLogin}}">
+  <!-- Toast -->
+  <van-toast id="van-toast" />
+  <!-- 界面 -->
+  <!-- 滑动 -->
+  <van-swipe-cell right-width="{{ 80 }}" wx:for="{{dataSoure}}" wx:key="index">
+    <!-- 内容 -->
+    <view class="table-cell">
+      <!-- 选择 -->
+      <van-radio-group value="{{ ((item.selected == '1') ? index : -1) }}" bind:change="onChange">
+        <van-radio name="{{index}}" checked-color="#65B09E"></van-radio>
+      </van-radio-group>
+      <!-- 商品 -->
+      <view class="order-good">
+        <!-- 图片 -->
+        <van-image src="{{app.toUrl(item.original_img)}}" width="80px" height="80px"></van-image>
+        <!-- 内容 -->
+        <view class="good-content">
+          <!-- 其他内容 -->
+          <view class="good-name text-limit">{{item.goods_name}}</view>
+          <view class="good-key">{{item.spec_key_name}}</view>
+          <view class="good-other">
+            <view class="good-price">
+              <block wx:if="{{item.goods_price != item.member_goods_price}}">
+                <view class="delete-line">¥{{item.goods_price}}</view>
+                <view class="price">¥{{item.member_goods_price}}</view>
+              </block>
+              <block wx:else>
+                <view>¥{{item.goods_price}}</view>
+              </block>
+            </view>
+            <!-- 步进器 -->
+            <van-stepper value="{{ item.goods_num }}" min="1" max="{{item.flash_sale? (item.flash_sale.buy_limit - item.flash_sale.buy_num) : item.store_count}}" input-width="50" integer bind:change="onNumChange" bind:overlimit="onOverlimit" button-size="20" data-param="{{index}}" />
           </view>
-          <!-- 步进器 -->
-          <van-stepper value="{{ item.goods_num }}" min="1" max="{{item.flash_sale? (item.flash_sale.buy_limit - item.flash_sale.buy_num) : item.store_count}}" input-width="50" integer bind:change="onNumChange" bind:overlimit="onOverlimit" button-size="20" data-param="{{index}}" />
         </view>
       </view>
     </view>
+    <text class="right" slot="right" bind:tap="onDelete" data-param="{{index}}">删除</text>
+  </van-swipe-cell>
+  <view class="bottom" />
+  <!-- 底部工具栏 -->
+  <view class="car-tool">
+    <!-- 全选 -->
+    <view class="tool-content">
+      <van-radio-group value="{{ ((customData.isAll == 1) ? 'all' : -1) }}" bind:change="onAllCheck">
+        <van-radio name="all" checked-color="#65B09E"></van-radio>
+      </van-radio-group>
+      <view class="tool-name">全选</view>
+      <view class="tool-sum">合计:¥{{app.toPrice(customData.money)}}</view>
+    </view>
+    <view class="tool-settlement" bind:tap="onSettlement">去结算({{customData.num}})</view>
   </view>
-  <text class="right" slot="right" bind:tap="onDelete" data-param="{{index}}">删除</text>
-</van-swipe-cell>
-<view class="bottom" />
-<!-- 底部工具栏 -->
-<view class="car-tool">
-  <!-- 全选 -->
-  <view class="tool-content">
-    <van-radio-group value="{{ ((customData.isAll == 1) ? 'all' : -1) }}" bind:change="onAllCheck">
-      <van-radio name="all" checked-color="#65B09E"></van-radio>
-    </van-radio-group>
-    <view class="tool-name">全选</view>
-    <view class="tool-sum">合计:¥{{app.toPrice(customData.money)}}</view>
-  </view>
-  <view class="tool-settlement" bind:tap="onSettlement">去结算({{customData.num}})</view>
-</view>
+</block>
+<block wx:else>
+  <view class="click-login" bind:tap="onLogin">点击登录</view>
+</block>

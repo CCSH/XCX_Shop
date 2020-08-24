@@ -1,0 +1,17 @@
+<!-- 内容 -->
+<view class="address" wx:for="{{listData}}" wx:key="index">
+  <view class="name">{{item.name}}</view>
+  <view class="content">
+    <block wx:if="{{index == 2}}">
+      <picker mode="region" bind:change="onRegion">
+        <view>
+          {{dataSoure.province ? dataSoure.province + dataSoure.city + dataSoure.district : '请选择地区'}}
+        </view>
+      </picker>
+    </block>
+    <block wx:else>
+      <input type=" {{ index == 1 ? 'number' : 'text'}}" placeholder="{{item.placeholder}}" placeholder-style="color:rgb(214, 214, 214);" value="{{ item.value }}" bind:blur="onInput" data-param="{{index}}" />
+    </block>
+  </view>
+</view>
+<view class="bottom-btn" bind:tap="onSave">保存</view>

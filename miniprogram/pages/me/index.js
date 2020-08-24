@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLogin: true,
     orderList: [
       {
         img: '/images/order_dfk.png',
@@ -157,6 +158,7 @@ Page({
         Routing.navTo('user_collection')
         break
       case '收货地址':
+        Routing.navTo('user_address')
         break
       case '设置':
         Routing.navTo('user_setting')
@@ -164,5 +166,10 @@ Page({
       default:
         break
     }
+  },
+
+  // MARK 登录
+  onLogin() {
+    app.gotoLogin()
   },
 })

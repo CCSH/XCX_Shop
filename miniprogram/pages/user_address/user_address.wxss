@@ -1,0 +1,35 @@
+.table-cell {
+  height: 60px;
+  background: white;
+  border-top: 1px solid rgb(245, 245, 245);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+van-swipe-cell .right {
+  width: 120px;
+}
+
+.right view {
+  flex: 1;
+}
+
+.right .right-1 {
+  background: rgb(81, 123, 222);
+}
+
+.table-cell .address-content {
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.address-content .default {
+  color: #65b09e;
+  display: inline-block;
+}
+
+.address-content .address-other {
+  margin-top: 5px;
+  font-size: 10px;
+  color: gray;
+}

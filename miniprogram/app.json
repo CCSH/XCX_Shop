@@ -13,7 +13,9 @@
     "pages/user_sn/user_sn",
     "pages/user_collection/user_collection",
     "pages/user_setting/user_setting",
-    "pages/custom_web/custom_web"
+    "pages/custom_web/custom_web",
+    "pages/user_address/user_address",
+    "pages/address_edit/address_edit"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",

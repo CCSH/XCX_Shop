@@ -122,6 +122,13 @@
 					"pathName": "pages/user_setting/user_setting",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user_address/user_address",
+					"pathName": "pages/user_address/user_address",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

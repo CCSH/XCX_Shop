@@ -24,7 +24,10 @@ class Routing {
 
   // MARK 获取路由参数
   static getRoutingParam(event) {
-    return JSON.parse(event.param)
+    if (event.param) {
+      return JSON.parse(event.param)
+    }
+    return null
   }
 
   // MARK 导航跳转

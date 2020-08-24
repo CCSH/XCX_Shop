@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isLogin: true,
     customData: {
       num: null,
       money: null,
@@ -243,5 +244,10 @@ Page({
     wx.navigateTo({
       url: '/pages/confirm_order/index',
     })
+  },
+
+  // MARK 登录
+  onLogin() {
+    app.gotoLogin()
   },
 })

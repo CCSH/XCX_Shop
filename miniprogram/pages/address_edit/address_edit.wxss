@@ -1,0 +1,17 @@
+.address {
+  display: flex;
+  font-size: 12px;
+  background: white;
+  height: 40px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+  padding: 0 10px;
+  align-items: center;
+}
+
+.address .name {
+  width: 80px;
+}
+
+.address .content {
+  flex: 1;
+}
