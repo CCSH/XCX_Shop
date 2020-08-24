@@ -1,0 +1,28 @@
+.table-cell {
+  height: 70px;
+  background: white;
+  margin-top: 1px;
+  display: flex;
+  padding: 5px 10px;
+  align-items: center;
+}
+
+.table-cell .image {
+  width: 60px;
+  height: 60px;
+}
+
+.table-cell .content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 50px;
+  color: #65b09e;
+  font-size: 14px;
+}
+
+.content .name {
+  -webkit-line-clamp: 2;
+  color: black;
+  font-size: 12px;
+}

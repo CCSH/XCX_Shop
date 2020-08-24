@@ -1,0 +1,18 @@
+.cell {
+  display: flex;
+  height: 50px;
+  background: white;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-size: 12px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+}
+
+.cell.group {
+  margin-top: 10px;
+}
+
+.cell .name {
+  color: rgb(108, 108, 108);
+  font-size: 10px;
+}

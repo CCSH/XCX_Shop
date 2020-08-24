@@ -1,3 +1,5 @@
+const Routing = require('./utils/routing')
+
 //app.js
 App({
   // 系统信息
@@ -35,5 +37,12 @@ App({
 
   handleUrl(url, param) {
     return
+  },
+
+  // MARK 进入商品详情
+  gotoGoods(event) {
+    Routing.navTo('good_detail/index', {
+      goods_id: event,
+    })
   },
 })

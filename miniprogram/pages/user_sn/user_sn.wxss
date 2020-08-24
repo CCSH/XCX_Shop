@@ -1,0 +1,14 @@
+.name {
+  width: 100vw;
+  line-height: 50px;
+  padding: 0 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.name input {
+  margin-left: 20px;
+  flex: 1;
+}

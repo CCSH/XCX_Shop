@@ -1,3 +1,6 @@
+const Routing = require('../../utils/routing')
+let app = getApp()
+
 // pages/classify/index.js
 Page({
   /**
@@ -930,14 +933,8 @@ Page({
   },
 
   // MARK: 进入商品详情
-  gotoGoodDetail: function () {
-    console.log(111)
-    wx.navigateTo({
-      url: '/pages/good_detail/index',
-      success: (result) => {},
-      fail: () => {},
-      complete: () => {},
-    })
+  gotoGoodDetail(event) {
+    app.gotoGoods(event.currentTarget.dataset.param)
   },
 
   /**

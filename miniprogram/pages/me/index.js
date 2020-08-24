@@ -1,7 +1,6 @@
-// pages/me/index.js
-import Toast from '@vant/weapp/toast/toast'
-import routing from '../../utils/routing'
+const Routing = require('../../utils/routing')
 
+// pages/me/index.js
 Page({
   /**
    * 页面的初始数据
@@ -149,15 +148,18 @@ Page({
     let service = this.data.serviceList[index]
     switch (service.name) {
       case '个人中心':
-        routing.navTo('user_center', this.data.dataSoure)
+        Routing.navTo('user_center', this.data.dataSoure)
         break
       case '绑定推荐码':
+        Routing.navTo('user_sn', this.data.dataSoure.first_leader_sn)
         break
       case '我的收藏':
+        Routing.navTo('user_collection')
         break
       case '收货地址':
         break
       case '设置':
+        Routing.navTo('user_setting')
         break
       default:
         break

@@ -108,6 +108,20 @@
 					"pathName": "pages/user_center/user_center",
 					"query": "param={\"user_id\":\"41\",\"nickname\":\"176****5339\",\"user_money\":\"0.00\",\"head_pic\":\"/public/images/wosheng_head_defaul.png\",\"sex\":\"0\",\"birthday\":\"1597939200\",\"province\":\"338\",\"city\":\"569\",\"district\":\"570\",\"warrant_lock\":\"0.00\",\"warrant_free\":\"0.00\",\"openid\":null,\"user_sn\":\"LG41776366\",\"first_leader\":\"0\",\"province_name\":\"天津市\",\"city_name\":\"市辖县\",\"district_name\":\"宁河县\",\"active_num\":\"4\",\"first_leader_sn\":\"\",\"order_num\":{\"WAITPAY\":\"5\",\"WAITSEND\":\"0\",\"WAITRECEIVE\":\"0\",\"WAITCCOMMENT\":\"0\"}}",
 					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pages/user_collection/user_collection",
+					"pathName": "pages/user_collection/user_collection",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user_setting/user_setting",
+					"pathName": "pages/user_setting/user_setting",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

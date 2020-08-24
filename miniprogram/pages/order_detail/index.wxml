@@ -25,7 +25,7 @@
 </view>
 <!-- 商品信息 -->
 <view class="detail-content">
-  <view class="content" wx:for="{{dataSoure.goodsList}}" wx:key="index" bind:tap="onGoods" data-param="{{index}}">
+  <view class="content" wx:for="{{dataSoure.goodsList}}" wx:key="index" bind:tap="onGoods" data-param="{{item.goods_id}}">
     <image class="info-img" src="{{app.toUrl(item.original_img)}}" />
     <view class="info">
       <view class="info-name text-limit">{{item.goods_name}}</view>

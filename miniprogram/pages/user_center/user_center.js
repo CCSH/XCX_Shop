@@ -128,7 +128,6 @@ Page({
 
     var dataSoure = this.data.dataSoure
     dataSoure.birthday = util.timeToseconds(data)
-    console.log(data)
 
     this.handleData(dataSoure)
   },

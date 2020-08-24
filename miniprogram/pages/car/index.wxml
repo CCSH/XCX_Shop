@@ -36,7 +36,7 @@
       </view>
     </view>
   </view>
-  <view class="right center" slot="right" bind:tap="onDelete" data-param="{{index}}">删除</view>
+  <text class="right" slot="right" bind:tap="onDelete" data-param="{{index}}">删除</text>
 </van-swipe-cell>
 <view class="bottom" />
 <!-- 底部工具栏 -->

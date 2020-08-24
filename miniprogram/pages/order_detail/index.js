@@ -1,5 +1,6 @@
 // pages/order_detail/index.js
 import routing from '../../utils/routing'
+import Routing from '../../utils/routing'
 let app = getApp()
 
 Page({
@@ -77,10 +78,8 @@ Page({
   },
   // MARK 商品点击
   onGoods(event) {
-    console.log(event.currentTarget.dataset.param)
-
-    wx.navigateTo({
-      url: '/pages/good_detail/index',
+    Routing.navTo('good_detail/index', {
+      goods_id: event.currentTarget.dataset.param,
     })
   },
 })

@@ -1,0 +1,2 @@
+<van-toast id="van-toast" />
+<web-view src="{{param.url}}"></web-view>

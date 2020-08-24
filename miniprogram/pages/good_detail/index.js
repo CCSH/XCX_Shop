@@ -1,6 +1,7 @@
 // pages/good_detail/index.js
 import Util from '../../utils/util'
 import Toast from '@vant/weapp/toast/toast'
+import Routing from '../../utils/routing'
 
 let app = getApp()
 
@@ -230,6 +231,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(Routing.getRoutingParam(options))
     this.handleData()
   },
 

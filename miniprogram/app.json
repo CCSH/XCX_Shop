@@ -9,7 +9,11 @@
     "pages/sign_in/index",
     "pages/me_order/index",
     "pages/order_detail/index",
-    "pages/user_center/user_center"
+    "pages/user_center/user_center",
+    "pages/user_sn/user_sn",
+    "pages/user_collection/user_collection",
+    "pages/user_setting/user_setting",
+    "pages/custom_web/custom_web"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",

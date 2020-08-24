@@ -1,6 +1,7 @@
 // pages/home/index.js
 import Toast from '/@vant/weapp/toast/toast'
 import Interface from '../../utils/interface'
+import Routing from '../../utils/routing'
 
 let app = getApp()
 
@@ -307,4 +308,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+
+  // MARK: 进入商品详情
+  gotoGoodDetail(event) {
+    app.gotoGoods(event.currentTarget.dataset.param)
+  },
 })

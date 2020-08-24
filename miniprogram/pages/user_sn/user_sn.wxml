@@ -1,0 +1,4 @@
+<view class="name">
+  推荐码
+  <input type="text" placeholder="请填写推荐码" placeholder-style="color:rgb(214, 214, 214);" />
+</view>

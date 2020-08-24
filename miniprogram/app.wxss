@@ -70,3 +70,15 @@ page {
   font-size: 12px;
   flex-direction: column;
 }
+
+/* 滑动右侧菜单 */
+van-swipe-cell .right {
+  width: 80px;
+  height: 100%;
+  color: white;
+  background: #65b09e;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

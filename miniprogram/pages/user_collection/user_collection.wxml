@@ -1,0 +1,18 @@
+<wxs src="../../app.wxs" module="app" />
+<block wx:if="{{dataSoure.length}}">
+  <!-- 滑动 -->
+  <van-swipe-cell right-width="{{ 80 }}" wx:for="{{dataSoure}}" wx:key="index">
+    <!-- 内容 -->
+    <view class="table-cell" bind:tap="onSelect" data-param="{{item.goods_id}}">
+      <image class="image" src="{{app.toUrl(item.original_img)}}" />
+      <view class="content">
+        <view class="name text-limit">{{item.goods_name}}</view>
+        <view>¥{{item.shop_price}}</view>
+      </view>
+    </view>
+    <text class="right" slot="right" bind:tap="onCancel" data-param="{{index}}">取消\n收藏</text>
+  </van-swipe-cell>
+</block>
+<block wx:else>
+  <van-empty description="暂无数据" />
+</block>
