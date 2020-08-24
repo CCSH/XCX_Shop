@@ -1,10 +1,18 @@
 module.exports = {
   format: Format,
   // MARK 倒计时
-  toCountDown: function (time) {
-    //当前时间
-    let nowDate = Date.parse(new Date()) / 1000
-    let date = time - nowDate
+  toCountDown: function (maxTime, minTime) {
+    //处理默认值
+    var targetTime = minTime
+    if (!minTime) {
+      targetTime = Date.parse(new Date()) / 1000
+    }
+    var date = maxTime
+    if (!maxTime) {
+      date = Date.parse(new Date()) / 1000
+    }
+
+    date = date - targetTime
     //规则
     var rule = 60 * 60 * 24
     //天

@@ -313,4 +313,30 @@ Page({
   gotoGoodDetail(event) {
     app.gotoGoods(event.currentTarget.dataset.param)
   },
+
+  // MARK 工具栏点击
+  onTool(event) {
+    let index = event.currentTarget.dataset.param
+    let dataSoure = this.data.dataSoure
+    var param = {
+      title: dataSoure.nav[index].link_name,
+    }
+    switch (index) {
+      case 0: //新闻动态
+        Routing.navTo('home_news', param)
+        break
+      case 1: //每日抢鲜
+        Routing.navTo('home_qg', param)
+        break
+      case 2: //森林食品
+        Routing.navTo('home_news', param)
+        break
+      case 3: //直播带货
+        Routing.navTo('home_news', param)
+        break
+
+      default:
+        break
+    }
+  },
 })

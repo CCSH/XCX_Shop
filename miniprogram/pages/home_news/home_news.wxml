@@ -1,0 +1,9 @@
+<wxs src="../../app.wxs" module="app" />
+<!-- 内容 -->
+<view class="cell" wx:for="{{dataSoure}}" wx:key="index" bind:tap="onSelect" data-param="{{item.url}}">
+  <view class="content">
+    <view class="title text-limit">{{item.title}}</view>
+    <view class="time">{{item.time}}</view>
+  </view>
+  <image class="" src="{{app.toUrl(item.thumb)}}" />
+</view>

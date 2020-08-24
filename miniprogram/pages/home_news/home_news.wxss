@@ -1,0 +1,30 @@
+.cell {
+  display: flex;
+  background: white;
+  height: 70px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.cell .content {
+  flex: 1;
+  margin-right: 10px;
+  font-size: 10px;
+  color: gray;
+}
+.cell image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.content .title {
+  -webkit-line-clamp: 2;
+  height: 34px;
+  margin-bottom: 5px;
+  color: black;
+  font-size: 12px;
+}

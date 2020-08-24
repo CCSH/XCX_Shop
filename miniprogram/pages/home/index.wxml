@@ -21,7 +21,7 @@
           <view class="banner-round"></view>
           <!-- 工具 -->
           <van-grid class="home-tool" border="{{ false }}">
-            <van-grid-item use-slot wx:for="{{ dataSoure.nav }}" wx:key="index">
+            <van-grid-item use-slot wx:for="{{ dataSoure.nav }}" wx:key="index" bind:click="onTool" data-param="{{index}}">
               <van-image class="tool-img" src="{{app.toUrl(item.link_logo)}}" width="40px" height="40px" />
               <text class="tool-name">{{item.link_name}}</text>
             </van-grid-item>

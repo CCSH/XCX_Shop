@@ -15,7 +15,9 @@
     "pages/user_setting/user_setting",
     "pages/custom_web/custom_web",
     "pages/user_address/user_address",
-    "pages/address_edit/address_edit"
+    "pages/address_edit/address_edit",
+    "pages/home_news/home_news",
+    "pages/home_qg/home_qg"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",
@@ -40,7 +42,8 @@
     "calendar": "components/calendar/calendar",
     "van-empty": "@vant/weapp/empty",
     "van-area": "@vant/weapp/area",
-    "van-action-sheet": "@vant/weapp/action-sheet"
+    "van-action-sheet": "@vant/weapp/action-sheet",
+    "van-progress": "@vant/weapp/progress"
   },
   "tabBar": {
     "list": [

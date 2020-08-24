@@ -129,6 +129,20 @@
 					"pathName": "pages/user_address/user_address",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home_news/home_news",
+					"pathName": "pages/home_news/home_news",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home_qg/home_qg",
+					"pathName": "pages/home_qg/home_qg",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

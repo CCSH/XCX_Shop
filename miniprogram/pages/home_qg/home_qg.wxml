@@ -1,0 +1,30 @@
+<wxs src="../../app.wxs" module="app" />
+<!-- 内容 -->
+<block wx:if="{{dataSoure.length}}">
+  <view class="cell" wx:for="{{dataSoure}}" wx:key="index" bind:tap="onSelect" data-param="{{item.goods_id}}">
+    <view class="head">
+      <view>{{item.name}}</view>
+      <view class="time">{{item.time}}</view>
+    </view>
+    <view class="content">
+      <image class="image" src="{{app.toUrl(item.goods.original_img)}}" />
+      <view class="other">
+        <view>{{item.goods_name}}</view>
+        <view>
+          <view class="price">¥{{item.price}}</view>
+          <view class="content-bottom">
+            <view class="delete-line">¥{{item.spec_goods_price.price}}</view>
+            <view class="content-progress">
+              <view>活动进度</view>
+              <van-progress class="progress" color="#ee0a24" percentage="{{item.percent}}" />
+            </view>
+          </view>
+          <view class="qg-btn">去抢购</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <van-empty description="暂无数据" />
+</block>
