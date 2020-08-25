@@ -50,4 +50,12 @@ App({
   gotoLogin() {
     Routing.navTo('')
   },
+
+  // MARK 进入WEB页面
+  gotoWeb(url, title) {
+    Routing.navTo('custom_web', {
+      url: url,
+      title: title,
+    })
+  },
 })

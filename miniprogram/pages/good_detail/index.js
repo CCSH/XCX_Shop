@@ -275,6 +275,7 @@ Page({
 
   // MARK 返回页面
   onBack: function () {
+    console.log(111)
     wx.navigateBack({
       delta: 1,
     })

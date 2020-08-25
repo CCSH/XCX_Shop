@@ -3,7 +3,7 @@
 <van-toast id="van-toast" />
 <!-- 返回按钮 -->
 <view class="nav-item" style="top:{{statusBarH}}px" bind:tap="onBack">
-  <van-icon name="arrow-left" color="black" />
+  <van-icon name="arrow-left" color="black" size="20" />
 </view>
 <!-- 头部 -->
 <view class="detail-head" style="height:{{statusBarH + 180}}px">

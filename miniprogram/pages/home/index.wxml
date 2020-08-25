@@ -3,7 +3,7 @@
 <!-- 内容 -->
 <view>
   <!-- 搜索 -->
-  <van-search class="home-search" shape="round" background="transparent" placeholder="{{ searchContent }}" />
+  <van-search class="home-search" shape="round" background="transparent" placeholder="{{ searchContent }}" bind:search="onSearch" />
   <!-- 标签页 -->
   <van-tabs class="home-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable>
     <!-- 首页内容 -->
@@ -31,28 +31,31 @@
             <text class="not-title">通知公告</text>
             <swiper class="not-swiper" autoplay circular duration="1000" vertical>
               <block wx:for="{{dataSoure.notice}}" wx:key="index">
-                <swiper-item class="not-item" item-id="index">
+                <swiper-item class="not-item" item-id="index" bind:tap="onNot" data-param="{{item}}">
                   <text class="not-content">{{item.topic_title}}</text>
                 </swiper-item>
               </block>
             </swiper>
-            <van-button class="not-look">去看看 ></van-button>
+            <van-button class="not-look">
+              去看看
+              <van-icon name="arrow" color="black" size="8" />
+            </van-button>
           </view>
           <!-- 广告 -->
           <view class="home-ad">
-            <van-image src="{{app.toUrl(dataSoure.red_ad.ad_code)}}" width="100%" height="100%"></van-image>
+            <van-image src="{{app.toUrl(dataSoure.red_ad.ad_code)}}" width="100%" height="100%" bind:tap="onShare"></van-image>
           </view>
           <!-- 内容 -->
           <view class="home-content">
-            <van-image class="ad-left" src="{{app.toUrl(dataSoure.flash_sale_ad.ad_code)}}" width="220rpx" height="100%"></van-image>
+            <van-image class="ad-left" src="{{app.toUrl(dataSoure.flash_sale_ad.ad_code)}}" width="220rpx" height="100%" bind:tap="onGoods" data-param="{{dataSoure.flash_sale_ad}}" />
             <view class="ad-right">
               <!-- 1 -->
-              <van-image class="ad-top" src="{{app.toUrl(dataSoure.one_ad.ad_code)}}" width="100%" height="100%"></van-image>
+              <van-image class="ad-top" src="{{app.toUrl(dataSoure.one_ad.ad_code)}}" width="100%" height="100%" bind:tap="onGoods" data-param="{{dataSoure.one_ad}}"></van-image>
               <view class="ad-bottom">
                 <!-- 2 -->
-                <van-image class="bottom-left" src="{{app.toUrl(dataSoure.two_ad.ad_code)}}" width="220rpx" height="100%"></van-image>
+                <van-image class="bottom-left" src="{{app.toUrl(dataSoure.two_ad.ad_code)}}" width="220rpx" height="100%" bind:tap="onGoods" data-param="{{dataSoure.two_ad}}"></van-image>
                 <!-- 3 -->
-                <van-image class="bottom-right" src="{{app.toUrl(dataSoure.three_ad.ad_code)}}" width="220rpx" height="100%"></van-image>
+                <van-image class="bottom-right" src="{{app.toUrl(dataSoure.three_ad.ad_code)}}" width="220rpx" height="100%" bind:tap="onGoods" data-param="{{dataSoure.three_ad}}"></van-image>
               </view>
             </view>
           </view>

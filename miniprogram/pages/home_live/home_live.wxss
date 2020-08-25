@@ -1,0 +1,26 @@
+.live-list {
+  margin-top: 10px;
+}
+
+.live-list .van-grid-item__content {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.content {
+  font-size: 12px;
+}
+
+.content .img {
+  width: 100%;
+  height: 100px;
+}
+
+.content .name {
+  margin-top: 5px;
+}
+.content .time {
+  margin: 5px 0;
+  font-size: 10px;
+}

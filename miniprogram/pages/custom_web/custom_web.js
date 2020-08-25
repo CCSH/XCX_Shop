@@ -1,5 +1,6 @@
+import Toast from '@vant/weapp/toast/toast'
+
 const Routing = require('../../utils/routing')
-const Toast = require('@vant/weapp/toast/toast')
 let app = getApp()
 
 //Page Object
@@ -44,7 +45,6 @@ Page({
     this.setData({
       param,
     })
-
-    console.log(param.url)
+    console.log(`访问地址：${param.url}`)
   },
 })

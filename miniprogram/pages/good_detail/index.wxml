@@ -5,7 +5,7 @@
 <view class="status-bar" style="height:{{statusBarH}}px"></view>
 <view style="height:{{statusBarH}}px" />
 <view class="nav-item" bind:tap="onBack">
-  <van-icon name="arrow-left" color="black" />
+  <van-icon name="arrow-left" color="black" size="20" />
 </view>
 <!-- 内容 -->
 <!-- banner -->

@@ -1,6 +1,6 @@
 <!-- pages/sign_in/index.wxml -->
 <view class="nav-item" bind:tap="onBack" style="margin-top:{{statusH}}px;">
-  <van-icon name="arrow-left" color="black" />
+  <van-icon name="arrow-left" color="black" size="20" />
 </view>
 <!-- 头部 -->
 <view class="qd-head">

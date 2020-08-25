@@ -329,14 +329,56 @@ Page({
         Routing.navTo('home_qg', param)
         break
       case 2: //森林食品
-        Routing.navTo('home_news', param)
+        Routing.navTo('home_classify', param)
         break
       case 3: //直播带货
-        Routing.navTo('home_news', param)
+        Routing.navTo('home_live', param)
         break
-
       default:
         break
     }
+  },
+
+  // MARK 通知点击
+  onNot(event) {
+    let param = event.currentTarget.dataset.param
+    app.gotoWeb(param.url, param.topic_title)
+  },
+
+  // MARK 商品点击
+  onGoods(event) {
+    let param = event.currentTarget.dataset.param
+    let content = param.ad_link
+
+    switch (param.flag) {
+      case 'cat_id':
+        Routing.navTo('home_classify')
+        break
+      case 'goods_id':
+        app.gotoGoods(content)
+        break
+      case 'url':
+        app.gotoWeb(content)
+        break
+      default:
+        break
+    }
+  },
+
+  // MARK 分享
+  onShare() {
+    console.log('邀请好友')
+  },
+
+  // MARK 搜索
+  onSearch(event) {
+    var search = event.detail
+    if (!search.length) {
+      search = this.data.searchContent
+    }
+    Routing.navTo('home_classify', {
+      title: '搜索结果',
+      search: search,
+    })
   },
 })

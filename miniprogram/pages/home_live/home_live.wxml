@@ -1,0 +1,19 @@
+<wxs src="../../app.wxs" module="app" />
+<block wx:if="{{dataSoure.OnlineInfo.length}}">
+  <!-- 直播列表 -->
+  <van-grid class="live-list" column-num="2" gutter="10">
+    <!-- 商品信息 -->
+    <van-grid-item class="content" wx:for="{{dataSoure.OnlineInfo}}" wx:key="index" use-slot bind:tap="onSelect" data-param="{{item}}">
+      <image class="img" src="{{app.toUrl(item.imgurl)}}" mode="aspectFill"></image>
+      <text class="name">{{item.chat_name}}</text>
+      <text class="time">开始时间{{item.create_time}}</text>
+    </van-grid-item>
+  </van-grid>
+</block>
+<block wx:else>
+  <van-empty description="暂时无人直播" />
+</block>
+<!-- 操作 -->
+<block wx:if="{{dataSoure.is_live == '1'}}">
+  <view class="bottom-btn" bind:tap="onLive">发起直播</view>
+</block>

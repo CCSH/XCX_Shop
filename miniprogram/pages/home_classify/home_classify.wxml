@@ -1,0 +1,11 @@
+<wxs src="../../app.wxs" module="app" />
+<van-toast id="van-toast" />
+<!-- 商品列表 -->
+<van-grid class="classify-good" column-num="2" gutter="10">
+  <!-- 商品信息 -->
+  <van-grid-item class="good-info" wx:for="{{dataSoure}}" wx:key="index" use-slot bind:tap="onSelect" data-param="{{item.goods_id}}">
+    <image class="good-img" src="{{app.toUrl(item.original_img)}}"></image>
+    <text class="good-name">{{item.goods_name}}</text>
+    <text class="good-price">¥ {{item.shop_price}}</text>
+  </van-grid-item>
+</van-grid>

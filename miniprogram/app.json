@@ -17,7 +17,10 @@
     "pages/user_address/user_address",
     "pages/address_edit/address_edit",
     "pages/home_news/home_news",
-    "pages/home_qg/home_qg"
+    "pages/home_qg/home_qg",
+    "pages/home_classify/home_classify",
+    "pages/home_live/home_live",
+    "pages/live_prepare/live_prepare"
   ],
   "usingComponents": {
     "van-search": "@vant/weapp/search",

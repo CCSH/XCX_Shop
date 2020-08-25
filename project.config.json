@@ -143,6 +143,19 @@
 					"pathName": "pages/home_qg/home_qg",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home_classify/home_classify",
+					"pathName": "pages/home_classify/home_classify",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home_live/home_live",
+					"pathName": "pages/home_live/home_live",
+					"scene": null
 				}
 			]
 		}
