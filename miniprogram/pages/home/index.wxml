@@ -36,10 +36,10 @@
                 </swiper-item>
               </block>
             </swiper>
-            <van-button class="not-look">
+            <view class="not-look">
               去看看
               <van-icon name="arrow" color="black" size="8" />
-            </van-button>
+            </view>
           </view>
           <!-- 广告 -->
           <view class="home-ad">
