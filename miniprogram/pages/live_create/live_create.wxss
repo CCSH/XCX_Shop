@@ -1,0 +1,55 @@
+/* pages/live_create/live_create.wxss */
+.live {
+  display: flex;
+  font-size: 12px;
+  background: white;
+  height: 40px;
+  border-bottom: 1px solid rgb(245, 245, 245);
+  padding: 0 10px;
+  align-items: center;
+}
+
+.live .name {
+  width: 80px;
+}
+
+.live .content {
+  flex: 1;
+}
+
+.selectImage {
+  margin: 10px 20px;
+  height: 150px;
+  background: rgb(229, 229, 229);
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.selectImage .show {
+  flex: 1;
+}
+
+.selectImage .delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.selectImage .add {
+  font-size: 12px;
+  color: white;
+}
+
+.add image {
+  width: 75px;
+  height: 50px;
+  margin-bottom: 10px;
+}

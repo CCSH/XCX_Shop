@@ -2,17 +2,17 @@
 <wxs src="../../app.wxs" module="app" />
 <!-- Toast -->
 <van-toast id="van-toast" />
-<block wx:if="{{isLogin}}">
+<block wx:if="{{userInfo.user_id}}">
   <!-- 个人信息 -->
   <view class="me-info">
     <view class="info-content">
       <!-- 头像 -->
-      <van-image src="{{app.toUrl(dataSoure.head_pic)}}" width="60px" height="60px" round />
+      <van-image src="{{app.toUrl(userInfo.head_pic)}}" width="60px" height="60px" round />
       <view class="info-other">
         <!-- 昵称 -->
-        <view>{{dataSoure.nickname}}</view>
+        <view>{{userInfo.nickname}}</view>
         <!-- 推荐码 -->
-        <view class="info-sn" bind:tap="onCopy">推荐码：{{dataSoure.user_sn}}</view>
+        <view class="info-sn" bind:tap="onCopy">推荐码：{{userInfo.user_sn}}</view>
       </view>
     </view>
     <van-image src="/images/me_qd.png" width="18px" height="18px" bind:click="onSignin"></van-image>
@@ -20,11 +20,11 @@
   <!-- 其他信息 -->
   <view class="me-other">
     <view>
-      <view>{{dataSoure.user_money}}</view>
+      <view>{{userInfo.user_money}}</view>
       <view class="other-name">共享价值</view>
     </view>
     <view>
-      <view>{{dataSoure.warrant_free}}/{{dataSoure.warrant_lock}}</view>
+      <view>{{userInfo.warrant_free}}/{{userInfo.warrant_lock}}</view>
       <view class="other-name">
         权证
         <text class="warrant warrant-free">已释放</text>
@@ -33,7 +33,7 @@
       </view>
     </view>
     <view>
-      <view>{{dataSoure.active_num}}</view>
+      <view>{{userInfo.active_num}}</view>
       <view class="other-name">活跃指数</view>
     </view>
   </view>
@@ -44,17 +44,17 @@
       <view class="order-item" wx:for="{{orderList}}" wx:key="index" bind:tap="onOrder" data-param="{{index}}">
         <!-- 提示处理 -->
         <view class="order-tip">
-          <block wx:if="{{index == 0 && dataSoure.order_num.WAITPAY != '0'}}">
-            {{dataSoure.order_num.WAITPAY}}
+          <block wx:if="{{index == 0 && userInfo.order_num.WAITPAY != '0'}}">
+            {{userInfo.order_num.WAITPAY}}
           </block>
-          <block wx:if="{{index == 1 && dataSoure.order_num.WAITSEND != '0'}}">
-            {{dataSoure.order_num.WAITSEND}}
+          <block wx:if="{{index == 1 && userInfo.order_num.WAITSEND != '0'}}">
+            {{userInfo.order_num.WAITSEND}}
           </block>
-          <block wx:if="{{index == 2 && dataSoure.order_num.WAITRECEIVE != '0'}}">
-            {{dataSoure.order_num.WAITRECEIVE}}
+          <block wx:if="{{index == 2 && userInfo.order_num.WAITRECEIVE != '0'}}">
+            {{userInfo.order_num.WAITRECEIVE}}
           </block>
-          <block wx:if="{{index == 3 && dataSoure.order_num.WAITCCOMMENT != '0'}}">
-            {{dataSoure.order_num.WAITCCOMMENT}}
+          <block wx:if="{{index == 3 && userInfo.order_num.WAITCCOMMENT != '0'}}">
+            {{userInfo.order_num.WAITCCOMMENT}}
           </block>
         </view>
         <!-- 图标 -->

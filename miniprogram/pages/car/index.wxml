@@ -1,7 +1,7 @@
 <!-- pages/car/index.wxml -->
 <wxs src="../../app.wxs" module="app" />
 <van-toast id="van-toast" />
-<block wx:if="{{isLogin}}">
+<block wx:if="{{userInfo.user_id}}">
   <!-- Toast -->
   <van-toast id="van-toast" />
   <!-- 界面 -->

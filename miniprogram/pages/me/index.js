@@ -1,12 +1,12 @@
 const Routing = require('../../utils/routing')
+const DB = require('../../utils/db')
+let app = getApp()
 
-// pages/me/index.js
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    isLogin: true,
     orderList: [
       {
         img: '/images/order_dfk.png',
@@ -51,33 +51,7 @@ Page({
         name: '设置',
       },
     ],
-    dataSoure: {
-      user_id: '41',
-      nickname: '176****5339',
-      user_money: '0.00',
-      head_pic: '/public/images/wosheng_head_defaul.png',
-      sex: '0',
-      birthday: '1597939200',
-      province: '338',
-      city: '569',
-      district: '570',
-      warrant_lock: '0.00',
-      warrant_free: '0.00',
-      openid: null,
-      user_sn: 'LG41776366',
-      first_leader: '0',
-      province_name: '\u5929\u6d25\u5e02',
-      city_name: '\u5e02\u8f96\u53bf',
-      district_name: '\u5b81\u6cb3\u53bf',
-      active_num: '4',
-      first_leader_sn: '',
-      order_num: {
-        WAITPAY: '5',
-        WAITSEND: '0',
-        WAITRECEIVE: '0',
-        WAITCCOMMENT: '0',
-      },
-    },
+    userInfo: {},
   },
 
   /**
@@ -93,7 +67,18 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    let self = this
+    DB.getUserInfo().then((res) => {
+      var data = null
+      if (res.length) {
+        data = res.pop()
+      }
+      self.setData({
+        userInfo: data,
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -123,7 +108,7 @@ Page({
   // MARK 复制推荐码
   onCopy() {
     wx.setClipboardData({
-      data: this.data.dataSoure.user_sn,
+      data: this.data.userInfo.user_sn,
     })
   },
 
@@ -149,10 +134,10 @@ Page({
     let service = this.data.serviceList[index]
     switch (service.name) {
       case '个人中心':
-        Routing.navTo('user_center', this.data.dataSoure)
+        Routing.navTo('user_center', this.data.userInfo)
         break
       case '绑定推荐码':
-        Routing.navTo('user_sn', this.data.dataSoure.first_leader_sn)
+        Routing.navTo('user_sn', this.data.userInfo.first_leader_sn)
         break
       case '我的收藏':
         Routing.navTo('user_collection')
@@ -170,6 +155,20 @@ Page({
 
   // MARK 登录
   onLogin() {
-    app.gotoLogin()
+    let self = this
+    wx.showLoading({
+      title: '登录中',
+    })
+
+    app
+      .gotoLogin()
+      .then((res) => {
+        wx.hideLoading()
+
+        self.onShow()
+      })
+      .catch((err) => {
+        wx.hideLoading()
+      })
   },
 })

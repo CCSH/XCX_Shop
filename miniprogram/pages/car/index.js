@@ -1,12 +1,14 @@
 // pages/car/index.js
 import Toast from '/@vant/weapp/toast/toast'
+import DB from '../../utils/db'
+let app = getApp()
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    isLogin: true,
+    userInfo: null,
     customData: {
       num: null,
       money: null,
@@ -107,7 +109,18 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    let self = this
+    DB.getUserInfo().then((res) => {
+      var data = null
+      if (res.length) {
+        data = res.pop()
+      }
+      self.setData({
+        userInfo: data,
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -248,6 +261,19 @@ Page({
 
   // MARK 登录
   onLogin() {
-    app.gotoLogin()
+    let self = this
+    wx.showLoading({
+      title: '登录中',
+    })
+
+    app
+      .gotoLogin()
+      .then((res) => {
+        wx.hideLoading()
+        self.onShow()
+      })
+      .catch((err) => {
+        wx.hideLoading()
+      })
   },
 })

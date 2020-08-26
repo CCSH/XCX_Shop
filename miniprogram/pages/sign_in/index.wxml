@@ -12,7 +12,7 @@
   <view class="head-name">当前活跃指数：{{dataSoure.active_num}}</view>
 </view>
 <!-- 日历 -->
-<calendar specialDays="{{customData.specialDays}}" />
+<calendar specialDays="{{customData.specialDays}}" maxDay="42" />
 <!-- 签到说明 -->
 <view class="qd-info">
   <view class="info-title">签到说明</view>

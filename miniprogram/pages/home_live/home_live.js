@@ -128,6 +128,6 @@ Page({
 
   // MARK 直播
   onLive() {
-    Routing.navTo('')
+    Routing.navTo('live_create')
   },
 })

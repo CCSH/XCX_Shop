@@ -1,4 +1,5 @@
 const Routing = require('../../utils/routing')
+const DB = require('../../utils/db')
 
 //Page Object
 Page({
@@ -27,7 +28,27 @@ Page({
           url: 'index.php/api/UsersIndex/agreement/id/1',
         })
         break
+      case '退出账号':
+        wx.showLoading({
+          title: '退出登录',
+        })
 
+        DB.deleteUserInfo()
+          .then((res) => {
+            setTimeout(function () {
+              //返回页面
+              wx.navigateBack({
+                delta: 1,
+              })
+            }, 1000)
+          })
+          .catch(() => {
+            wx.showToast({
+              icon: 'none',
+              title: '退出失败',
+            })
+          })
+        break
       default:
         break
     }

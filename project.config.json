@@ -155,6 +155,13 @@
 					"id": -1,
 					"name": "pages/home_live/home_live",
 					"pathName": "pages/home_live/home_live",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/live_create/live_create",
+					"pathName": "pages/live_create/live_create",
 					"scene": null
 				}
 			]

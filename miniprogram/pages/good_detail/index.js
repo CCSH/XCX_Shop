@@ -275,7 +275,6 @@ Page({
 
   // MARK 返回页面
   onBack: function () {
-    console.log(111)
     wx.navigateBack({
       delta: 1,
     })
@@ -287,7 +286,7 @@ Page({
 
     var couponArr = []
     //  处理优惠卷
-    data.coupon.map((item, index) => {
+    data.coupon.map((item) => {
       couponArr.push(item.name)
     })
 

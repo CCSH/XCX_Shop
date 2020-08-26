@@ -198,16 +198,23 @@ Component({
           ? this.getThisDays(year - 1, 12)
           : this.getThisDays(year, month - 1)
 
+      //最大天数
+      let maxDay = parseInt(this.data.maxDay)
+
       //空出日期
       for (let i = 0; i < temp; i++) {
+        var item = lastDay - (temp - i - 1)
+        if (!maxDay) {
+          item = ''
+        }
         // 取出上个月后几天
-        lastDays.push(lastDay - (temp - i - 1))
+        lastDays.push(item)
       }
 
       //下个月天数
       var current = this.data.thisDays.length + lastDays.length
       var next = 0
-      let maxDay = parseInt(this.data.maxDay)
+
       // 计算差几天
       if (maxDay <= current) {
         // 补几天

@@ -22,7 +22,7 @@ Page({
         is_end: 0,
         goods_name:
           '\u7a3b\u82b1\u9999\uff08\u888b\u88c5\uff09\u89c4\u683c:5\u5343\u514b/\u888b',
-        percent: 50,
+        percent: 0,
         spec_goods_price: {
           item_id: 60,
           goods_id: 41,
@@ -117,7 +117,7 @@ Page({
         is_end: 0,
         goods_name:
           '\u9ed1\u68ee\u9999\u83c7\u8106\u7247\u89c4\u683c:70\u514b/\u76d2',
-        percent: 1,
+        percent: 30,
         spec_goods_price: {
           item_id: 61,
           goods_id: 42,
