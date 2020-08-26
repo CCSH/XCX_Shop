@@ -110,12 +110,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    //设置内容
     let self = this
     DB.getUserInfo().then((res) => {
       var data = null
       if (res.length) {
         data = res.pop()
       }
+
+      if (data) {
+        //设置角标
+        wx.setTabBarBadge({
+          index: 2,
+          text: `${self.data.dataSoure.length}`,
+        })
+      }
+
       self.setData({
         userInfo: data,
       })

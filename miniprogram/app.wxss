@@ -28,7 +28,6 @@ page {
 /* 导航栏按钮 */
 .nav-item {
   position: fixed;
-  /* left: 10px; */
   width: 44px;
   height: 44px;
   z-index: 99;
@@ -80,7 +79,24 @@ van-swipe-cell .right {
   font-size: 12px;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
+  text-align: center;
+}
+
+.right view {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 用户未登录 */

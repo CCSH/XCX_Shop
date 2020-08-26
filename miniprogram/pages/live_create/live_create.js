@@ -82,4 +82,10 @@ Page({
       imagePath: null,
     })
   },
+
+  // MARK 输入框
+  onInput(event) {
+    let value = event.detail.value
+    console.log(event.currentTarget.dataset.param)
+  },
 })

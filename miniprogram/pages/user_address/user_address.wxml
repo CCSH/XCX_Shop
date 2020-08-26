@@ -14,12 +14,8 @@
     </view>
   </view>
   <view class="right" slot="right">
-    <view class="right-1 center" bind:tap="onDefault" data-param="{{index}}">
-      <text>设为\n默认</text>
-    </view>
-    <view class="center" bind:tap="onDelete" data-param="{{index}}">
-      <text>删除</text>
-    </view>
+    <text class="right-1" bind:tap="onDefault" data-param="{{index}}">设为\n默认</text>
+    <text bind:tap="onDelete" data-param="{{index}}">删除</text>
   </view>
 </van-swipe-cell>
 <!-- 添加 -->
