@@ -119,11 +119,7 @@ Page({
       }
 
       if (data) {
-        //设置角标
-        wx.setTabBarBadge({
-          index: 2,
-          text: `${self.data.dataSoure.length}`,
-        })
+        self.handleBadge()
       }
 
       self.setData({
@@ -186,6 +182,9 @@ Page({
       customData.isAll = 1
     }
 
+    //处理角标
+    this.handleBadge()
+
     this.setData({
       dataSoure: dataSoure,
       customData: customData,
@@ -220,7 +219,6 @@ Page({
 
   // MARK 数量超出了
   onOverlimit(event) {
-    console.log(event)
     if (event.detail == 'plus') {
       let dataSoure = this.data.dataSoure
 
@@ -247,8 +245,6 @@ Page({
 
   // MARK 全选
   onAllCheck(event) {
-    console.log(event)
-
     let customData = this.data.customData
     let dataSoure = this.data.dataSoure
     let str = customData.isAll ? '0' : '1'
@@ -285,5 +281,14 @@ Page({
       .catch((err) => {
         wx.hideLoading()
       })
+  },
+
+  // MARK 处理角标
+  handleBadge() {
+    //设置角标
+    wx.setTabBarBadge({
+      index: 2,
+      text: `${this.data.dataSoure.length}`,
+    })
   },
 })

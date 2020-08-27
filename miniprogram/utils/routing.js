@@ -37,11 +37,47 @@ class Routing {
     })
   }
 
-  // MARK 导航返回
-  static navBack(num) {
-    wx.navigateBack({
-      delta: num ? num : 1,
-    })
+  // MARK 导航返回指定页面
+  static navBack(routeName, data) {
+    let currentPages = getCurrentPages()
+
+    //没有名字 返回上一页面
+    if (!routeName) {
+      if (currentPages > 1) {
+        //返回上一页面
+        wx.navigateBack({
+          delta: 1,
+        })
+      } else {
+        //去首页
+        wx.redirectTo({
+          url: '/pages/home/index',
+        })
+      }
+    } else {
+      var isHave = false
+      currentPages.map((item, index) => {
+        //找到了
+        if (item.route.indexOf(routeName)) {
+          isHave = true
+          //数据给他
+          item.setData(data)
+          //返回这个页面
+          wx.navigateBack({
+            delta: currentPages.length - 1 - index,
+          })
+          return
+        }
+      })
+
+      // 没有
+      if (isHave) {
+        //去首页
+        wx.redirectTo({
+          url: '/pages/home/index',
+        })
+      }
+    }
   }
 }
 

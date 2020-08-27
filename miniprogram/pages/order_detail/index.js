@@ -59,8 +59,8 @@ Page({
 
   // MARK 返回页面
   onBack: function () {
-    wx.navigateBack({
-      delta: 1,
+    Routing.navBack('order_detail', {
+      isReload: true,
     })
   },
 

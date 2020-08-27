@@ -490,7 +490,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    if (this.data.isReload) {
+      console.log(1)
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -638,7 +642,6 @@ Page({
   onSclect(event) {
     var data = event.target.dataset
 
-    console.log(event)
     if (data.tag == '1') {
       //操作
       Toast(`点击了第${data.index}个 操作为${data.param.name}`)
