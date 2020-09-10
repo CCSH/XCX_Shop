@@ -21,7 +21,7 @@
     "checkSiteMap": false,
     "uploadWithSourceMap": false,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
+    "useMultiFrameRuntime": false,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
@@ -36,7 +36,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.12.0",
-  "appid": "wx4fe698d77743e63c",
+  "appid": "wxb48389c415d5597f",
   "projectname": "XCX_Shop",
   "debugOptions": {
     "hidedInDevtools": []
@@ -94,6 +94,13 @@
           "id": -1,
           "name": "pages/sign_in/index",
           "pathName": "pages/sign_in/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/order_detail/index",
+          "pathName": "pages/order_detail/index",
           "scene": null
         }
       ]

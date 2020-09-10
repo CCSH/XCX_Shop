@@ -71,7 +71,6 @@ Page({
     let self = this
     Store.getStorage(app.userInfo)
       .then((res) => {
-        console.log(res)
         self.setData({
           userInfo: res,
         })

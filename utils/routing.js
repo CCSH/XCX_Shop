@@ -1,14 +1,16 @@
 class Routing {
+  // MARK 主页
+  static home = 'home/index'
   // MARK 路由设置
   static setRouting(name, param) {
     //设置路径
-    var routingName = ''
+    var routingName = '/pages/'
 
-    if (name.indexOf('/pages/') == -1) {
-      //补根目录
-      routingName = `/pages/${name}`
+    if (name.indexOf(routingName) == -1) {
+      //补根目录(/pages/name)
+      routingName += `${name}`
       if (routingName.split('/').length == 3) {
-        //补具体路径
+        //补具体路径(/pages/name/name)
         routingName = `${routingName}/${name}`
       }
     }
@@ -19,6 +21,7 @@ class Routing {
     if (param) {
       routingParam = `?param=${JSON.stringify(param)}`
     }
+
     return `${routingName}${routingParam}`
   }
 
@@ -39,15 +42,22 @@ class Routing {
 
   //MARK 重定向跳转
   static redirectTo(name, param) {
+    console.log(this.setRouting(name, param))
     wx.redirectTo({
+      url: this.setRouting(name, param),
+    })
+  }
+
+  // MARK 跳转tab
+  static switchTab(name, param) {
+    wx.switchTab({
       url: this.setRouting(name, param),
     })
   }
 
   // MARK 导航返回指定页面
   static navBack(routeName, data) {
-    let currentPages = getCurrentPages()
-
+    let currentPages = getCurrentPages().reverse()
     //没有名字 返回上一页面
     if (!routeName) {
       if (currentPages > 1) {
@@ -55,36 +65,33 @@ class Routing {
         wx.navigateBack({
           delta: 1,
         })
-      } else {
-        //去首页
-        wx.redirectTo({
-          url: '/pages/home/index',
-        })
+        return
       }
     } else {
+      //有名字
+      routeName = this.setRouting(routeName)
       var isHave = false
-      currentPages.map((item, index) => {
+      //查找
+      currentPages.some((item, index) => {
+        item.route = '/' + item.route
         //找到了
-        if (item.route.indexOf(routeName)) {
+        if (item.route == routeName) {
           isHave = true
           //数据给他
-          item.setData(data)
+          item.onCallBack(data)
           //返回这个页面
           wx.navigateBack({
-            delta: currentPages.length - 1 - index,
+            delta: index,
           })
+          return true
+        }
+        if (isHave) {
           return
         }
       })
-
-      // 没有
-      if (isHave) {
-        //去首页
-        wx.redirectTo({
-          url: '/pages/home/index',
-        })
-      }
     }
+    //去首页
+    this.switchTab(this.home)
   }
 }
 

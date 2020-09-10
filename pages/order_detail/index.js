@@ -59,7 +59,7 @@ Page({
 
   // MARK 返回页面
   onBack: function () {
-    Routing.navBack('order_detail', {
+    Routing.navBack('me_order/index', {
       isReload: true,
     })
   },

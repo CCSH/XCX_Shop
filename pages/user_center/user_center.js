@@ -142,7 +142,6 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
-        console.log(res)
         // tempFilePath可以作为img标签的src属性显示图片
         dataSoure.head_pic = res.tempFilePaths[0]
         self.handleData(dataSoure)

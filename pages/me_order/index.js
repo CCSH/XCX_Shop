@@ -490,11 +490,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    if (this.data.isReload) {
-      console.log(1)
-    }
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -651,6 +647,13 @@ Page({
       wx.navigateTo({
         url: routing.setRouting('order_detail/index', data.param),
       })
+    }
+  },
+
+  // MARK 回调
+  onCallBack(event) {
+    if (event) {
+      console.log(event)
     }
   },
 })
