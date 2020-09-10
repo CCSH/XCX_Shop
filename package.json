@@ -1,0 +1,19 @@
+{
+  "name": "xcx_shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.aliyun.com:CCSH/XCX_Shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.4.1",
+    "ccsh": "^0.1.2"
+  }
+}

@@ -1,0 +1,79 @@
+<!-- pages/home/index.wxml -->
+<wxs src="../../app.wxs" module="app" />
+<!-- 内容 -->
+<view>
+  <!-- 搜索 -->
+  <van-search class="home-search" shape="round" background="transparent" placeholder="{{ searchContent }}" bind:search="onSearch" />
+  <!-- 标签页 -->
+  <van-tabs class="home-tab" active="{{ active }}" border="{{ false }}" swipe-threshold="0" line-width="30" line-height="2" swipeable bind:change="onChange">
+    <!-- 首页内容 -->
+    <block wx:for="{{tabArr}}" wx:key="index">
+      <van-tab title="{{item.name}}">
+        <block wx:if="{{index == 0}}">
+          <!-- banner -->
+          <swiper class="home-banner" indicator-dots indicator-active-color="#65B09E" indicator-color="white" autoplay circular duration="1000">
+            <block wx:for="{{ dataSoure.ad }}" wx:key="index">
+              <swiper-item>
+                <van-image src="{{app.toUrl(item.ad_code)}}" width="100%" height="100%"></van-image>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class="banner-round"></view>
+          <!-- 工具 -->
+          <van-grid class="home-tool" border="{{ false }}">
+            <van-grid-item use-slot wx:for="{{ dataSoure.nav }}" wx:key="index" bind:click="onTool" data-param="{{index}}">
+              <van-image class="tool-img" src="{{app.toUrl(item.link_logo)}}" width="40px" height="40px" />
+              <text class="tool-name">{{item.link_name}}</text>
+            </van-grid-item>
+          </van-grid>
+          <!-- 通知 -->
+          <view class="home-not">
+            <text class="not-title">通知公告</text>
+            <swiper class="not-swiper" autoplay circular duration="1000" vertical>
+              <block wx:for="{{dataSoure.notice}}" wx:key="index">
+                <swiper-item class="not-item" item-id="index" bind:tap="onNot" data-param="{{item}}">
+                  <text class="not-content">{{item.topic_title}}</text>
+                </swiper-item>
+              </block>
+            </swiper>
+            <view class="not-look">
+              去看看
+              <van-icon name="arrow" color="black" size="8" />
+            </view>
+          </view>
+          <!-- 广告 -->
+          <view class="home-ad">
+            <van-image src="{{app.toUrl(dataSoure.red_ad.ad_code)}}" width="100%" height="100%" bind:tap="onShare"></van-image>
+          </view>
+          <!-- 内容 -->
+          <view class="home-content">
+            <van-image class="ad-left" src="{{app.toUrl(dataSoure.flash_sale_ad.ad_code)}}" width="220rpx" height="100%" bind:tap="onGoods" data-param="{{dataSoure.flash_sale_ad}}" />
+            <view class="ad-right">
+              <!-- 1 -->
+              <van-image class="ad-top" src="{{app.toUrl(dataSoure.one_ad.ad_code)}}" width="100%" height="100%" bind:tap="onGoods" data-param="{{dataSoure.one_ad}}"></van-image>
+              <view class="ad-bottom">
+                <!-- 2 -->
+                <van-image class="bottom-left" src="{{app.toUrl(dataSoure.two_ad.ad_code)}}" width="220rpx" height="100%" bind:tap="onGoods" data-param="{{dataSoure.two_ad}}"></van-image>
+                <!-- 3 -->
+                <van-image class="bottom-right" src="{{app.toUrl(dataSoure.three_ad.ad_code)}}" width="220rpx" height="100%" bind:tap="onGoods" data-param="{{dataSoure.three_ad}}"></van-image>
+              </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <!-- 商品列表 -->
+          <van-grid class="good-list" column-num="2" gutter="10">
+            <!-- 商品信息 -->
+            <van-grid-item class="good-info" wx:for="{{goodArr}}" wx:key="index" use-slot bind:tap="gotoGoodDetail" data-param="{{item.goods_id}}">
+              <van-image class="good-img" src="{{app.toUrl(item.original_img)}}" width="100%" height="100%"></van-image>
+              <text class="good-name">{{item.goods_name}}</text>
+              <text class="good-price">¥ {{item.shop_price}}</text>
+            </van-grid-item>
+          </van-grid>
+        </block>
+      </van-tab>
+    </block>
+  </van-tabs>
+  <van-toast id="van-toast" />
+</view>
+<!-- <video class="video" src="http://111.13.111.242/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226226/1.m3u8" initial-time="0" autoplay="false" loop="false" muted="false" direction="0" bindplay="" bindpause="" bindended="" bindtimeupdate="" bindwaiting="" binderror=""></video> -->
