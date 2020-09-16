@@ -125,9 +125,10 @@ Page({
       dataSoure,
       coupon: couponArr.length ? couponArr.join(',') : '11',
     })
-
-    //处理时间
-    this.handleTime()
+    if (dataSoure.is_flash_sale == '1') {
+      //处理时间
+      this.handleTime()
+    }
   },
 
   // MARK 型号点击

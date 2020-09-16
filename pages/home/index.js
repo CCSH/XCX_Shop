@@ -2,6 +2,8 @@
 import Toast from '/@vant/weapp/toast/toast'
 import Interface from '../../utils/interface'
 import Routing from '../../utils/routing'
+import Store from '../../utils/store'
+import config from '../../config'
 
 let app = getApp()
 
@@ -24,6 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    Store.setStorage(app.version, config.version)
     this.requestHome()
     this.requestCategory()
   },

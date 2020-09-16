@@ -1,9 +1,10 @@
+<wxs src="../../app.wxs" module="app" />
 <view class="cell center {{ index == 2 ? 'group' : ''}}" wx:for="{{dataList}}" wx:key="index" bind:tap="onSelect" data-param="{{item}}">
   <view>{{item}}</view>
   <view class="name">
     <block wx:if="{{index == 0}}">
       <van-icon name="arrow" color="rgb(197,197,197)" size="15px"></van-icon>
     </block>
-    <block wx:elif="{{index == 1}}">版本:1.0.0</block>
+    <block wx:elif="{{index == 1}}">版本:{{app.version}}</block>
   </view>
 </view>

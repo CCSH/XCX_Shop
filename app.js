@@ -16,7 +16,12 @@ App({
   bottomH: 0,
 
   //APP key
+  // 用户信息
   userInfo: 'user_info',
+  // 版本
+  version: 'version',
+  // 账号
+  phone: 'phone',
 
   onLaunch: function (options) {
     let self = this

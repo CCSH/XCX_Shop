@@ -1,1 +1,105 @@
 /* pages/login/login.wxss */
+page {
+  background: white;
+}
+
+/* 头部 */
+.top {
+  width: 100vw;
+  height: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top image {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+}
+
+.top .tip {
+  font-size: 12px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+/* 输入框 */
+.input {
+  display: flex;
+  /* margin-left: 40px; */
+  margin: 20px 50px 0 50px;
+  background: rgb(245, 245, 245);
+  border-radius: 5px;
+  height: 50px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.input input {
+  flex: 1;
+}
+
+.placeholder {
+  color: rgb(203, 203, 203);
+  font-size: 12px;
+}
+
+.focus-bg {
+  background: rgb(226, 239, 234);
+}
+
+/* 忘记密码 */
+.forget {
+  color: #65b09e;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 登录 */
+.login {
+  margin: 30px 50px;
+  line-height: 40px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  border-radius: 20px;
+  background: #65b09e;
+}
+
+/* 底部 */
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 150px;
+}
+
+.bottom image {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute;
+}
+
+.bottom-name {
+  font-size: 12px;
+  position: absolute;
+  bottom: 20px;
+  width: 100vw;
+  text-align: center;
+}
+
+.bottom-name text {
+  color: #65b09e;
+}

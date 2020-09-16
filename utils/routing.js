@@ -42,7 +42,6 @@ class Routing {
 
   //MARK 重定向跳转
   static redirectTo(name, param) {
-    console.log(this.setRouting(name, param))
     wx.redirectTo({
       url: this.setRouting(name, param),
     })
@@ -61,6 +60,9 @@ class Routing {
     //没有名字 返回上一页面
     if (!routeName) {
       if (currentPages > 1) {
+        let item = currentPages[1]
+        //数据给他
+        item.onCallBack(data)
         //返回上一页面
         wx.navigateBack({
           delta: 1,

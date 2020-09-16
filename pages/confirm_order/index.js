@@ -1,6 +1,7 @@
 // pages/confirm_order/index.js
 
 import Toast from '@vant/weapp/toast/toast'
+const Encrypt = require('../../utils/encrypt')
 
 Page({
   /**
@@ -172,19 +173,35 @@ Page({
       mask: true,
     })
 
-    //模拟支付请求
-    setTimeout(function () {
-      wx.showToast({
-        title: '成功',
-        mask: true,
-      })
-
-      setTimeout(function () {
-        wx.navigateBack({
-          delta: 1,
+    let timeStamp = Date.parse(new Date()) + ''
+    let pay = Encrypt.md5(
+      `appId=wxb48389c415d5597f&nonceStr=5K8264ILTKCH16CQ2502SI8ZNMTM67VS&package=prepay_id=wx2017033010242291fcfe0db70013231072&signType=MD5&timeStamp=${timeStamp}&key=qazwsxedcrfvtgbyhnujmikolp111111`,
+    )
+    wx.requestPayment({
+      timeStamp: timeStamp,
+      nonceStr: '5K8264ILTKCH16CQ2502SI8ZNMTM67VS',
+      package: 'prepay_id=wx2017033010242291fcfe0db70013231072',
+      signType: 'MD5',
+      paySign: pay,
+      success: (result) => {
+        wx.showToast({
+          title: '支付成功',
         })
-      }, 1500)
-    }, 2000)
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }, 1500)
+      },
+      fail: () => {
+        wx.showToast({
+          title: '支付失败',
+        })
+      },
+      complete: () => {
+        wx.hideLoading()
+      },
+    })
   },
 
   // MARK 选择优惠

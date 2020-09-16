@@ -157,20 +157,10 @@ Page({
 
   // MARK 登录
   onLogin() {
-    let self = this
-    wx.showLoading({
-      title: '登录中',
-    })
+    app.gotoLogin()
+  },
 
-    app
-      .gotoLogin()
-      .then((res) => {
-        wx.hideLoading()
-
-        self.onShow()
-      })
-      .catch((err) => {
-        wx.hideLoading()
-      })
+  onCallBack(event) {
+    console.log(event)
   },
 })

@@ -19,4 +19,21 @@ module.exports = {
   toModel: function (value) {
     return value.substring(3)
   },
+
+  // MARK 获取图片
+  toImage: function (value) {
+    var image = value + ''
+    //补全路径
+    if (image.indexOf('/images/') < 0) {
+      image = '/images/' + image
+    }
+    //补全格式
+    if (image.indexOf('.png') < 0) {
+      image = image + '.png'
+    }
+    return image
+  },
+
+  // MARK 当前版本
+  version: '1.0.0',
 }

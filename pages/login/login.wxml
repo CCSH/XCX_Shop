@@ -1,2 +1,28 @@
-<!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<!-- pages/login/login.wxml -->
+<wxs src="../../app.wxs" module="app" />
+<!-- 内容 -->
+<van-icon class="nav-item" name="cross" size="25" style="margin-top:{{statusH}}px;" bind:tap="onBack" />
+<view class="top">
+  <image src="{{app.toImage('login_top')}}" />
+  <view>欢迎回来</view>
+  <view class="tip">登录继续</view>
+</view>
+<!-- 输入框 -->
+<block wx:for="{{inputData}}" wx:key="index">
+  <view class="input {{item.focus ? 'focus-bg' : ''}}">
+    <image class="icon" src="{{app.toImage((item.focus ? item.name + '_h' : item.name))}}" />
+    <input type="text" password="{{index == 0 ? false : true}}" value="{{item.value}}" placeholder="{{item.placeholder}}" placeholder-class="placeholder" bind:focus="onFocus" bind:blur="onBlur" data-param="{{index}}" />
+  </view>
+</block>
+<!-- 忘记密码 -->
+<view class="forget">忘记密码？</view>
+<!-- 登录 -->
+<view class="login" bind:tap="onLogin">登 录</view>
+<!-- 底部 -->
+<view class="bottom">
+  <image class="" src="{{app.toImage('login_bottom')}}" />
+  <view class="bottom-name">
+    新用户？
+    <text>立即注册</text>
+  </view>
+</view>
