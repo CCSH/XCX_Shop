@@ -54,10 +54,6 @@ function post(event) {
 
 // MARK 网络请求
 function request(event) {
-  if (isLog) {
-    console.log('接口：', event.url, '\n参数：', event.param)
-  }
-
   //参数同样一处理
   var data = event.param ? event.param : {}
   data.flag = 'weixin'
@@ -83,7 +79,9 @@ function request(event) {
         wx.hideLoading()
         wx.stopPullDownRefresh()
         if (isLog) {
-          console.log('请求回调:', res.data)
+          if (isLog) {
+            console.log('接口：', event.url, '\n参数：', data,'\n响应:',res.data)
+          }
         }
       },
     })
